@@ -39,8 +39,6 @@
         "columns": [
                 { "mData": "no" },                             
                 { "mData": "nama_manufacture" },  
-                { "mData": "tipe" },                         
-                { "width":"20%","mData": "tel_manufacture" }, 
                 { "mData": "edit" },
                 { "mData": "delete" },
                 ]
@@ -61,9 +59,7 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama Manufacture (Merk)</th>     
-                                <th>Tipe</th>                                  
-                                <th>Telp. Service Center</th>                         
+                                <th>Nama Manufacture (Merk)</th>                             
                                 <th>Edit</th>   
                                 <th>Delete</th>                                 
                             </tr>

@@ -58,4 +58,12 @@ class M_internet extends CI_Model {
         $this->db->order_by('id_provider','ASC');
         return $this->db->get('tb_provider');
     }
+
+    function getall($id) {        
+        $query = $this->db->query("SELECT tb_internet.nama_provider,tb_internet.nama_cabang,tb_internet.nomor_pelanggan,tb_internet.ip_public,tb_internet.spesifikasi,tb_internet.tanggal_kontrak,tb_internet.masa_kontrak,tb_internet.status,tb_internet.biaya,tb_provider.telpon_provider,tb_provider.nama_sales,tb_provider.nama_sales,tb_provider.email_provider,tb_provider.telpon_sales,tb_internet.tipe_koneksi
+            FROM tb_internet INNER JOIN tb_provider ON tb_internet.nama_provider = tb_provider.nama_provider WHERE tb_internet.id_internet='$id'");
+        return $query;
+    }
+
+
 }

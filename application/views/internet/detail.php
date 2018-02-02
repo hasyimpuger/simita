@@ -4,14 +4,35 @@
        $(".combobox").combobox();
     });
 </script>
+<?php
+function terbilang($x){
+  $abil = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
+  if ($x < 12)
+    return " " . $abil[$x];
+  elseif ($x < 20)
+    return Terbilang($x - 10) . " Belas";
+  elseif ($x < 100)
+    return Terbilang($x / 10) . " Puluh" . Terbilang($x % 10);
+  elseif ($x < 200)
+    return " Seratus" . Terbilang($x - 100);
+  elseif ($x < 1000)
+    return Terbilang($x / 100) . " Ratus" . Terbilang($x % 100);
+  elseif ($x < 2000)
+    return " Seribu" . Terbilang($x - 1000);
+  elseif ($x < 1000000)
+    return Terbilang($x / 1000) . " Ribu" . Terbilang($x % 1000);
+  elseif ($x < 1000000000)
+    return Terbilang($x / 1000000) . " Juta" . Terbilang($x % 1000000);
+}
+?>
 <section class="content-header">
     <h1>
-        Detail Laptop
-        <small>Inventaris Laptop</small>
+        Detail Data
+        <small>Inventaris Internet</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-suitcase"></i>Inventaris</a></li>
-        <li class="active">Laptop</li>
+        <li class="active">Internet</li>
     </ol>
 </section>
 <section class="content">
@@ -22,7 +43,7 @@
             <div class="box box-primary">
                 <div class="box-header">   
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab_1" data-toggle="tab">DETAIL</a></li>
+                        <li class="active"><a href="#tab_1" data-toggle="tab">DETAIL PROVIDER INTERNET</a></li>
                         <li class="pull-right"><a href="<?php echo site_url('internet'); ?>" class="text-muted"><i class="fa fa-remove"></i></a></li>
                     </ul>
                     <div class="tab-content">
@@ -31,231 +52,79 @@
                           <table class="table">
                           <br>
                             <tr>
-                              <td style="text-align:right ">No. Inventaris IT :</td>
-                              <td style="width:70%"><?php echo $recordall['kode_laptop'] ?></td>
+                              <td style="text-align:right ">Cabang :</td>
+                              <td style="width:70%"><?php echo $recordall['nama_cabang'] ?></td>
                             </tr>
                             <tr>
-                              <td style="text-align:right ">No.Inventaris HRD :</td>
-                              <td style="width:70%"><?php echo $recordall['aset_hrd'] ?></td>
+                              <td style="text-align:right ">IP Public :</td>
+                              <td style="width:70%"><?php echo $recordall['ip_public'] ?></td>
                             </tr>
                             <tr>
-                              <td style="text-align:right">Pengguna :</td>
-                              <td><?php echo anchor('pengguna/edit/'.$recordall['id_pengguna'],$recordall['nama_pengguna']);?></td>
+                              <td style="text-align:right ">Tipe Koneksi :</td>
+                              <td style="width:70%"><?php echo $recordall['tipe_koneksi'] ?></td>
                             </tr>
                             <tr>
-                              <td style="text-align:right">Cabang :</td>
-                              <td><?php echo $recordall['namacabang']?></td>                    
+                              <td style="text-align:right ">Provider :</td>
+                              <td style="width:70%"><?php echo $recordall['nama_provider'] ?></td>
                             </tr>
                             <tr>
-                              <td style="text-align:right">Brand Laptop :</td>
-                              <td><?php echo $recordall['nama_laptop']?></td>                    
+                              <td style="text-align:right ">Telpon :</td>
+                              <td style="width:70%"><?php echo $recordall['telpon_provider'] ?></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:right">Email :</td>
+                              <td><?php echo $recordall['email_provider']?></td>                    
+                            </tr>
+                            <tr>
+                              <td style="text-align:right">Sales :</td>
+                              <td><?php echo $recordall['nama_sales'] ?></td>                    
+                            </tr>
+                            <tr>
+                              <td style="text-align:right">Telp Sales :</td>
+                              <td><?php echo $recordall['telpon_sales']?></td>                    
+                            </tr>
+                            <tr>
+                              <td style="text-align:right">No.Pelanggan :</td>
+                              <td><?php echo $recordall['nomor_pelanggan']?></td>                    
                             </tr>
                             <tr>
                               <td style="text-align:right">Spesifikasi :</td>
-                              <td><?php echo $recordall['spesifikasi']?></td>                    
+                              <td><?php echo ($recordall['spesifikasi'])?></td>                    
                             </tr>
                             <tr>
-                              <td style="text-align:right">Serial Number :</td>
-                              <td><?php echo $recordall['serial_number']?></td>                    
+                              <td style="text-align:right">Tgl. Kontrak :</td>
+                              <td><p><span style="color: #04B404;"><?php echo tgl_lengkap($recordall['tanggal_kontrak'])?></span></p></td>                    
                             </tr>
                             <tr>
-                              <td style="text-align:right">Tgl. Inventaris :</td>
-                              <td><?php echo tgl_lengkap($recordall['tgl_inv'])?></td>                    
+                              <td style="text-align:right">Tgl. Habis Kontrak :</td>
+                              <td><p><span style="color: #04B404;"><?php echo tgl_lengkap($recordall['masa_kontrak'])?>                
                             </tr>
+                            <!-- Menghitung Jumlah Hari Berakhir Kontrak dari Tanggal Saat ini -->
                             <tr>
-                              <td style="text-align:right">Tgl. Akhir Garansi :</td>
-                              <td><p><span style="color: #ff0000;"><strong><?php echo tgl_lengkap($recordall['tgl_garansi'])?></strong></span></p></td>                    
+                              <td style="text-align:right">Berakhir Pada :</td>
+                              <td>
+                                <span style="color: #ff0000;"><strong>
+                                  <?php 
+                                  $start_date = new DateTime("now");
+                                  $end_date = new DateTime($recordall['masa_kontrak']);
+                                  $interval = $start_date->diff($end_date);
+                                  echo "$interval->days Hari Lagi "; 
+                                  ?>
+                                </strong></span>   
+                              </td>               
                             </tr>
-                            <tr>
-                              <td style="text-align:right">IP Address :</td>
-                              <td><?php echo $recordall['network']?></td>                    
-                            </tr>
+                            <!-- Akhir -->
                             <tr>
                               <td style="text-align:right">Status :</td>
                               <td><?php echo $recordall['status']?></td>                    
                             </tr>
-							<tr>
-                              <td style="text-align:right">Note/ Catatan :</td>
-                              <td><?php echo $recordall['note']?></td>                    
-                            </tr>
-                            <tr>
-                              <td style="text-align:right">Harga Beli :</td>
-                              <td><?php echo 'Rp '.rupiah($recordall['harga_beli'])?></td>                    
-                            </tr>
-                            <tr>
-                              <td style="text-align:right">Last Update :</td>
-                              <td></td>                    
+                              
+                              <td style="text-align:right">Biaya Bulanan :</td>
+                              <td><span style="color: #0404B4;"><strong><?php echo 'Rp.'.rupiah($recordall['biaya'])?> (<i><?php echo "".terbilang($recordall['biaya'])?>Rupiah </i>)</strong></td>                    
                             </tr>
                           </table>
                         </div>
-                      </div><!-- /.tab-pane -->
-                      <div class="tab-pane" id="tab_2">
-                        <div class="col-md-5">
-                        <?php echo form_open('laptop/update'); ?>                            
-                        <div class="box-body">
-                                <div class="form-group">
-                                    <label for="example">No. Inventaris</label>
-                                    <input type="hidden"  name="kode" value="<?php echo $record['kode_laptop'] ?>" >
-                                    <input type="text" name="no_inv" disabled class="form-control" id="inputError" value="<?php echo $record['kode_laptop']; ?>" >
-                                </div>          
-                                 <div class="form-group">
-                                    <label for="example">Nomor Inventaris HRD</label>
-                                    <input type="text" disabled class="form-control" name="aset_hrd" class="form-control" value="<?php echo $record['aset_hrd']; ?>" required oninvalid="setCustomValidity('Merek/brand Harus di Isi !')"
-                                           oninput="setCustomValidity('')" placeholder="ex : ASUS, LENOVO" >
-                                           <?php echo form_error('aset_hrd', '<div class="text-red">', '</div>'); ?>
-                                </div>                                   
-                                <div class="form-group">
-                                  <label>Pengguna</label>
-                                        <select name="pengguna" class="combobox form-control">
-                                            <?php
-                                            $gid=$record['gid'];
-                                            $pengguna=$this->db->query("SELECT tb_pengguna.id_pengguna,tb_pengguna.nama_pengguna,tb_departemen.gid FROM tb_pengguna INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept 
-                                                WHERE tb_departemen.gid ='$gid' ORDER BY tb_pengguna.nama_pengguna ASC");
-                                            foreach ($pengguna->result() as $r) {
-                                                echo "<option value='$r->id_pengguna'";
-                                                echo $record['id_pengguna'] == $r->id_pengguna ? 'selected' : '';
-                                                echo">".strtoupper($r->nama_pengguna)."</option>";
-                                            }
-                                            ?>
-                                        </select>                                       
-                                      
-                                </div>                     
-                                 <div class="form-group">
-                                    <label for="example">Brand Laptop</label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()" name="merek" class="form-control" value="<?php echo $record['nama_laptop']; ?>" required oninvalid="setCustomValidity('Merek/brand Harus di Isi !')"
-                                           oninput="setCustomValidity('')" placeholder="ex : ASUS, LENOVO" >
-                                           <?php echo form_error('merek', '<div class="text-red">', '</div>'); ?>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Spesifikasi</label>
-                                    <textarea name="spek" onkeyup="this.value = this.value.toUpperCase()" class="form-control" rows="3"  required oninvalid="setCustomValidity('Spesifikasi Laptop Harus di Isi !')"
-                                           oninput="setCustomValidity('')" placeholder="Spesifikasi"><?php echo $record['spesifikasi']; ?></textarea>
-                                    <?php echo form_error('spek', '<div class="text-red">', '</div>'); ?>
-                                </div>
-                                <div class="form-group">
-                                    <label for="example">Serial Number</label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()" name="sn" class="form-control" value="<?php echo $record['serial_number']; ?>" required oninvalid="setCustomValidity('Serial Number Harus di Isi !')"
-                                           oninput="setCustomValidity('')" placeholder="Serial Number Laptop" >
-                                           <?php echo form_error('sn', '<div class="text-red">', '</div>'); ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>Status</label>
-                                        <select name="status" class="combobox form-control">
-                                            <?php                                            
-                                            $status=$this->db->get("tb_status");
-                                            foreach ($status->result() as $r) {
-                                                echo "<option value='$r->nama_status'";
-                                                echo $record['status'] == $r->nama_status ? 'selected' : '';
-                                                echo">".$r->nama_status."</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                </div>   
-								<div class="form-group">
-                                    <label for="example">Note/ Catatan</label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()" name="note" class="form-control" value="<?php echo $record['note']; ?>" required oninvalid="setCustomValidity('Serial Number Harus di Isi !')"
-                                           oninput="setCustomValidity('')" placeholder="Note / Catatan Status Inventory" >
-                                           <?php echo form_error('note', '<div class="text-red">', '</div>'); ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tgl. Inventaris</label>
-                                    <div class="input-group">
-                                      <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                      </div>                              
-                                         <input type="text" name="tgl_inv" value="<?php echo $record['tgl_inv']; ?>" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
-                                           oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >                            
-                                    </div><!-- /.input group -->
-                                </div>
-                                <div class="form-group">
-                                    <label for="example">Harga Beli</label>
-                                    <input type="number" name="harga" class="form-control" value="<?php echo $record['harga_beli']; ?>" required oninvalid="setCustomValidity('Harga Beli Harus di Isi !')"
-                                           oninput="setCustomValidity('')" placeholder="Harga Beli Laptop" >
-                                           <?php echo form_error('harga', '<div class="text-red">', '</div>'); ?>
-                                </div>
-                                <div class="form-group">
-                                    <label>IP Address</label>
-                                    <div class="input-group">
-                                      <div class="input-group-addon">
-                                        <i class="fa fa-laptop"></i>
-                                      </div>
-                                      <input name="ip" type="text" class="form-control" value="<?php echo $record['network']; ?>" data-inputmask="'alias': 'ip'" data-mask required/>
-                                    </div><!-- /.input group -->
-                                    <?php echo form_error('ip', '<div class="text-red">', '</div>'); ?>
-                                </div>
-                                             
-                            </div><!-- /.box-body -->
-
-                            <div class="box-footer">
-                                <button type="submit" name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>
-                                <a href="<?php echo site_url('laptop'); ?>" class="btn btn-primary">Kembali</a>
-                            </div>
-                        </form>
-                        </div>
-                      </div>
-                      <div class="tab-pane" id="tab_3">
-                        <div class="col-md-10 "> 
-                          <h4>Maintenance [ <a><?php echo anchor('laptop/maintadd/'.$recordall['kode_laptop'],'Add New') ?></a> ]
-                          <a href="<?php echo base_url('laptop/print_maintenance/'.$recordall['kode_laptop']) ?>" target="_blank" ><i class="btn fa fa-print" data-toggle="tooltip" title="Cetak"></i></a></h4>                          
-                          <table class="table ">
-                          <br>
-                            <tr>
-                              <td><label>No Ticket</label></td>
-                              <td><label>Tgl. Permohonan</label></td>
-                              <td><label>Maintenance Type</label></td>
-                              <td><label>Catatan Permohonan</label></td>                              
-                              <td><label>Tgl. Selesai</label></td>
-                              <td style="text-align:right"><label>Biaya/ Cost</label></td>
-                              <td style="text-align:center"><label>Aksi</label></td>
-                            </tr>                            
-                             <?php 
-                                foreach ($service as $s) {
-                                  echo"
-                                    <tr>
-                                      <td>".anchor('maintenance/detail/'.$s->no_permohonan,$s->no_permohonan)."</td>
-                                      <td>".tgl_lengkap($s->tgl_permohonan)."</td>
-                                      <td>".$s->jenis_permohonan."</td>
-                                      <td>".$s->catatan_pemohon."</td>                                      
-                                      <td>".tgl_lengkap($s->tgl_selesai)."</td>
-                                      <td style='text-align:right'>".rupiah($s->biaya)."</td>
-                                      <td style='text-align:center'>".anchor('maintenance/detail/' . $s->no_permohonan, '<i class="btn btn-sm glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit"></i>') ."</td>
-                                    </tr> ";
-                                }
-
-                             ?>                      
-                          </table>
-                        </div>
-                      </div>
-                      <div class="tab-pane" id="tab_4">
-                        <div class="col-md-10">  
-                          <h4>History / Mutasi [ <a><?php echo anchor('laptop/history/'.$recordall['kode_laptop'],'Add New') ?></a> ]</h4>                         
-                          <table class="table ">
-                          <br>
-                            <tr>
-                              <td><label>Tanggal</label></td>
-                              <td><label>Admin</label></td>
-                              <td><label>Status</label></td>
-                              <td><label>User Pengguna</label></td>                              
-                              <td><label>Note</label></td>
-                              <td><label>Aksi</label></td>                              
-                            </tr>                            
-                             <?php 
-                                foreach ($history as $s) {
-                                  echo"
-                                    <tr>                                     
-                                      <td>".tgl_lengkap($s->tgl_update)."</td>
-                                      <td>".$s->admin."</td>
-                                      <td>".$s->status."</td>                                      
-                                      <td>".anchor('pengguna/edit/'.$s->id_pengguna,$s->nama_pengguna)."</td>
-                                      <td>".$s->note."</td> 
-                                      <td>" . anchor('laptop/edithistory/' . $s->id_history, '<i class="btn glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit"></i>')."<a href=".base_url('laptop/print_history/'.$s->id_history)." target='_blank' ><i class='btn fa fa-print' data-toggle='tooltip' title='Print'></i></td>                                     
-                                    </tr> ";
-                                }
-                             ?>                      
-                          </table>
-                        </div>
-                      </div>
-                    </div><!-- /.tab-content -->                
+                      </div><!-- /.tab-pane -->              
 
                 </div>
             </div>

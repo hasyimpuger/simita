@@ -26,22 +26,7 @@
                             <input type="tex" name="nama_manufacture" onkeyup="this.value = this.value.toUpperCase()" class="form-control" required oninvalid="setCustomValidity('Merk Wajib Diisi !')"
                                    oninput="setCustomValidity('')" placeholder="Masukan Merk" >
                                    <?php echo form_error('nama_manufacture', '<div class="text-red">', '</div>'); ?>
-                        </div>
-                        <div class="form-group">
-                            <label for="example">Tipe/Model</label>
-                            <input type="tex" name="tipe" onkeyup="this.value = this.value.toUpperCase()" class="form-control" required oninvalid="setCustomValidity('Tipe atau Model Wajib Diisi !')"
-                                   oninput="setCustomValidity('')" placeholder="Masukan Tipe" >
-                                   <?php echo form_error('tipe', '<div class="text-red">', '</div>'); ?>
-                        </div>
-                        <div class="form-group">
-                            <label for="example">Telp.Service Center</label>
-                            <input type="number" name="tel_manufacture" class="form-control" required oninvalid="setCustomValidity('Nomor Telpon Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="Nomor Telpon" >
-                                   <?php echo form_error('tel_manufacture', '<div class="text-red">', '</div>'); ?>
-                        </div>              
-                        <tr>
-                                
-                </tr>                    
+                        </div>                 
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">

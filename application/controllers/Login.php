@@ -31,6 +31,7 @@ class Login extends CI_Controller {
                 $this->session->set_userdata($data);
                 $this->db->where('username',$username);
                 $this->db->update('tb_user',array('last_login'=>date('Y-m-d H:i:s')));
+                
                 redirect('dashboard');   
             }else{
                 $this->session->set_flashdata('result_login', '<br>Username atau Password yang anda masukkan salah.');

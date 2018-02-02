@@ -51,6 +51,7 @@ class Internet extends CI_Controller {
                 'kode_internet' => $this->m_internet->kdotomatis(),
                 'nama_provider' => $this->input->post('nama_provider'),
                 'nama_cabang' => $this->input->post('nama_cabang'),
+                'tipe_koneksi' => $this->input->post('jenis'),
                 'nomor_pelanggan' => $this->input->post('nomor_pelanggan'),
                 'ip_public' => $this->input->post('ip_public'),
                 'spesifikasi' => $this->input->post('spesifikasi'),
@@ -77,6 +78,7 @@ class Internet extends CI_Controller {
                     'kode_internet' => $this->m_internet->kdotomatis(),
                     'nama_provider' => $this->input->post('nama_provider'),
                     'nama_cabang' => $this->input->post('nama_cabang'),
+                    'tipe_koneksi' => $this->input->post('jenis'),
                     'nomor_pelanggan' => $this->input->post('nomor_pelanggan'),
                     'ip_public' => $this->input->post('ip_public'),
                     'spesifikasi' => $this->input->post('spesifikasi'),
@@ -109,6 +111,7 @@ class Internet extends CI_Controller {
     function _set_rules() {
         $this->form_validation->set_rules('nama_provider', 'Nama Provider', 'required');
         $this->form_validation->set_rules('nama_cabang', 'Nama Cabang', 'required');
+        $this->form_validation->set_rules('jenis', 'Tipe Koneksi', 'required');
         $this->form_validation->set_rules('nomor_pelanggan', 'Nomor Pelanggan', 'required');
         $this->form_validation->set_rules('ip_public', 'IP Public', 'required');
         $this->form_validation->set_rules('spesifikasi', 'spesifikasi', 'required');
@@ -117,6 +120,12 @@ class Internet extends CI_Controller {
         $this->form_validation->set_rules('biaya', 'Biaya', 'required');
         $this->form_validation->set_rules('status', 'Status', 'required');
         
+    }
+
+    function detail() { 
+        $id = $this->uri->segment(3);                                           
+        $data['recordall'] = $this->m_internet->getall($id)->row_array();
+        $this->template->display('internet/detail', $data);            
     }
 
     // Fungsi untuk export ke excel (23 Januari 2018)
@@ -160,18 +169,20 @@ class Internet extends CI_Controller {
       )
     );
     $excel->setActiveSheetIndex(0)->setCellValue('A1', "LAPORAN DATA INVENTORY INTERNET CABANG"); // Set kolom A1 dengan tulisan "DATA SISWA"
-    $excel->getActiveSheet()->mergeCells('A1:G1'); // Set Merge Cell pada kolom A1 sampai E1
+    $excel->getActiveSheet()->mergeCells('A1:I1'); // Set Merge Cell pada kolom A1 sampai E1
     $excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE); // Set bold kolom A1
     $excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(15); // Set font size 15 untuk kolom A1
     $excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); // Set text center untuk kolom A1
     // Buat header tabel nya pada baris ke 3
     $excel->setActiveSheetIndex(0)->setCellValue('A3', "NO"); // Set kolom A3 
-    $excel->setActiveSheetIndex(0)->setCellValue('B3', "CABANG"); // Set kolom B3 
-    $excel->setActiveSheetIndex(0)->setCellValue('C3', "PROVIDER"); // Set kolom C3 
-    $excel->setActiveSheetIndex(0)->setCellValue('D3', "NO.PELANGGAN"); // Set kolom D3 
-    $excel->setActiveSheetIndex(0)->setCellValue('E3', "IP PUBLIC"); // Set kolom E3 
-    $excel->setActiveSheetIndex(0)->setCellValue('F3', "Tgl. Kontrak");
-    $excel->setActiveSheetIndex(0)->setCellValue('G3', "Tgl. Habis Kontrak");
+    $excel->setActiveSheetIndex(0)->setCellValue('B3', "Cabang"); // Set kolom B3 
+    $excel->setActiveSheetIndex(0)->setCellValue('C3', "Provider"); // Set kolom C3 
+    $excel->setActiveSheetIndex(0)->setCellValue('D3', "Tipe Koneksi"); // Set kolom C3 
+    $excel->setActiveSheetIndex(0)->setCellValue('E3', "No.Pelanggan"); // Set kolom D3 
+    $excel->setActiveSheetIndex(0)->setCellValue('F3', "IP Public"); // Set kolom E3 
+    $excel->setActiveSheetIndex(0)->setCellValue('G3', "Tgl. Kontrak");
+    $excel->setActiveSheetIndex(0)->setCellValue('H3', "Tgl. Habis Kontrak");
+    $excel->setActiveSheetIndex(0)->setCellValue('I3', "Status");
     // Apply style header yang telah kita buat tadi ke masing-masing kolom header
     $excel->getActiveSheet()->getStyle('A3')->applyFromArray($style_col);
     $excel->getActiveSheet()->getStyle('B3')->applyFromArray($style_col);
@@ -180,6 +191,8 @@ class Internet extends CI_Controller {
     $excel->getActiveSheet()->getStyle('E3')->applyFromArray($style_col);
     $excel->getActiveSheet()->getStyle('F3')->applyFromArray($style_col);
     $excel->getActiveSheet()->getStyle('G3')->applyFromArray($style_col);
+    $excel->getActiveSheet()->getStyle('H3')->applyFromArray($style_col);
+    $excel->getActiveSheet()->getStyle('I3')->applyFromArray($style_col);
     $internet = $this->m_internet->semua()->result();
     $no = 1; // Untuk penomoran tabel, di awal set dengan 1
     $numrow = 4; // Set baris pertama untuk isi tabel adalah baris ke 4
@@ -187,10 +200,12 @@ class Internet extends CI_Controller {
       $excel->setActiveSheetIndex(0)->setCellValue('A'.$numrow, $no);
       $excel->setActiveSheetIndex(0)->setCellValue('B'.$numrow, $data->nama_cabang);
       $excel->setActiveSheetIndex(0)->setCellValue('C'.$numrow, $data->nama_provider);
-      $excel->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $data->nomor_pelanggan);
-      $excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $data->ip_public);
-      $excel->setActiveSheetIndex(0)->setCellValue('F'.$numrow, $data->tanggal_kontrak);
-      $excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $data->masa_kontrak);
+      $excel->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $data->tipe_koneksi);
+      $excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $data->nomor_pelanggan);
+      $excel->setActiveSheetIndex(0)->setCellValue('F'.$numrow, $data->ip_public);
+      $excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $data->tanggal_kontrak);
+      $excel->setActiveSheetIndex(0)->setCellValue('H'.$numrow, $data->masa_kontrak);
+      $excel->setActiveSheetIndex(0)->setCellValue('I'.$numrow, $data->status);
       
       // Apply style row yang telah kita buat tadi ke masing-masing baris (isi tabel)
       $excel->getActiveSheet()->getStyle('A'.$numrow)->applyFromArray($style_row);
@@ -200,6 +215,8 @@ class Internet extends CI_Controller {
       $excel->getActiveSheet()->getStyle('E'.$numrow)->applyFromArray($style_row);
       $excel->getActiveSheet()->getStyle('F'.$numrow)->applyFromArray($style_row);
       $excel->getActiveSheet()->getStyle('G'.$numrow)->applyFromArray($style_row);
+      $excel->getActiveSheet()->getStyle('H'.$numrow)->applyFromArray($style_row);
+      $excel->getActiveSheet()->getStyle('I'.$numrow)->applyFromArray($style_row);
       
       $no++; // Tambah 1 setiap kali looping
       $numrow++; // Tambah 1 setiap kali looping
@@ -212,13 +229,15 @@ class Internet extends CI_Controller {
     $excel->getActiveSheet()->getColumnDimension('E')->setWidth(25); // Set width kolom E
     $excel->getActiveSheet()->getColumnDimension('F')->setWidth(25);
     $excel->getActiveSheet()->getColumnDimension('G')->setWidth(25);
+    $excel->getActiveSheet()->getColumnDimension('H')->setWidth(25);
+    $excel->getActiveSheet()->getColumnDimension('I')->setWidth(25);
     
     // Set height semua kolom menjadi auto (mengikuti height isi dari kolommnya, jadi otomatis)
     $excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);
     // Set orientasi kertas jadi LANDSCAPE
     $excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
     // Set judul file excel nya
-    $excel->getActiveSheet(0)->setTitle("Laporan Data Siswa");
+    $excel->getActiveSheet(0)->setTitle("Laporan Data Koneksi Internet");
     $excel->setActiveSheetIndex(0);
     // Proses file excel
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');

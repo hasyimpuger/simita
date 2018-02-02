@@ -73,8 +73,9 @@ function loadsubdept()
                         </div>
                         <div class="form-group">
                             <label>Jabatan</label>
-                            <div class="input-group">
+                            <!--<div class="input-group">-->
                                 <select name="jabatan" class="form-control" id="inputError">
+                                    <option value='0'>- Pilih Jabatan -</option>
                                     <?php
                                     if (!empty($jabatan)) {
                                         foreach ($jabatan as $row) {
@@ -83,10 +84,12 @@ function loadsubdept()
                                     }
                                     ?>
                                 </select>
+                                <!--
                                 <div class="input-group-btn">
                                     <button type="button" class="btn btn-default" data-toggle="tooltip" title="Add Jabatan"><?php echo anchor('pengguna/addjabatan','<i class="fa fa-plus"></i>')?> </button>
                                 </div>
-                            </div>
+                           
+                            </div>-->
                             <?php echo form_error('jabatan', '<div class="text-red">', '</div>'); ?>
                         </div>      
                         <div class="form-group">

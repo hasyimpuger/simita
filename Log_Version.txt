@@ -2,7 +2,7 @@ SIMITA (SIstem Managemen IT Aset)
 =================================
 Created Date 	 : 04 April 2017
 Programer 	 : Ahmad Sopian (sopian.ahmad@suzuki-mobil.co.id)
-Update Date	 : 31 Desember 2017
+Update Date	 : 01 Februari 2018
 Apps Base    	 : PHP with CodeIgniter & MySQL Database
 Code Name	 : Yaruki_CI
 
@@ -47,3 +47,10 @@ Version 2.3 Build 012018
 	- (Laptop) Penambahan Field No.Aset HRD saat Print History Perbaikan
 	  	   dan Inventory Mutasi Barang
 	- Penambahan Field Tanggal Masa Berlaku Garansi (Laptop,PC & Printer)
+
+Version 2.3 Build 022018
+------------------------
+- Penambahan Menu Tipe
+- Perbaikan Tabel Manufacture
+- Penambahan Field Tipe Koneksi Internet
+- Penambahan Detail Data Inventaris Internet

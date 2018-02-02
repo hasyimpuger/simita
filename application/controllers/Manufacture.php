@@ -20,8 +20,6 @@ class Manufacture extends CI_Controller {
                 'no' => $no++,
                 'id_manufacture' => $data['id_manufacture'],
                 'nama_manufacture' =>$data['nama_manufacture'],
-                'tipe' =>$data['tipe'],
-                'tel_manufacture' => $data['tel_manufacture'],
                 'edit' => '<center><a href="' . base_url() . 'manufacture/edit/' . $data['id_manufacture'] .'"><i class="glyphicon glyphicon-edit"></i></a></center>',
                 'delete' => '<center><a href="' . base_url() . 'manufacture/hapus/' . $data['id_manufacture'] .'" class="hapus" ><i class="glyphicon glyphicon-trash"></i></a></center>'
             );
@@ -36,8 +34,6 @@ class Manufacture extends CI_Controller {
         if ($this->form_validation->run() == true) {
             $data = array(
                 'nama_manufacture' => $this->input->post('nama_manufacture'),
-                'tipe' => $this->input->post('tipe'),
-                'tel_manufacture' => $this->input->post('tel_manufacture'),
             );
             $this->m_manufacture->simpan($data);
             redirect('manufacture');
@@ -52,8 +48,6 @@ class Manufacture extends CI_Controller {
             if ($this->form_validation->run() == true) {
                 $data = array(                            
                     'nama_manufacture' => $this->input->post('nama_manufacture'),
-                    'tipe' => $this->input->post('tipe'),
-                    'tel_manufacture' => $this->input->post('tel_manufacture'),
                         );
                 $kode=$this->input->post('id');
                 $this->m_manufacture>edit($kode,$data);
@@ -76,8 +70,7 @@ class Manufacture extends CI_Controller {
 
     function _set_rules() {
         $this->form_validation->set_rules('nama_manufacture', 'Nama Cabang', 'required');
-        $this->form_validation->set_rules('tipe', 'Tipe', 'required');
-        $this->form_validation->set_rules('tel_manufacture', 'Wilayah', 'required');
+
         
     }
 

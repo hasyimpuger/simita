@@ -48,7 +48,7 @@ $(document).ready(function(){
                                     <?php
                                     if (!empty($provider)) {
                                         foreach ($provider as $row) {
-                                            echo "<option value=".$row->nama_provider.">".strtoupper($row->nama_provider)."</option>";                                        
+                                            echo "<option value='".$row->nama_provider."'>".strtoupper($row->nama_provider)."</option>";                                        
                                         }
                                     }
                                 ?>
@@ -66,6 +66,17 @@ $(document).ready(function(){
                                     }
                                 ?>
                             </select>                          
+                        </div>
+                        <div class="form-group">
+                            <label>Jenis Koneksi</label>
+                            <select name="jenis" class="form-control " >
+                                <option value="">-- Pilih Jenis --</option>
+                                <option value='WIRELESS'>WIRELESS BROADBAND</option>
+                                <option value='FIBER OPTIC'>FIBER OPTIC</option>
+                                <option value='TV CABLE'>TV CABLE</option>
+                                <option value='MODEM'>MODEM</option>                                                               
+                            </select>
+                            <?php echo form_error('jenis', '<div class="text-red">', '</div>'); ?>
                         </div>
                         <div class="form-group">
                             <label for="example">Nomor Pelanggan</label>

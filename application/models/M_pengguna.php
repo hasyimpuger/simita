@@ -97,4 +97,5 @@ class M_pengguna extends CI_Model {
         $this->db->where('id_pengguna', $kode);
         $this->db->delete('tb_pengguna');
     }
+
 }
