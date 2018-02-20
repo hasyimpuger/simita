@@ -55,31 +55,27 @@ class Pengguna extends CI_Controller {
     }
    
 
-    function add() {    
+    function add() {              
         $this->_set_rules();
         if ($this->form_validation->run() == true) {
-        $cek = $this->db->query("SELECT * FROM tb_pengguna where nik='".$this->input->post('nik')."'")->num_rows();
-        if ($cek<=0){
-        $data = array(
-            'id_pengguna' => $this->m_pengguna->kdotomatis(),
-            'nik' => $this->input->post('nik'),
-            'nama_pengguna' => $this->input->post('pengguna'),
-            'id_jabatan' => $this->input->post('jabatan'),
-            'id_cabang' => $this->input->post('cabang'),
-            'id_dept' => $this->input->post('subdept'),
-            'ruang_kantor' => $this->input->post('kantor')                
-        );
-        print_r($data);
-        }
-        echo "gagal simpan data";
-        }else {  
+            $data = array(
+                'id_pengguna' => $this->m_pengguna->kdotomatis(),
+                'nik' => $this->input->post('nik'),
+                'nama_pengguna' => $this->input->post('pengguna'),
+                'id_jabatan' => $this->input->post('jabatan'),
+                'id_cabang' => $this->input->post('cabang'),
+                'id_dept' => $this->input->post('subdept'),
+                'ruang_kantor' => $this->input->post('kantor')                
+            );
+            $this->m_pengguna->simpan($data);
+            redirect('pengguna');
+        } else {  
             $data['jabatan'] = $this->m_pengguna->getjabatan()->result(); 
             $data['cabang'] = $this->m_pengguna->getcabang()->result();
             $data['departemen'] = $this->m_pengguna->getdepartemengid()->result();             
             $this->template->display('pengguna/tambah', $data);
-    }
         }
-
+    }
 
     function addjabatan() { 
         $this->form_validation->set_message('is_unique', '%s Sudah Ada');
@@ -136,6 +132,5 @@ class Pengguna extends CI_Controller {
         $this->form_validation->set_rules('subdept', 'Sub. Departemen', 'required');
        
     }
-   
 
 }

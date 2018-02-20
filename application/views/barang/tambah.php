@@ -19,15 +19,8 @@
                 <?php
                     echo form_open('barang/add');
                 ?> 
-                  
                     <div class="box-body">
-                        <div class="form-group">
-                            <label for="example">Nama Barang</label>
-                            <input type="text" name="nama" class="form-control" required oninvalid="setCustomValidity('Nama Barang Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="Masukan Nama Barang" >
-                                   <?php echo form_error('nama', '<div class="text-red">', '</div>'); ?>
-                        </div>
-                        <div class="form-group">
+                     <div class="form-group">
                             <label>Kategori</label>
                             <div class="input-group">
                                 <select name="kategori" class="form-control" id="inputError">
@@ -44,13 +37,34 @@
                                 </div>                             
                             </div>  
                             <?php echo form_error('kategori', '<div class="text-red">', '</div>'); ?>                          
-                        </div>                        
+                        </div>  
                         <div class="form-group">
-                            <label for="">Merek</label>
-                            <input type="text" class="form-control" name="merek" required oninvalid="setCustomValidity('Merek Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="Merek">
-                            <?php echo form_error('merek', '<div class="text-red">', '</div>'); ?>                                                 
-                        </div>   
+                            <label for="example">Nama/Tipe Barang</label>
+                            <input type="text" name="nama" class="form-control" required oninvalid="setCustomValidity('Nama Barang Harus di Isi !')"
+                                   oninput="setCustomValidity('')" placeholder="Masukan Nama Barang" >
+                                   <?php echo form_error('nama', '<div class="text-red">', '</div>'); ?>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Brand</label>
+                            <div class="input-group">
+
+                                <select name="merek" class="form-control" id="inputError">
+                                    <option value="">-- Pilih Brand --</option>
+                                    <?php
+                                    if (!empty($merek)) {
+                                        foreach ($merek as $row) {
+                                            echo "<option value=".$row->nama_manufacture.">".$row->nama_manufacture."</option>";                                        
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default" data-toggle="tooltip" title="Tambah Brand"><?php echo anchor('manufacture/add','<i class="fa fa-plus"></i>')?> </button>
+                                </div>                             
+                            </div>  
+                            <?php echo form_error('kategori', '<div class="text-red">', '</div>'); ?>                          
+                        </div>                   
                         <div class="form-group">
                             <label for="">Spesifikasi</label>
                             <textarea name="spek" class="form-control" rows="3" required oninvalid="setCustomValidity('Spesifikasi Barang Harus di Isi !')"

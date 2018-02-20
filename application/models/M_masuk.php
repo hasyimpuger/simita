@@ -27,6 +27,7 @@ class M_masuk extends CI_Model {
     }
 
     function getsupplier() {
+        $this->db->where('isactive','True');
         $this->db->order_by('nama_supplier','ASC');
         return $this->db->get('tb_supplier');
     }
@@ -34,6 +35,11 @@ class M_masuk extends CI_Model {
     function getkategori() {
         $this->db->order_by('nama_kategori','ASC');
         return $this->db->get('tb_kategori');
+    }
+
+    function getbrand(){
+        $this->db->order_by('merek_barang', 'ASC');
+        return $this->db->get('tb_barang');
     }
 
     function getkode($id) {

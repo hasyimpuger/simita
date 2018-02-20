@@ -40,6 +40,10 @@ class M_barang extends CI_Model {
     function getKategori() {
         return $this->db->get("tb_kategori");
     }
+
+    function getMerek() {
+        return $this->db->get("tb_manufacture");
+    }
         
     function simpan($data) {
         $this->db->insert('tb_barang', $data);

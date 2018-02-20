@@ -3,6 +3,9 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $("#kategori").change(function(){
+      loadbrand();
+        });
+  $("#merek_barang").change(function(){
       loadbarang();
         });
   $("#namabarang").change(function(){
@@ -20,6 +23,17 @@ function loadbarang(){
         data:"kategori=" + kategori ,
         success: function(html) { 
            $("#namabarang").html(html);       
+        }
+    });
+}
+
+function loadbrand(){
+    var kategori=$("#kategori").val();
+    $.ajax({
+        url:"<?php echo base_url('masuk/tampilbrand');?>",
+        data:"kategori=" + kategori ,
+        success: function(html) { 
+           $("#merek_barang").html(html);       
         }
     });
 }
@@ -158,6 +172,18 @@ function hapus(id){
                         </div>                        
                     </td>
                 <tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="col-sm-4">
+                            <select name="merek_barang" class="form-control" id="merek_barang">                                    
+                                <option value="">- Select Brand -</option>
+                            </select>  
+                            <?php echo form_error('merek_barang', '<div class="text-red">', '</div>'); ?>
+                        </div>
+                       
+                    </td>
+                </tr>
                 <tr>
                     <td></td>
                     <td>

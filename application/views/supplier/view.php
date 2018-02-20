@@ -17,6 +17,9 @@
                     <h3 class='box-title'><a href="<?php echo base_url('supplier/add'); ?>" class="btn btn-primary btn-small">
                             <i class="glyphicon glyphicon-plus"></i> Tambah Data</a></h3>
                             <label calss='control-label' ></label>
+                    <h3 class='box-title'><a href="<?php echo base_url('supplier/export_excel'); ?>" class="btn btn-primary btn-small">
+                            <i class="glyphicon glyphicon-save-file"></i> Export to Excel</a></h3>
+                            <label calss='control-label' ></label>
                 </div>
                 <div class="box-body table-responsive">
                     <table id="tb-datatables" class="table table-bordered table-striped" cellspacing="0" width="100%">
@@ -26,9 +29,10 @@
                                 <th>Nama Supplier</th>
                                 <th>Alamat </th>
                                 <th>Nama Sales</th>
-                                <th>Telepon</th>                                                              
-                                <th>Edit</th>   
-                                <th>Delete</th>                                 
+                                <th>Telepon</th>   
+                                <th>NPWP</th>
+                                <th>KTP</th>                                                           
+                                <th>TOOLS</th>                                  
                             </tr>
                         </thead>
                        <?php
@@ -40,9 +44,10 @@
 							   <td>".$r->nama_supplier."</td>
 							   <td>".$r->alamat_supplier."</td>
                                <td>".$r->nama_pic."</td>
-							   <td>".$r->telepon."</td>							   					   
-							   <td>" . anchor('supplier/edit/' . $r->id_supplier, '<i class="btn btn-info btn-sm glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit"></i>') . "</td>
-							   <td>" . anchor('supplier/delete/' . $r->id_supplier, '<i class="btn-sm btn-info glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")) . "</td>
+							   <td>".$r->telepon."</td>		
+                               <td>".$r->nomor_npwp."</td>
+                               <td>".$r->nomor_ktp."</td>				   					   
+							   <td>" . anchor('supplier/edit/' . $r->id_supplier, '<i class="btn btn-info btn-sm glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit"></i>') . " " . anchor('supplier/delete/' . $r->id_supplier, '<i class="btn-sm btn-info glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")) . "</td>
                                </tr>";
 						   $no++;
 					   }

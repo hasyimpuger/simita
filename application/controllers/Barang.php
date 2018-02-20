@@ -51,7 +51,8 @@ class Barang extends CI_Controller {
             $this->m_barang->simpan($data);
             redirect('barang');
         } else {  
-            $data['katBarang'] = $this->m_barang->getKategori()->result();           
+            $data['katBarang'] = $this->m_barang->getKategori()->result();   
+            $data['merek'] = $this->m_barang->getMerek()->result();          
             $this->template->display('barang/tambah', $data);
         }
     }

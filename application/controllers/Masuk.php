@@ -44,6 +44,16 @@ class Masuk extends CI_Controller {
         }
     } 
 
+    function tampilbrand(){        
+        $id=$_GET['kategori'];
+        $gid=$this->session->userdata('gid');
+        $brand=  $this->db->get_where('tb_barang',array('id_kategori'=>$id,'gid'=>$gid))->result(); 
+        echo "<option value=''>- PILIH BRAND -</option>";       
+        foreach ($brand as $r){
+            echo "<option value='$r->merek_barang'>".  strtoupper($r->merek_barang)."</option>";
+        }
+    }
+
     function masuk_ajax(){
         $this->m_masuk->simpan_masuk_temp();
     }
@@ -101,7 +111,8 @@ class Masuk extends CI_Controller {
             redirect('masuk');
         } else {
             $data['kode']=$this->m_masuk->kdotomatis();
-            $data['kategori'] = $this->m_masuk->getkategori()->result();   
+            $data['kategori'] = $this->m_masuk->getkategori()->result(); 
+            $data['brand'] = $this->m_masuk->getbrand()->result();  
             $data['barang'] = $this->m_masuk->getbarang()->result();  
             $data['supplier'] = $this->m_masuk->getsupplier()->result();          
             $this->template->display('transaksi/masuk/tambah',$data);

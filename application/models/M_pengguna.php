@@ -98,4 +98,5 @@ class M_pengguna extends CI_Model {
         $this->db->delete('tb_pengguna');
     }
 
+
 }

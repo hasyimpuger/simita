@@ -22,12 +22,6 @@
                     
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="example">Nama Barang</label>
-                            <input type="hidden"  name="kode" value="<?php echo $record['kode_barang'] ?>" >
-                            <input type="text" name="nama" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama Barang Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="Masukan Nama Barang" value="<?php echo $record['nama_barang']; ?>" >
-                        </div>                                            
-                        <div class="form-group">
                                 <label>Kategori</label>
                                 <select name="kategori" class="form-control">
                                     <?php
@@ -38,9 +32,15 @@
                                     }
                                     ?>
                                 </select>
-                        </div>                      
+                        </div> 
                         <div class="form-group">
-                            <label for="">Merek</label>
+                            <label for="example">Nama Barang</label>
+                            <input type="hidden"  name="kode" value="<?php echo $record['kode_barang'] ?>" >
+                            <input type="text" name="nama" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama Barang Harus di Isi !')"
+                                   oninput="setCustomValidity('')" placeholder="Masukan Nama Barang" value="<?php echo $record['nama_barang']; ?>" >
+                        </div>       
+                        <div class="form-group">
+                            <label for="">Brand</label>
                             <input type="text" class="form-control" name="merek" required oninvalid="setCustomValidity('Merek Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Merek" value="<?php echo $record['merek_barang']; ?>">
                         </div>   

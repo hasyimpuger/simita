@@ -10,7 +10,7 @@
             $("#asethrd").mask("aaaa99/9/9/9/999/9");
             $("#ip").mask("999.999.999.999");
         });
-  </script>
+</script>
 <section class="content-header">
     <h1>
         Tambah

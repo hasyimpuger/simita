@@ -56,9 +56,17 @@ p {
 </style>
 </head>
 <body>
-	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
-	</div>
+	<div class="container">
+  <div class="row"  style="padding-top:10%;" >
+      <div class="well center">
+          <h1><font face="Tahoma" color="red"><?php echo $heading; ?></font></small></h1>
+          <br />
+          <p>Maaf Page yang anda cari tidak ada Silahkan kembali</p>
+          <p><b>Atau kembali ke menu home dengan menekan tombol home</b></p>
+          <a href="http://home_page_anda/" class="btn btn-large btn-info"><span class="glyphicon glyphicon-home"></span> Take Me Home</a>
+        </div>
+        <br />
+  </div>
+</div>
 </body>
 </html>

@@ -2,9 +2,9 @@ SIMITA (SIstem Managemen IT Aset)
 =================================
 Created Date 	 : 04 April 2017
 Programer 	 : Ahmad Sopian (sopian.ahmad@suzuki-mobil.co.id)
-Update Date	 : 01 Februari 2018
+Update Date	 : 12 Februari 2018
 Apps Base    	 : PHP with CodeIgniter & MySQL Database
-Code Name	 : Yaruki_CI
+
 
 Kebutuhan System :
 - PHP 5.4
@@ -54,3 +54,5 @@ Version 2.3 Build 022018
 - Perbaikan Tabel Manufacture
 - Penambahan Field Tipe Koneksi Internet
 - Penambahan Detail Data Inventaris Internet
+- Penambahan Field Nomor NPWP dan KTP Supplier pada Master Data Supplier
+- Penambahan Fitur Export to Excel untuk data master supplier
