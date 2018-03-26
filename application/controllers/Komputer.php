@@ -49,8 +49,8 @@ class Komputer extends CI_Controller {
                 'sn'=>$r->serial_number, 
                 'ip'=>$r->network, 
                 'status'=>$status, 
-                'edit'=>anchor('komputer/detail/' . $r->kode_komputer, '<i class="btn btn-info btn-sm fa fa-eye" data-toggle="tooltip" title="View Detail"></i>'),
-                'delete'=>''.anchor('komputer/delete/' . $r->id_komputer, '<i class="btn-sm btn-info glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")).'',                
+                'view'=>anchor('komputer/detail/' . $r->kode_komputer, '<i class="btn btn-info btn-sm fa fa-eye" data-toggle="tooltip" title="View Detail"></i>'),
+                'delete'=>anchor('komputer/delete/' . $r->id_komputer, '<i class="btn-sm btn-info glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")),
             );
         }        
         $result=array('data'=>$query);

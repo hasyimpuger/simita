@@ -43,7 +43,7 @@ class Supplier extends CI_Controller {
                 'alamat_supplier' => $this->input->post('alamat'),
                 'nama_pic' => $this->input->post('nama_pic'),
                 'telepon' => $this->input->post('telepon'),
-                'isactive' => $this->input->post('isactive')
+                'isactive' => $this->input->post('isactive'),
             );
             $this->m_supplier->simpan($data);
             redirect('supplier');

@@ -1,5 +1,6 @@
 <body onload="load_data_temp()"></body>
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/pemisahangka.js'); ?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   $("#kategori").change(function(){
@@ -208,7 +209,7 @@ function hapus(id){
 
                         </div>
                         <div class="col-sm-2">
-                            <input type="number" class="form-control" name="harga" id="harga" placeholder="Harga">
+                            <input type="number" onkeyup="javascript:tandaPemisahTitik(this);" class="form-control" name="harga" id="harga" placeholder="Harga">
                             <?php echo form_error('harga', '<div class="text-red">', '</div>'); ?>
                         </div>   
                         <div class="col-sm-5">

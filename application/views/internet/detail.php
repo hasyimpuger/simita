@@ -44,6 +44,7 @@ function terbilang($x){
                 <div class="box-header">   
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#tab_1" data-toggle="tab">DETAIL PROVIDER INTERNET</a></li>
+                        <li><a href="#tab_2" data-toggle="tab">DATA GANNGUAN</a></li>
                         <li class="pull-right"><a href="<?php echo site_url('internet'); ?>" class="text-muted"><i class="fa fa-remove"></i></a></li>
                     </ul>
                     <div class="tab-content">

@@ -43,11 +43,7 @@
                             </tr>
                             <tr>
                               <td style="text-align:right">Pengguna :</td>
-                              <td><?php echo anchor('pengguna/edit/'.$recordall['id_pengguna'],$recordall['nama_pengguna']);?></td>
-                            </tr>
-                            <tr>
-                              <td style="text-align:right">Cabang :</td>
-                              <td><?php echo $recordall['namacabang']?></td>                    
+                              <td><?php echo $recordall['nama_pengguna']?></td>                    
                             </tr>
                             <tr>
                               <td style="text-align:right">Brand Laptop :</td>

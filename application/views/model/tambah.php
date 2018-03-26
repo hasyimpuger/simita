@@ -23,16 +23,11 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label>Brand</label>
-                            
                                 <select name="id_manufacture" class="form-control" id="inputError">
-                                    <option value='0'>- Pilih Brand -</option>
-                                    <?php
-                                    if (!empty($manufacture)) {
-                                        foreach ($manufacture as $row) {
-                                            echo "<option value=".$row->id_manufacture.">".$row->nama_manufacture."</option>";                                        
-                                        }
-                                    }
-                                    ?>
+                                    <option  value="">---Select Category---</option>                    
+                                        <?php foreach($get_manufacture as $row) { ?>
+                                        <option value="<?php echo $row->id_manufacture;?>"><?php echo $row->nama_manufacture;?></option>
+                                        <?php } ?>
                                 </select>     
                         </div>
                         <div class="form-group">

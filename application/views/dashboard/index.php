@@ -39,7 +39,7 @@
                     <h5 class="description-header"><?php echo $group['nama_group']; ?> / <?php echo $group['alamat']; ?></h5>
                     <span class="description-text"></span>
                   </div>
-                  <center><i>SIMITA (SIstem Managemen IT Aset) v.2.3 build 012018</i><br><b>PT. Sejahtera Buana Trada Group</b></center>
+                  <center><i>SIMITA (SIstem Managemen IT Aset) v.2.3 build 022018</i><br><b>PT. Sejahtera Buana Trada Group</b></center>
                   <!-- /.description-block -->
                 </div>
                 <!-- /.col -->

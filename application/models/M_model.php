@@ -23,7 +23,7 @@ class M_model extends CI_Model {
         return $this->db->get("tb_tipe");
     }
 
-    function getmanufacture() {
+    function get_manufacture() {
         return $this->db->get('tb_manufacture');
     }
 

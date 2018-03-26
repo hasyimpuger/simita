@@ -1,9 +1,10 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Pengguna extends CI_Controller {
-
+    private $error = array();
     function __construct() {
         parent::__construct();
+        $this->load->library(array('form_validation'));
         $this->load->model(array('m_pengguna','m_departemen'));
         chek_session();
     }
@@ -57,22 +58,26 @@ class Pengguna extends CI_Controller {
 
     function add() {              
         $this->_set_rules();
+        if (!$this->m_pengguna->is_nik_available($this->input->post('nik'))) {
+            $this->session->set_flashdata("err_msg", "<div class=\"col-md-12\"><div class=\"alert alert-danger\" id=\"alert\">Nomor NIK Sudah Terdaftar.<button type=\"button\" class=\"close\" data-dismiss=\"alert\">x</button></div></div>");           
+            redirect('pengguna/add');
+        }
         if ($this->form_validation->run() == true) {
             $data = array(
-                'id_pengguna' => $this->m_pengguna->kdotomatis(),
-                'nik' => $this->input->post('nik'),
+                'id_pengguna'   => $this->m_pengguna->kdotomatis(),
+                'nik'           => $this->input->post('nik'),
                 'nama_pengguna' => $this->input->post('pengguna'),
-                'id_jabatan' => $this->input->post('jabatan'),
-                'id_cabang' => $this->input->post('cabang'),
-                'id_dept' => $this->input->post('subdept'),
-                'ruang_kantor' => $this->input->post('kantor')                
+                'id_jabatan'    => $this->input->post('jabatan'),
+                'id_cabang'     => $this->input->post('cabang'),
+                'id_dept'       => $this->input->post('subdept'),
+                'ruang_kantor'  => $this->input->post('kantor')
             );
             $this->m_pengguna->simpan($data);
             redirect('pengguna');
         } else {  
-            $data['jabatan'] = $this->m_pengguna->getjabatan()->result(); 
-            $data['cabang'] = $this->m_pengguna->getcabang()->result();
-            $data['departemen'] = $this->m_pengguna->getdepartemengid()->result();             
+            $data['jabatan']    = $this->m_pengguna->getjabatan()->result(); 
+            $data['cabang']     = $this->m_pengguna->getcabang()->result();
+            $data['departemen'] = $this->m_pengguna->getdepartemengid()->result();
             $this->template->display('pengguna/tambah', $data);
         }
     }
@@ -94,6 +99,12 @@ class Pengguna extends CI_Controller {
     function edit() {       
         if (isset($_POST['submit'])) {
             $this->_set_rules();
+            // Validasi NIK
+            if (!$this->m_pengguna->is_nik_available($this->input->post('nik'))) {
+            $this->session->set_flashdata("err_msg", "<div class=\"col-md-12\"><div class=\"alert alert-danger\" id=\"alert\">Nomor NIK Sudah Terdaftar.<button type=\"button\" class=\"close\" data-dismiss=\"alert\">x</button></div></div>");           
+            redirect('pengguna/add');
+            }
+            // End Validation NIK
             if ($this->form_validation->run() == true) {
                 $data = array(                
                 'nik' => $this->input->post('nik'),

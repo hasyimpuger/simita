@@ -28,7 +28,7 @@
                         </div>                                            
                         <div class="form-group">
                                 <label>Pengguna</label>
-                                <select name="pengguna" class="form-control">
+                                <select name="pengguna" disabled class="form-control" class="form-control">
                                     <?php
                                     $gid=$record['gid'];
                                     $pengguna=$this->db->query("SELECT tb_pengguna.id_pengguna,tb_pengguna.nama_pengguna,tb_departemen.gid FROM tb_pengguna INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept 

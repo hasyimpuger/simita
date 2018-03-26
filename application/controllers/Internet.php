@@ -59,7 +59,9 @@ class Internet extends CI_Controller {
                 'masa_kontrak' => $this->input->post('masa_kontrak'),
                 'biaya' => $this->input->post('biaya'),
                 'status' => $this->input->post('status'),
-                'gid' => $gid
+                'gid' => $gid,
+                'createddate'=>date('Y-m-d H:i:s'),
+                'createby'=>$this->session->userdata('nama'),
             );
             $this->m_internet->simpan($data);
             redirect('internet');

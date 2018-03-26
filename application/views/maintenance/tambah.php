@@ -26,6 +26,16 @@ function load_inv(){
         }
     });
 }
+function load_pengguna(){
+    var kategori=$("#kategori").val();
+    $.ajax({
+        url:"<?php echo base_url('maintenance/tampil_inv');?>",
+        data:"kategori=" + kategori ,
+        success: function(html) { 
+           $("#inventaris").html(html);       
+        }
+    });
+}
 </script>
 
 <section class="content-header">
@@ -75,6 +85,7 @@ function load_inv(){
                                 <option value="" selected="selected">- Select No. Inventory-</option>                               
                                 
                             </select>  
+                            Nama Pengguna :
                             <?php echo form_error('inventaris', '<div class="text-red">', '</div>'); ?>
                         </div>                        
                     </td>

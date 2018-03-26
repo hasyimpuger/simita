@@ -39,7 +39,7 @@ class Model extends CI_Controller {
             $this->m_model->simpan($data);
             redirect('model');
         } else {    
-            $data['manufacture'] = $this->m_model->getmanufacture()->result();        
+            $data['manufacture'] = $this->m_model->get_manufacture()->result();        
             $this->template->display('model/tambah');
         }
     }

@@ -67,7 +67,9 @@ class Monitor extends CI_Controller {
                 'spesifikasi' => $this->input->post('spek'),               
                 'tgl_inv' =>$this->input->post('tgl_inv'),
                 'harga_beli' =>$this->input->post('harga'),
-                'gid' => $gid
+                'gid' => $gid,
+                'createddate'=>date('Y-m-d H:i:s'),
+                'createby'=>$this->session->userdata('nama'),
             );
             $data2=array(
                 'no_inventaris' => $this->m_monitor->kdotomatis(),

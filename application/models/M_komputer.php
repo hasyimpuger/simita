@@ -4,10 +4,9 @@ class M_komputer extends CI_Model {
 
     function semua() {        
         $query = $this->db->query("SELECT tb_inv_komputer.id_komputer,tb_inv_komputer.kode_komputer,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
-            tb_departemen.nama,tb_departemen.parent,tb_inv_komputer.nama_komputer,tb_inv_komputer.spesifikasi,tb_inv_komputer.serial_number,tb_inv_komputer.id_lisence,
-            tb_inv_komputer.network,tb_inv_komputer.tgl_inv,tb_inv_komputer.tgl_garansi,tb_inv_komputer.status,tb_inv_komputer.note,tb_inv_komputer.gid,tb_inv_komputer.aset_hrd,tb_cabang.namacabang
+            tb_departemen.nama,tb_departemen.parent,tb_inv_komputer.nama_komputer,tb_inv_komputer.spesifikasi,tb_inv_komputer.serial_number,tb_inv_komputer.id_lisence,tb_inv_komputer.aset_hrd,tb_inv_komputer.tgl_garansi,
+            tb_inv_komputer.network,tb_inv_komputer.tgl_inv,tb_inv_komputer.status,tb_inv_komputer.note,tb_inv_komputer.gid 
             FROM tb_inv_komputer INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_komputer.id_pengguna 
-            INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_pengguna.id_cabang
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_inv_komputer.status='DIGUNAKAN' OR tb_inv_komputer.status ='SIAP DIGUNAKAN' OR tb_inv_komputer.status='DIPERBAIKI' ORDER BY tb_inv_komputer.id_komputer DESC");
         return $query;
     }

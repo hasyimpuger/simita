@@ -97,6 +97,12 @@ class M_pengguna extends CI_Model {
         $this->db->where('id_pengguna', $kode);
         $this->db->delete('tb_pengguna');
     }
+    // Validasi NIK
+    function is_nik_available($nik) {
+        $this->db->select('1', FALSE);
+        $this->db->where('LOWER(nik)=', strtolower($nik));
 
-
+        $query = $this->db->get('tb_pengguna');
+        return $query->num_rows() == 0;
+    }
 }

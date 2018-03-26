@@ -122,7 +122,9 @@ class Maintenance extends CI_Controller {
                 'nama_supplier' => $supplier,
                 'status' => 'PROCESS',
                 'biaya' => $this->input->post('biaya'),
-                'gid' => $this->session->userdata('gid')
+                'gid' => $this->session->userdata('gid'),
+                'createddate'=>date('Y-m-d H:i:s'),
+                'createby'=>$this->session->userdata('nama'),
             );
             $detail=array(
                 'no_permohonan' => $this->m_maintenance->kdotomatis($id),

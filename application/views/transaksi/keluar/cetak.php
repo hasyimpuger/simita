@@ -69,9 +69,9 @@
                     ?>
                   </tr>                             
               </table>              
-                <small class="pull-right">Printed: <?php echo tanggal_indo();?></small>         
+                <small class="pull-right">Printed: <?php echo tanggal_indo();?> | by : <?php echo $keluar['createby']?></small>  
+                <p><b>Jakarta,<?php echo tgl_lengkap($keluar['tgl_transaksi'])?></p></b>       
             </div> 
-
           </div>        
       </div><br>
       <div class="row">
@@ -79,13 +79,13 @@
         </div>
         <div class="col-xs-4">
           <p>Yang Menyerahkan,</p>
-          <br><br>
+          <br><br><br>
           <p>.......................................</p>
-          <p>Jakarta,<?php echo tgl_lengkap($keluar['tgl_transaksi'])?></p>
+          <?php echo $keluar['createby']?><br>
         </div>
         <div class="col-xs-4">
           <p>Penerima</p>
-          <br><br>
+          <br><br><br>
           <p><?php echo $keluar['nama_pengguna'] ?></p>
         </div>
       </div>

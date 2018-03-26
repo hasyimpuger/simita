@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label for="example">No.KTP (Jika Tidak Memiliki NPWP)</label>
                             <input type="text" id="ktp" name="nomor_ktp" class="form-control" required oninvalid="setCustomValidity('Nomor KTP Wajib Diisi !')"
-                                   oninput="setCustomValidity('')" placeholder="" >
+                                   oninput="setCustomValidity('')" placeholder="Masukan Nomor KTP" >
                                    <?php echo form_error('ktp', '<div class="text-red">', '</div>'); ?>
                         </div>
                         <div class="form-group">
@@ -80,7 +80,6 @@
                             <?php echo form_error('isactive', '<div class="text-red">', '</div>'); ?>
                         </div>                   
                     </div><!-- /.box-body -->
-
                     <div class="box-footer">
                         <button type="submit" name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>                        
                         <a href="<?php echo site_url('supplier'); ?>" class="btn btn-primary">Kembali</a>

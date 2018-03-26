@@ -47,7 +47,7 @@
                             </select> 
                             <?php echo form_error('pengguna', '<div class="text-red">', '</div>'); ?>                           
                         </div>    
-                    
+                    </div><!-- /.box-body -->
                        <div class="form-group">
                             <label for="example">Nomor Aset HRD</label>
                             <input type="text" id="asethrd" name="aset_hrd" class="form-control" required oninvalid="setCustomValidity('Nomor Aset Wajib Diisi !')"
@@ -60,6 +60,7 @@
                                    oninput="setCustomValidity('')" placeholder="ex : ASUS, LENOVO" >
                                    <?php echo form_error('merek', '<div class="text-red">', '</div>'); ?>
                         </div>
+                        <div class="form-group">
                             <label for="">Spesifikasi</label>
                             <textarea name="spek" onkeyup="this.value = this.value.toUpperCase()"  class="form-control" rows="3" required oninvalid="setCustomValidity('Spesifikasi Laptop Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Spesifikasi"></textarea>

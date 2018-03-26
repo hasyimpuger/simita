@@ -17,7 +17,7 @@
         "ServerSide": true,
         "iDisplayLength": 25,
         "oLanguage": {
-                    "sSearch": "Pencarian :  ",
+                    "sSearch": "Search Data :  ",
                     "sZeroRecords": "No records to display",
                     "sEmptyTable": "No data available in table"
                     },
@@ -46,7 +46,7 @@
                 { "mData": "nama_laptop" },                           
                 { "mData": "ip" },                           
                 { "mData": "status" },
-                { "mData": "view"},
+                { "mData": "view" },
                 { "mData": "delete" },
                 ]
             } );
@@ -59,8 +59,6 @@
                 <div class='box-header with-border'>
                     <h3 class='box-title'><a href="<?php echo base_url('laptop/add'); ?>" class="btn btn-primary btn-small">
                             <i class="glyphicon glyphicon-plus"></i> Tambah Data</a></h3>
-                            <a href="<?php echo base_url('laptop/export_excel'); ?>" class="btn btn-primary btn-small">
-                            <i class="glyphicon glyphicon-save-file"></i> Export to Excel</a></h3>
                             <label calss='control-label' ><?php echo $this->session->flashdata('result_hapus'); ?></label>
                 </div>
                 <div class="box-body table-responsive">

@@ -4,7 +4,7 @@ class M_keluar extends CI_Model {
 
     function list_keluar() {
         $gid=$this->session->userdata('gid');
-        $query = $this->db->query("SELECT tb_trans_keluar.id_transaksi,tb_trans_keluar.kode_transaksi,tb_trans_keluar.tgl_transaksi,tb_trans_keluar.id_pengguna,tb_trans_detail.kode_barang,tb_trans_detail.harga,
+        $query = $this->db->query("SELECT tb_trans_keluar.id_transaksi,tb_trans_keluar.createby,tb_trans_keluar.kode_transaksi,tb_trans_keluar.tgl_transaksi,tb_trans_keluar.id_pengguna,tb_trans_detail.kode_barang,tb_trans_detail.harga,
             tb_trans_detail.qty_keluar,tb_trans_detail.catatan,tb_trans_detail.status,tb_barang.nama_barang,tb_barang.merek_barang,tb_barang.spesifikasi,tb_trans_detail.gid,tb_pengguna.nama_pengguna,tb_departemen.nama,tb_trans_keluar.id_cabang,tb_cabang.namacabang
             FROM tb_trans_detail INNER JOIN tb_barang ON tb_barang.kode_barang = tb_trans_detail.kode_barang INNER JOIN tb_trans_keluar ON tb_trans_detail.kode_transaksi = tb_trans_keluar.kode_transaksi INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_trans_keluar.id_pengguna 
                 INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_trans_keluar.id_cabang
@@ -14,7 +14,7 @@ class M_keluar extends CI_Model {
 
     function list_keluargid() {
         $gid=$this->session->userdata('gid');
-        $query = $this->db->query("SELECT tb_trans_keluar.id_transaksi,tb_trans_keluar.kode_transaksi,tb_trans_keluar.tgl_transaksi,tb_trans_keluar.id_pengguna,tb_trans_detail.kode_barang,tb_trans_detail.harga,
+        $query = $this->db->query("SELECT tb_trans_keluar.id_transaksi,tb_trans_keluar.createby,tb_trans_keluar.kode_transaksi,tb_trans_keluar.tgl_transaksi,tb_trans_keluar.id_pengguna,tb_trans_detail.kode_barang,tb_trans_detail.harga,
             tb_trans_detail.qty_keluar,tb_trans_detail.catatan,tb_trans_detail.status,tb_barang.nama_barang,tb_barang.merek_barang,tb_barang.spesifikasi,tb_trans_detail.gid,tb_pengguna.nama_pengguna,tb_departemen.nama,tb_trans_keluar.id_cabang,tb_cabang.namacabang  
             FROM tb_trans_detail INNER JOIN tb_barang ON tb_barang.kode_barang = tb_trans_detail.kode_barang INNER JOIN tb_trans_keluar ON tb_trans_detail.kode_transaksi = tb_trans_keluar.kode_transaksi INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_trans_keluar.id_pengguna 
             INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_trans_keluar.id_cabang
@@ -31,7 +31,7 @@ class M_keluar extends CI_Model {
 
     function get_transaksi($id){
         $query = $this->db->query("SELECT tb_trans_keluar.kode_transaksi,tb_trans_keluar.tgl_transaksi,tb_trans_keluar.id_pengguna,tb_pengguna.nama_pengguna,tb_pengguna.id_dept,
-            tb_departemen.nama,tb_trans_keluar.id_cabang,tb_cabang.namacabang FROM tb_trans_keluar INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_trans_keluar.id_pengguna 
+            tb_departemen.nama,tb_trans_keluar.id_cabang,tb_cabang.namacabang,tb_trans_keluar.createby FROM tb_trans_keluar INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_trans_keluar.id_pengguna 
             INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_trans_keluar.id_cabang
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_trans_keluar.kode_transaksi = '$id'");
         return $query;

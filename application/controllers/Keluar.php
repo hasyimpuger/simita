@@ -24,14 +24,15 @@ class Keluar extends CI_Controller {
             $query[] = array(
                 'no'=>$no++,
                 'kode_transaksi'=>$r->kode_transaksi,
-                'tgl_transaksi'=>tgl_indo($r->tgl_transaksi),                
+                'tgl_transaksi'=>tgl_indo($r->tgl_transaksi),               
                 'nama_barang'=>$r->nama_barang,  
                 'spesifikasi'=>$r->spesifikasi, 
                 'qty'=>'<center>'.$r->qty_keluar.'</center>',         
                 'catatan'=>$r->catatan, 
                 'nama_pengguna'=>$r->nama_pengguna,
                 'nama'=>$r->nama,   
-                'cabang'=>$r->namacabang,            
+                'cabang'=>$r->namacabang, 
+                'createby'=>$r->createby,           
                 'cetak'=>'<a href="'.base_url('keluar/cetak/'.$r->kode_transaksi).'" target="_blank" ><i class="btn btn-info btn-sm fa fa-print" data-toggle="tooltip" title="Print"></i>',
             );
         }        
@@ -112,7 +113,9 @@ class Keluar extends CI_Controller {
                     'tgl_transaksi'=>  tanggal(),
                     'id_pengguna'=>$this->input->post('penerima'),
                     'id_cabang'=>$this->input->post('cabang'),
-                    'gid'=>$gid
+                    'gid'=>$gid,
+                    'createddate'=>date('Y-m-d H:i:s'),
+                    'createby'=>$this->session->userdata('nama'),
                 );
             $this->m_keluar->simpan($data);
             $this->m_keluar->update_status($kode);
