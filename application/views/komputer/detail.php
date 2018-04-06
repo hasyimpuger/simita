@@ -38,10 +38,6 @@
                               <td style="width:70%"><?php echo $recordall['kode_komputer'] ?></td>
                             </tr>
                             <tr>
-                              <td style="text-align:right ">No. Aset HRD :</td>
-                              <td style="width:70%"><?php echo $recordall['aset_hrd'] ?></td>
-                            </tr>
-                            <tr>
                               <td style="text-align:right">Pengguna :</td>
                               <td><?php echo anchor('pengguna/edit/'.$recordall['id_pengguna'],$recordall['nama_pengguna']);?></td>
                             </tr>
@@ -66,10 +62,6 @@
                               <td><?php echo tgl_lengkap($recordall['tgl_inv'])?></td>                    
                             </tr>
                             <tr>
-                              <td style="text-align:right">Tgl. Habis Garansi :</td>
-                              <td><p><span style="color: #ff0000;"><strong><?php echo tgl_lengkap($recordall['tgl_garansi'])?></td></strong</p></span>                  
-                            </tr>
-                            <tr>
                               <td style="text-align:right">IP Address :</td>
                               <td><?php echo $recordall['network']?></td>                    
                             </tr>
@@ -77,7 +69,7 @@
                               <td style="text-align:right">Status :</td>
                               <td><?php echo $recordall['status']?></td>                    
                             </tr>
-							<tr>
+							              <tr>
                               <td style="text-align:right">Note/ Catatan :</td>
                               <td><?php echo $recordall['note']?></td>                    
                             </tr>
@@ -103,7 +95,12 @@
                                     <label for="example">No. Inventaris</label>
                                     <input type="hidden"  name="kode" value="<?php echo $record['kode_komputer'] ?>" >
                                     <input type="text" name="no_inv" disabled class="form-control" id="inputError" value="<?php echo $record['kode_komputer']; ?>" >
-                                </div>                                           
+                                </div>   
+                                <div class="form-group">
+                                    <label for="example">No. Inventaris HRD</label>
+                                    <input type="hidden"  name="kode" value="<?php echo $record['aset_hrd'] ?>" >
+                                    <input type="text" name="aset_hrd" disabled class="form-control" id="inputError" value="<?php echo $record['aset_hrd']; ?>" >
+                                </div>                                          
                                 <div class="form-group">
                                         <label>Pengguna</label>
                                         <select name="pengguna" class="form-control">
@@ -150,7 +147,7 @@
                                       ?>
                                     </select>
                                 </div> 
-								<div class="form-group">
+								                <div class="form-group">
                                     <label for="example">Note/ Catatan</label>
                                     <input type="text" name="note" class="form-control" value="<?php echo $record['note']; ?>" required oninvalid="setCustomValidity('Serial Number Harus di Isi !')"
                                            oninput="setCustomValidity('')" placeholder="Note / Catatan Status Inventory" >
@@ -163,16 +160,6 @@
                                         <i class="fa fa-calendar"></i>
                                       </div>                              
                                          <input type="text" name="tgl_inv" value="<?php echo $record['tgl_inv']; ?>" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
-                                           oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >                            
-                                    </div><!-- /.input group -->
-                                </div>
-                                <div class="form-group">
-                                    <label>Tgl. Habis Garansi</label>
-                                    <div class="input-group">
-                                      <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                      </div>                              
-                                         <input type="text" name="tgl_garansi" value="<?php echo $record['tgl_garansi']; ?>" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Garansi harus di isi')"
                                            oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >                            
                                     </div><!-- /.input group -->
                                 </div>

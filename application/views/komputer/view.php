@@ -38,9 +38,10 @@
         "ajax": "<?php echo base_url('komputer/view_data');?>",
         "columns": [
                 { "mData": "no" },
+                { "mData": "namacabang"},
                 { "width":"12%","mData": "kode_komputer" },
                 { "mData": "aset_hrd" },
-                { "mData": "nama_pengguna" },
+                { "width":"15%","mData": "nama_pengguna" },
                 { "mData": "dept" },  
                 { "mData": "subdept" },                
                 { "mData": "nama_komputer" },                           
@@ -66,6 +67,7 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
+                                <th>Cabang</th>
                                 <th>No Inventaris</th>
                                 <th>No.Aset HRD</th>   
                                 <th>Nama Pengguna</th>

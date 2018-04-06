@@ -37,25 +37,25 @@ class Komputer extends CI_Controller {
 			}   
             $query[] = array(
                 'no'=>$no++,
+                'namacabang'=>$r->namacabang,
                 'kode_komputer'=>$r->kode_komputer,
                 'aset_hrd'=>$r->aset_hrd,
                 'nama_pengguna'=>$r->nama_pengguna, 
                 'dept'=>$deptnama, 
                 'subdept'=>$r->nama,         
                 'tgl_inv'=>tgl_indo($r->tgl_inv),
-                'tgl_garansi'=>tgl_indo($r->tgl_garansi),
                 'nama_komputer'=>$r->nama_komputer, 
                 'spesifikasi'=>$r->spesifikasi, 
                 'sn'=>$r->serial_number, 
                 'ip'=>$r->network, 
                 'status'=>$status, 
-                'view'=>anchor('komputer/detail/' . $r->kode_komputer, '<i class="btn btn-info btn-sm fa fa-eye" data-toggle="tooltip" title="View Detail"></i>'),
-                'delete'=>anchor('komputer/delete/' . $r->id_komputer, '<i class="btn-sm btn-info glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")),
+                'edit'=>anchor('komputer/detail/' . $r->kode_komputer, '<i class="btn btn-info btn-sm fa fa-eye" data-toggle="tooltip" title="View Detail"></i>'),
+                'delete'=>''.anchor('komputer/delete/' . $r->id_komputer, '<i class="btn-sm btn-info glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")).'',                
             );
         }        
         $result=array('data'=>$query);
         echo  json_encode($result);
-    }   
+    }  
 
     function add() {              
         $this->_set_rules(); 

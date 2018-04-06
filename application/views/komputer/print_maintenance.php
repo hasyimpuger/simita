@@ -41,7 +41,7 @@ window.onfocus=function(){ window.close();}
   </tr>
  <tr>
 <td width="607" font-size="10px" ><strong>
-  <div align="center" class="title">PT. PISMATEX TEXTILE INDUSTRY</div></strong></td>
+  <div align="center" class="title">PT. SEJAHTERA BUANA TRADA</div></strong></td>
  </tr>
   <tr>
     <td id="noBorder"><table width="436" height="125" cellspacing="0" cellpadding="0" >

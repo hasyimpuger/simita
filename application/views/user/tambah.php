@@ -51,7 +51,8 @@
                             <label for="">User Level</label>
                             <select name='level' class="form-control ">
                                 <option value='Admin'>Admin</option>
-                                <option value='Administrator'>Administrator</option>                                
+                                <option value='Administrator'>Administrator</option>  
+                                <option value='Administrator'>Cabang</option>                              
                             </select>
                             <?php echo form_error('level', '<div class="text-red">', '</div>'); ?>
                         </div>
