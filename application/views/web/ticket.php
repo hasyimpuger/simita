@@ -54,9 +54,9 @@ function load_inv(){
                 echo form_open('web/addticket');
             ?>  
             <div class="ticket_form">
-              <div class="btn-group"> <a href="javascript:void(0)" class="btn btn-sm ticket_btn">Perbaikan</a> </div>
-              <div class="btn-group"> <a href="<?php echo base_url('login');?>" class="btn btn-sm ticket_btn">Login</a> </div> 
-              <div class="btn-group"> <a href="<?php echo base_url('web');?>" class="btn btn-sm ticket_btn">Home</a> </div> 
+              <div class="btn-group"> <a href="javascript:void(0)" class="btn btn-sm ticket_btn"><i class="fa fa-cogs"></i>   Perbaikan</a> </div>
+              <div class="btn-group"> <a href="<?php echo base_url('login');?>" class="btn btn-sm ticket_btn"><i class="fa fa-key"></i>   Masuk</a> </div> 
+              <div class="btn-group"> <a href="<?php echo base_url('web');?>" class="btn btn-sm ticket_btn"><i class="fa fa-home"></i>   Beranda</a> </div> 
               <br/>
               <br/>
               <h3><span class="semi-bold">Permohonan Perbaikan Aset IT</span></h3>
@@ -91,7 +91,6 @@ function load_inv(){
                   </div>
                 </div>
               </div>
-              
               <div class="ticket_option">
                 <div class="form_ticket_subject"><span class="semi-bold">No. Inventory</span>
                     <div class="input-group">
@@ -118,7 +117,7 @@ function load_inv(){
                 <?php echo form_error('catatan', '<div class="text-red">', '</div>'); ?>
               </div>
               <div class="btn-group">
-                <button type="submit" name="submit" class="btn ticket_btn">Kirim</button> 
+                <button type="submit" name="submit" class="btn ticket_btn"><i class="fa fa-share-square"></i>  Kirim Tiket Bantuan</button> 
               </div><br><br>
               <p><p><span style="color: #999999;"><em>CopyRight&nbsp;&copy; 2017-2018 - Divisi IT PT.Sejahtera Buana Trada</em></span></p></p>
             </div>
@@ -180,8 +179,8 @@ function load_inv(){
                         <div class="btn-group"><i class="fa fa-user"></i></div>
                         <span>'.strtoupper($r->nama_pemohon),' / ',$r->no_inventaris.'</span>                        
                         <p>'.$r->catatan_pemohon.'</p>
-                        <p>catatan perbaikan : <font color="red"><b>'.$r->catatan_perbaikan.'</font></p></b>
-                        <div class="ticket_action"> <p>status : <font color="blue">'.$r->status.'</p></font>
+                        <p>catatan perbaikan : <font color="red"><b>'.$r->catatan_perbaikan.'</font></p></b><br/>
+                        <p>status : <font color="blue">'.$r->status.' | Estimasi Selesai: <b>'.$r->tgl_estimasi.'</b></p></font>
                           
                         </div>                      
                     </a>
@@ -199,6 +198,7 @@ function load_inv(){
               ?>
             </div>
             <!-- Akhir Tiket On Progress -->
+            <p><p>
             <div class="ticket_open">
               <div class="ticket_open_heading">
                 <h3 class="pull-left"><span class="semi-bold">Closed Ticket</span></h3>

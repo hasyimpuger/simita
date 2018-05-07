@@ -108,7 +108,7 @@ function hapus(id){
         <small>Barang Masuk</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-suitcase"></i>Transkasi</a></li>
+        <li><a href="#"><i class="fa fa-suitcase"></i>Transaksi</a></li>
         <li class="active">Barang Masuk</li>
     </ol>
 </section>

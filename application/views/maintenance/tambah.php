@@ -120,6 +120,20 @@ function load_pengguna(){
                     </td>
                 <tr> 
                 <tr>
+                    <td><label>Tgl. Estimasi Perbaikan</label></td>
+                    <td>
+                        <div class=" col-sm-4">
+                            <div class=" input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>                              
+                                <input type="datetime" name="tgl_estimasi" class="form-control datepicker" id="datetimepicker1" placeholder="yyyy-mm-dd" >                            
+                            </div>
+                        </div>
+                        <?php echo form_error('tgl_estimasi', '<div class="text-red">', '</div>'); ?>
+                    </td>
+                <tr>
+                <tr>
                     <td><label>Catatan Pemohon</label></td>
                     <td>
                         <div class=" col-sm-4">                                                         

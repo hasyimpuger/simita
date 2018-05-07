@@ -91,6 +91,9 @@ class Web extends CI_Controller {
                 'nama_kategori' => $this->input->post('kategori'),
                 'nama_pemohon' => $this->input->post('pemohon'),
                 'no_inventaris' => $this->input->post('inventaris'),
+                'aset_hrd' => $this->input->post('aset_hrd'),
+                'createddate'=>date('Y-m-d H:i:s'),
+                'createby'=>$this->input->post('pemohon'),
                 'catatan_pemohon' => $this->input->post('catatan'),
                 'gid' => $this->input->post('group')
             );
@@ -120,16 +123,16 @@ class Web extends CI_Controller {
         $id=$_GET['kategori'];
         $gid=$_GET['group'];
         if ($id=='Laptop'){
-            $inv=  $this->db->query("SELECT tb_inv_laptop.id_laptop,tb_inv_laptop.kode_laptop,tb_inv_laptop.id_pengguna,tb_inv_laptop.gid,tb_pengguna.nama_pengguna FROM tb_inv_laptop, tb_pengguna WHERE tb_pengguna.id_pengguna = tb_inv_laptop.id_pengguna  AND tb_inv_laptop.gid=$gid")->result();
+            $inv=  $this->db->query("SELECT tb_inv_laptop.id_laptop,tb_inv_laptop.kode_laptop,tb_inv_laptop.id_pengguna,tb_inv_laptop.gid,tb_pengguna.nama_pengguna,tb_inv_laptop.aset_hrd FROM tb_inv_laptop, tb_pengguna WHERE tb_pengguna.id_pengguna = tb_inv_laptop.id_pengguna  AND tb_inv_laptop.gid=$gid")->result();
             echo "<option value='' selected='selected'>- Select No. Inventory -</option>";        
             foreach ($inv as $r){
-                echo "<option value='$r->kode_laptop'>".  strtoupper($r->kode_laptop),' - '.strtoupper($r->nama_pengguna)."</option>";
+                echo "<option value='$r->kode_laptop'>".  strtoupper($r->aset_hrd),' - '.strtoupper($r->nama_pengguna),' - '.strtoupper($r->kode_laptop)."</option>";
             } 
         }else if($id=='Komputer'){
-            $inv=  $this->db->query("SELECT tb_inv_komputer.id_komputer,tb_inv_komputer.kode_komputer,tb_inv_komputer.gid,tb_inv_komputer.id_pengguna,tb_pengguna.nama_pengguna FROM tb_pengguna INNER JOIN tb_inv_komputer ON tb_pengguna.id_pengguna = tb_inv_komputer.id_pengguna WHERE tb_inv_komputer.gid=$gid")->result();
+            $inv=  $this->db->query("SELECT tb_inv_komputer.id_komputer,tb_inv_komputer.aset_hrd,tb_inv_komputer.kode_komputer,tb_inv_komputer.gid,tb_inv_komputer.id_pengguna,tb_pengguna.nama_pengguna FROM tb_pengguna INNER JOIN tb_inv_komputer ON tb_pengguna.id_pengguna = tb_inv_komputer.id_pengguna WHERE tb_inv_komputer.gid=$gid")->result();
             echo "<option value='' selected='selected'>- Select No. Inventory -</option>";         
             foreach ($inv as $r){
-                echo "<option value='$r->kode_komputer'>".  strtoupper($r->kode_komputer),' - '.strtoupper($r->nama_pengguna)."</option>";
+                echo "<option value='$r->kode_komputer'>".  strtoupper($r->aset_hrd),' - '.strtoupper($r->nama_pengguna),' - '.strtoupper($r->kode_komputer)."</option>";
             } 
         }else if($id=='Printer'){
             $inv=  $this->db->query("SELECT tb_inv_printer.id_printer, tb_inv_printer.kode_printer,tb_inv_printer.id_pengguna,tb_inv_printer.gid,tb_pengguna.nama_pengguna FROM tb_pengguna INNER JOIN tb_inv_printer ON tb_pengguna.id_pengguna = tb_inv_printer.id_pengguna WHERE tb_inv_printer.gid=$gid")->result();

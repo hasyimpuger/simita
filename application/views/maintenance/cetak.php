@@ -34,7 +34,7 @@
                 <tr>
                   <td >Tgl Permohonan</td> <td>: </td>                 
                   <td><?php echo tgl_lengkap($recordall['tgl_permohonan'])?></td> 
-                  <td></td>   
+                  <td></td> 
                   <td >Nama Supplier</td><td>: </td>                  
                   <td><?php echo $recordall['nama_supplier']?></td>                 
                 </tr>
@@ -44,6 +44,8 @@
                   <td></td>                  
                <!--   <td >Catatan Perbaikan</td><td>: </td>                 
                   <td><?php echo $recordall['catatan_perbaikan']?></td> -->
+                  <td>Estimasi Selesai</td> <td>: </td>
+                  <td><b><?php echo tgl_lengkap($recordall['tgl_estimasi'])?></b></td>  
                 </tr>
                 <tr>
                   <td >Nama Pemohon</td><td>: </td>                  

@@ -22,7 +22,7 @@
       <div class="main"> 
         <!-- page 1-->
         <section id="page1">
-          <div class="overlay"></div>
+         <!-- <div class="overlay"></div> -->
           <div class="content">
             <div class="container clearfix">
               <div class="row">
@@ -40,7 +40,7 @@
                  
                 <ol class="carousel-indicators">
                     <li data-target="#Carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#Carousel" data-slide-to="1"></li>
+                   <!-- <li data-target="#Carousel" data-slide-to="1"></li> -->
                 </ol>                 
                 <!-- Carousel items -->
                 <div class="carousel-inner">                    
@@ -70,46 +70,16 @@
                
                     </div><!--.row-->
                 </div><!--.item-->
-                 
-                <div class="item">
-                    <div class="row">
-						 <?php 
-						 if (!empty($group2)){
-							foreach ($group2 as $g) {
-							 echo '
-								<div class="col-md-3 col-sm-12 col-xs-12">
-								<div class="team-member animated fadeInDown" data-animate="fadeInDown">
-									<div class="image">
-										<a href='.base_url('web/ticket/'.$g->gid).'>
-										  <img src='.base_url('assets/img/'.$g->logo).' alt="" class="img-responsive img-circle">
-										</a>
-									</div>
-									  <h3><a href='.base_url('web/ticket/'.$g->gid).'>'.$g->nama_group.'</a></h3>
-									  <p class="italic">'.$g->alamat.'</p>
-								</div>
-							</div>
-							 ';
-							}
-						 } 
-						 ?>
-                        
-                    </div><!--.row-->
-                </div><!--.item-->
-                 
+                
                 </div><!--.carousel-inner-->
                   <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
                   <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
-                </div><!--.Carousel-->
-
-
-			  
+                </div><!--.Carousel-->			  
 				</div>	
 			  </div>
             </div>
           </div>
-        </section>
-        
-         
+        </section>         
       </div>
     </div>
     <!-- Javascript files-->

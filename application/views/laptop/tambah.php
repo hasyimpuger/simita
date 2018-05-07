@@ -112,12 +112,12 @@
                             </div><!-- /.input group -->
                             <?php echo form_error('ip', '<div class="text-red">', '</div>'); ?>
                         </div><!-- /.form group -->                           
-                    </div><!-- /.box-body -->
-
-                    <div class="box-footer">
+                        <div class="box-footer">
                         <button type="submit" name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>                        
                         <a href="javascript:history.back()" class="btn btn-primary">Kembali</a>
                     </div>
+                    </div><!-- /.box-body -->
+                    
                 </form>
                 </div>
             </div>

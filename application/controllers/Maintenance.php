@@ -28,7 +28,8 @@ class Maintenance extends CI_Controller {
             $query[] = array(
                 'no'=>$no++,
                 'no_permohonan'=>$r->no_permohonan,
-                'tgl_permohonan'=>tgl_lengkap($r->tgl_permohonan),                
+                'tgl_permohonan'=>tgl_lengkap($r->tgl_permohonan),   
+                'tgl_estimasi'=>$r->tgl_estimasi,             
                 'tgl_selesai'=>$r->tgl_selesai,  
                 'jenis_permohonan'=>$r->jenis_permohonan, 
                 'nama_kategori'=>$r->nama_kategori, 
@@ -114,6 +115,7 @@ class Maintenance extends CI_Controller {
                 'no_permohonan' => $this->m_maintenance->kdotomatis($id),
                 'tgl_permohonan' => $this->input->post('tgl_permohonan'),
                 'tgl_selesai' => $this->input->post('tgl_selesai'),
+                'tgl_estimasi' => $this->input->post('tgl_estimasi'),
                 'jenis_permohonan' => $this->input->post('type'),                
                 'nama_kategori' => $this->input->post('kategori'),
                 'no_inventaris' => $this->input->post('inventaris'),
