@@ -63,3 +63,9 @@ Version 2.3 Build 032018
 - Penambahan Validasi Pengguna agar tidak double NIK
 - Penambahan CreatedDate dan CreateBy pada setiap transaksi di database
 - Perbaikan Bug pada Inventory Laptop
+
+Version 2.3 Build 052018
+------------------------
+- Penambahan Fitur Lisensi
+- Penambahan Fitur Password Mikrotik
+- Penambahan fitur ckEditor untuk spesifikasi (Laptop & PC)

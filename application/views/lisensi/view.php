@@ -1,8 +1,8 @@
 
 <section class="content-header">
     <h1>
-        Data Lisensi
-        <small>Data Lisensi Software</small>
+        Data Lisensi Software
+        <small>Data Lisensi</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-suitcase"></i>Lisensi & Password</a></li>
@@ -17,22 +17,23 @@
                 <div class='box-header with-border'>
                     <h3 class='box-title'><a href="<?php echo base_url('lisensi/add'); ?>" class="btn btn-primary btn-small">
                             <i class="glyphicon glyphicon-plus"></i> Tambah Data</a></h3>
+                            <a href="<?php echo base_url('lisensi/export_excel'); ?>" class="btn btn-primary btn-small">
+                            <i class="glyphicon glyphicon-save-file"></i> Export to Excel</a></h3>
+                            <label calss='control-label' ></label>
                             <label calss='control-label' ></label>
                 </div>
+               
                 <div class="box-body table-responsive">
                     <table id="tb-datatables" class="table table-bordered table-striped" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>No.</th>
                                 <th>Jenis Lisensi</th>
-                                <th>Supplier</th>
-                                <th>Key </th>  
+                                <th>Supplier </th>  
                                 <th>Tanggal Pembelian</th>
-                                <th>Berlaku Hingga</th> 
-                                <th>Jumlah Lisensi</th> 
-                                <th>Keterangan</th>                                                          
-                                <th>Edit</th>   
-                               <!-- <th>Delete</th>    -->                             
+                                <th>Tanggal Habis</th> 
+                                <th>Dalam Hari</th>                                                          
+                                <th>Tools</th>                                    
                             </tr>
                         </thead>
                        <?php
@@ -41,14 +42,14 @@
 						   echo"
 							   <tr>
 							   <td>$no</td>
-                               <td>".$r->jenis_lisensi."</td>
-                               <td>".$r->supplier."</td>
-							   <td>".$r->key_lisensi."</td>	
+							   <td>".$r->jenis_lisensi."</td>
+							   <td>".$r->supplier."</td>	
                                <td>".$r->tgl_pembelian."</td>	
                                <td>".$r->tgl_habis."</td>
-                               <td>".$r->jumlah_lisensi."</td>
-                               <td>".$r->keterangan."</td>			   					   
-							   <td>" . anchor('lisensi/edit/' . $r->id_lisensi, '<i class="btn btn-info btn-sm glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit"></i>') . "</td>
+                               <td>".$r->tanggal_kontrak."</td>			   					   
+							   <td>" . anchor('lisensi/detail/' . $r->id_lisensi, '<i class="btn btn-info btn-sm glyphicon glyphicon-list-alt" data-toggle="tooltip" title="Lihat Detail Data"></i>') . "
+                               " . anchor('lisensi/edit/' . $r->id_lisensi, '<i class="btn btn-info btn-sm glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit Data"></i>') . "
+							   " . anchor('lisensi/delete/' . $r->id_lisensi, '<i class="btn-sm btn-info glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus Data"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")) . "</td>
                                </tr>";
 						   $no++;
 					   }

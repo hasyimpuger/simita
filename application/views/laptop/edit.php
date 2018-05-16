@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Spesifikasi</label>
-                            <textarea name="spek" onkeyup="this.value = this.value.toUpperCase()"  class="form-control" rows="3"  required oninvalid="setCustomValidity('Spesifikasi Laptop Harus di Isi !')"
+                            <textarea name="spek" onkeyup="this.value = this.value.toUpperCase()"  class="ckeditor" rows="3"  required oninvalid="setCustomValidity('Spesifikasi Laptop Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Spesifikasi"><?php echo $record['spesifikasi']; ?></textarea>
                             <?php echo form_error('spek', '<div class="text-red">', '</div>'); ?>
                         </div>

@@ -1,8 +1,16 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/plugins/ckeditor/ckeditor.js'); ?>"></script>
 <script type="text/javascript">
     $(document).ready(function(){
        $(".combobox").combobox();
     });
+</script>
+<script>
+var ckeditor = CKEDITOR.replace('spek',{
+	height:'600px'
+});
+CKEDITOR.disableAutoInline = true;
+CKEDITOR.inline('editable');
 </script>
 <section class="content-header">
     <h1>
@@ -101,7 +109,6 @@
                                     <label for="example">Nomor Inventaris HRD</label>
                                     <input type="text" disabled class="form-control" name="aset_hrd" class="form-control" value="<?php echo $record['aset_hrd']; ?>" required oninvalid="setCustomValidity('Merek/brand Harus di Isi !')"
                                            oninput="setCustomValidity('')" placeholder="ex : ASUS, LENOVO" >
-                                           <?php echo form_error('aset_hrd', '<div class="text-red">', '</div>'); ?>
                                 </div>                                   
                                 <div class="form-group">
                                   <label>Pengguna</label>
@@ -127,7 +134,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Spesifikasi</label>
-                                    <textarea name="spek" onkeyup="this.value = this.value.toUpperCase()" class="form-control" rows="3"  required oninvalid="setCustomValidity('Spesifikasi Laptop Harus di Isi !')"
+                                    <textarea name="spek" onkeyup="this.value = this.value.toUpperCase()" class="ckeditor" rows="3"  required oninvalid="setCustomValidity('Spesifikasi Laptop Harus di Isi !')"
                                            oninput="setCustomValidity('')" placeholder="Spesifikasi"><?php echo $record['spesifikasi']; ?></textarea>
                                     <?php echo form_error('spek', '<div class="text-red">', '</div>'); ?>
                                 </div>
@@ -152,9 +159,9 @@
                                 </div>   
 								<div class="form-group">
                                     <label for="example">Note/ Catatan</label>
-                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()" name="note" class="form-control" value="<?php echo $record['note']; ?>" required oninvalid="setCustomValidity('Serial Number Harus di Isi !')"
+                                    <input type="text" onkeyup="this.value = this.value.toUpperCase()" name="note" class="form-control" value="<?php echo $record['note']; ?>"
                                            oninput="setCustomValidity('')" placeholder="Note / Catatan Status Inventory" >
-                                           <?php echo form_error('note', '<div class="text-red">', '</div>'); ?>
+                                       
                                 </div>
                                 <div class="form-group">
                                     <label>Tgl. Inventaris</label>

@@ -1,9 +1,17 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/maskedinput/jquery.maskedinput.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/plugins/ckeditor/ckeditor.js'); ?>"></script>
 <script type="text/javascript">
     $(document).ready(function(){
        $(".combobox").combobox();
     });
+</script>
+<script>
+var ckeditor = CKEDITOR.replace('spek',{
+	height:'600px'
+});
+CKEDITOR.disableAutoInline = true;
+CKEDITOR.inline('editable');
 </script>
   <script>
         jQuery(function($){
@@ -62,7 +70,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Spesifikasi</label>
-                            <textarea name="spek" onkeyup="this.value = this.value.toUpperCase()"  class="form-control" rows="3" required oninvalid="setCustomValidity('Spesifikasi Laptop Harus di Isi !')"
+                            <textarea name="spek" onkeyup="this.value = this.value.toUpperCase()"  class="ckeditor" rows="3" required oninvalid="setCustomValidity('Spesifikasi Laptop Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Spesifikasi"></textarea>
                             <?php echo form_error('spek', '<div class="text-red">', '</div>'); ?>
                         </div>

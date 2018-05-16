@@ -1,14 +1,23 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/maskedinput/jquery.maskedinput.js'); ?>"></script>
-        <script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/plugins/ckeditor/ckeditor.js'); ?>"></script>
+<script>
         jQuery(function($){
-            $("#key").mask("*****-*****-*****-*****");
+            $("#asethrd").mask("aaaa99/9/9/9/999/9");
+            $("#key").mask("****-****-****-****-****");
         });
-        </script>
+  </script>
+<script>
+var ckeditor = CKEDITOR.replace('keterangan',{
+	height:'600px'
+});
+CKEDITOR.disableAutoInline = true;
+CKEDITOR.inline('editable');
+</script>
 <section class="content-header">
     <h1>
         Tambah
-        <small>Data Lisensi Software</small>
+        <small>Data Lisensi</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-suitcase"></i>Lisensi & Password</a></li>
@@ -26,52 +35,53 @@
                 <?php
                     echo form_open('lisensi/add');
                 ?> 
-                  
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label>Jenis Lisensi</label>
-                            <select name="jenis_lisensi" class="form-control " >
-                                <option value="">-- Pilih Jenis Lisensi --</option>
-                                <option value='ANTIVIRUS'>ANTIVIRUS</option>
-                                <option value='WINDOWS'>WINDOWS</option>
-                                <option value='OFFICE'>OFFICE</option>
-                                <option value='SOFTWARE LAIN'>SOFTWARE LAIN</option>                                                               
-                            </select>
-                            <?php echo form_error('jenis_lisensi', '<div class="text-red">', '</div>'); ?>
-                        </div>
+                    <div class="box-body">                        
                         <div class="form-group">
                             <label>Supplier</label>
                             <select name="supplier" class="combobox form-control" id="supplier"> 
-                                <option value="">- Pilih Nama Supplier -</option>                               
-                                <?php
+                                <option value="">- Pilih Supplier/Vendor -</option>                               
+                                    <?php
                                     if (!empty($supplier)) {
                                         foreach ($supplier as $row) {
                                             echo "<option value='".$row->nama_supplier."'>".strtoupper($row->nama_supplier)."</option>";                                        
                                         }
                                     }
-                                ?>
+                                    ?>
                             </select>                          
-                        </div> 
+                        </div>    
                         <div class="form-group">
-                            <label for="example">Key Lisensi</label>
-                            <input type="text" id="key" name="key" class="form-control" required oninvalid="setCustomValidity('License Key Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="" >
-                                   <?php echo form_error('nama_provider', '<div class="text-red">', '</div>'); ?>
+                            <label>Jenis Lisensi</label>
+                            <select name="jenis_lisensi" class="form-control " >
+                                <option value="">-- Pilih Jenis Lisensi --</option>
+                                <option value='WIRELESS'>AntiVirus</option>
+                                <option value='FIBER OPTIC'>Windows</option>
+                                <option value='TV CABLE'>Office</option>
+                                <option value='MODEM'>Lain-Lain</option>                                                               
+                            </select>
+                            <?php echo form_error('jenis_lisensi', '<div class="text-red">', '</div>'); ?>
                         </div>
                         <div class="form-group">
-                            <label>Tanggal Masa Berlaku</label>
+                            <label>Key Lisensi</label>
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                <i class="fa fa-key"></i>
+                              </div>
+                              <input name="key_lisensi" type="text" class="form-control" id="key" />
+                            </div><!-- /.input group -->
+                            <?php echo form_error('key_lisensi', '<div class="text-red">', '</div>'); ?>
+                        </div><!-- /.form group --> 
+                        <div class="form-group">
+                            <label>Tanggal Aktif</label>
                             <div class="input-group">
                               <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                               </div>
-                              
-                                 <input type="text" name="tgl_pembelian" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tanggal Kontrak Wajib Diisi !')"
+                                 <input type="text" name="tgl_pembelian" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tanggal Berlaku Wajib Diisi !')"
                                    oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
-                            
                             </div><!-- /.input group -->
-                        </div> 
+                        </div>
                         <div class="form-group">
-                            <label>Berlaku Hingga</label>
+                            <label>Tanggal Habis Lisensi</label>
                             <div class="input-group">
                               <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
@@ -79,28 +89,22 @@
                               
                                  <input type="text" name="tgl_habis" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tanggal Kontrak Wajib Diisi !')"
                                    oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
-                            
                             </div><!-- /.input group -->
-                        </div>   
+                        </div>
                         <div class="form-group">
                             <label for="example">Jumlah Lisensi</label>
                             <input type="number" name="jumlah_lisensi" class="form-control" required oninvalid="setCustomValidity('Jumlah Lisensi Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="200" >
-                                   <?php echo form_error('jumlah_lisensi', '<div class="text-red">', '</div>'); ?>
-                        </div>                     
+                                   oninput="setCustomValidity('')" placeholder="200" >  
+                        </div> 
                         <div class="form-group">
-                            <label for="">Keterangan & Informasi Lain</label>
-                            <textarea name="keterangan" onkeyup="this.value = this.value.toUpperCase()"  class="form-control" rows="3" required oninvalid="setCustomValidity('Keterangan Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="Masukan Keterangan atau informasi lainnya"></textarea>
-                            <?php echo form_error('spek', '<div class="text-red">', '</div>'); ?>
-                        </div>           
-                        <tr>
-                                
-                </tr>                    
+                            <label for="">Keterangan</label>
+                            <textarea name="keterangan" class="ckeditor" rows="3" required oninvalid="setCustomValidity('Spesifikasi Harus di Isi !')"
+                                   oninput="setCustomValidity('')" placeholder="Masukan Kapasitas Bandwidth Download dan Upload serta keterangan lainnya"></textarea>
+                            <?php echo form_error('keterangan', '<div class="text-red">', '</div>'); ?>
+                        </div>                    
                     </div><!-- /.box-body -->
-
                     <div class="box-footer">
-                        <button type="submit" name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan Lisensi</button>                        
+                        <button type="submit" name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>                        
                         <a href="<?php echo site_url('lisensi'); ?>" class="btn btn-primary">Kembali</a>
                     </div>
                 </form>

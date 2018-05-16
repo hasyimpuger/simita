@@ -1,4 +1,7 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 class M_lisensi extends CI_Model {    
 
@@ -6,12 +9,6 @@ class M_lisensi extends CI_Model {
         $this->db->order_by("id_lisensi", "DESC");
         return $this->db->get("tb_lisensi");
     }
-
-    function getkode($id) {
-        $kode = array('id_lisensi' => $id);
-        return $this->db->get_where('tb_lisensi', $kode);
-    }
-    
     function kdotomatis() {
         $group=$this->db->get_where('tb_group',array('gid'=>$this->session->userdata('gid')))->row_array();
         $kode=$group['nama_alias'];
@@ -25,18 +22,9 @@ class M_lisensi extends CI_Model {
         return $newID;       
     }
 
-    function getsupplier() {
-        $this->db->where('isactive','True');
-        $this->db->order_by('nama_supplier','ASC');
-        return $this->db->get('tb_supplier');
-    }
-
-    function getpenggunagid() {
-        $gid=$this->session->userdata('gid');
-        $query=$this->db->query("SELECT tb_pengguna.id_pengguna,tb_pengguna.nama_pengguna,tb_departemen.gid 
-            FROM tb_pengguna INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept 
-            WHERE tb_departemen.gid ='$gid' ORDER BY tb_pengguna.nama_pengguna ASC");
-        return $query;
+    function getkode($id) {
+        $kode = array('id_lisensi' => $id);
+        return $this->db->get_where('tb_lisensi', $kode);
     }
 
     function simpan($data) {
@@ -53,4 +41,24 @@ class M_lisensi extends CI_Model {
         $this->db->where('id_lisensi', $kode);
         $this->db->delete('tb_lisensi');
     }
+    function getpenggunagid() {
+        $gid=$this->session->userdata('gid');
+        $query=$this->db->query("SELECT tb_pengguna.id_pengguna,tb_pengguna.nama_pengguna,tb_departemen.gid 
+            FROM tb_pengguna INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept 
+            WHERE tb_departemen.gid ='$gid' ORDER BY tb_pengguna.nama_pengguna ASC");
+        return $query;
+    }
+
+    function getsupplier(){
+        $this->db->order_by('id_supplier','ASC');
+        return $this->db->get('tb_supplier');
+    }
+
+    function getall($id) {        
+        $query = $this->db->query("SELECT tb_internet.nama_provider,tb_internet.nama_cabang,tb_internet.nomor_pelanggan,tb_internet.ip_public,tb_internet.spesifikasi,tb_internet.tanggal_kontrak,tb_internet.masa_kontrak,tb_internet.status,tb_internet.biaya,tb_provider.telpon_provider,tb_provider.nama_sales,tb_provider.nama_sales,tb_provider.email_provider,tb_provider.telpon_sales,tb_internet.tipe_koneksi
+            FROM tb_internet INNER JOIN tb_provider ON tb_internet.nama_provider = tb_provider.nama_provider WHERE tb_internet.id_internet='$id'");
+        return $query;
+    }
+
+
 }
