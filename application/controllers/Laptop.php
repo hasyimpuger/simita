@@ -250,13 +250,14 @@ class Laptop extends CI_Controller {
                         'nama_laptop' => $this->input->post('merek'),
                         'spesifikasi' => $this->input->post('spek'),
                         'serial_number' => $this->input->post('sn'),
-                        'harga_beli' => $this->input->post('harga'),
+                        'harga_beli' =>$this->input->post('harga'),
                         'network' => $this->input->post('ip'),
-                        'aset_hrd' => $this->input->post('aset_hrd'),
                         'tgl_inv' =>$this->input->post('tgl_inv'),
-                        'status' =>$this->input->post('status'),
-						'note' => $this->input->post('note')
+                        'tgl_garansi' =>$this->input->post('tgl_garansi'),
+                        'status' => $this->input->post('status'),
+                        'note' => $this->input->post('note')
                     );
+                
             $kode=$this->input->post('kode');
             $this->m_laptop->update($kode,$data);
             redirect('laptop/detail/'.$kode);                
@@ -289,7 +290,6 @@ class Laptop extends CI_Controller {
         $this->form_validation->set_rules('ip', 'IP Address', 'required|valid_ip');       
         $this->form_validation->set_rules('tgl_inv', 'Tgl. Inventaris', 'required');  
         $this->form_validation->set_rules('tgl_garansi', 'Tgl. Garansi', 'required'); 
-        $this->form_validation->set_rules('aset_hrd','Nomor Aset HRD','required');
         $this->form_validation->set_error_delimiters("<div class='alert alert-danger alert-dismissable'>", "</div>");
     }
     // Fungsi untuk export ke excel (23 Januari 2018)

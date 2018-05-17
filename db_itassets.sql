@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2018 at 08:29 AM
+-- Generation Time: Feb 20, 2018 at 09:41 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -43,86 +43,8 @@ CREATE TABLE `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`kode_barang`, `id_kategori`, `nama_barang`, `merek_barang`, `spesifikasi`, `satuan`, `gid`) VALUES
-('B013.0007', 5, 'WIFI ', 'Cisco Linksys', 'Linksys Dual-Band N900 Router, Model: EA4500-Ap', 'PCS', 1),
-('B013.0008', 4, 'POWER SUPLY', 'ADVANCE', 'ADVANCE 450W', 'PCS', 1),
-('B013.0009', 4, 'RAM DDR2 V-GEN', 'V-GEN', 'V-GEN DDR2 1GB', 'PCS', 1),
-('B013.0010', 1, 'PERSONAL COMPUTER', 'GIGABYTE', 'DUAL CORE 3,0 GHZ, GIGABYTE, HDD 500 GB, RAM DDR3 1 GB ', 'UNIT', 1),
-('B013.0011', 7, 'LED', 'LG', 'LG FLATRON E1642 15,6\"', 'UNIT', 1),
-('B013.0012', 3, 'UPS', 'ICA', 'ICA UPS 2000 VA', 'UNIT', 1),
-('B013.0013', 3, 'MOUSE PS2', 'GENIUS', 'GENIUS PS/2 MOUSE', 'PCS', 1),
-('B013.0014', 3, 'MOUSE USB', 'GENIUS', 'GENIUS USB MOUSE', 'PCS', 1),
-('B013.0015', 5, 'KONEKTOR RJ45', 'AMP', 'CONECTOR RJ45 AMP (50)', 'PACK', 1),
-('B013.0017', 8, 'DESJET', 'CANNON', 'PRINTER CANON MP237', 'UNIT', 1),
-('B013.0018', 3, 'FLASHDISK', 'KINGSTONE', 'KINGSTONE 8GB', 'PCS', 1),
-('B013.0019', 5, 'SWITCH', 'TP-LINK', 'TP-LINK TL-SG1008D GIGABIT 8 PORT', 'UNIT', 1),
-('B013.0020', 3, 'UPS', 'ICA', 'ICA 1200VA', 'UNIT', 1),
-('B013.0022', 4, 'RAM DDR3 4 GB server', 'V-GEN', 'DDR3 4GB, v-GEN', 'PCS', 1),
-('B013.0023', 1, 'PC+LCD+keybrd,Mouse', 'GIGABYTE', 'Mb; GA_H61M-DS2, RAM DDR3 1GB, HDD 500GB WD, LED LG 16EN33, Keyboard+mouse EPRAIZER', 'UNIT', 1),
-('B013.0024', 4, 'RAM DDR3', 'V-GEN', 'V-GEN DDR3 1GB', 'PCS', 1),
-('B013.0026', 8, 'PRINTER  L110', 'Epson', 'Epson L110', 'UNIT', 1),
-('B013.0027', 3, 'FLASDISK 16 GB', 'Kingston', 'Kingston 16 GB', 'PCS', 1),
-('B013.0028', 3, 'Keyboard PS/2', 'Genius', 'PS/2 Genius', 'PCS', 1),
-('B013.0029', 3, 'Keyboard USB', 'Genius', 'keyboard Genius USB', 'PCS', 1),
-('B013.0030', 4, 'HARDISK SATA 500 GB', 'WESTERN DIGITAL', 'WESTERN DIGITAL SATA 500 GB', 'PCS', 1),
-('B013.0031', 5, 'KABEL UTP CAT 5E', 'BELDEN', 'BELDEN UTP CATEGORY 5E USA', 'ROLL', 1),
-('B013.0032', 9, 'LAN TESTER', 'CABLE TESTER', 'CABLE TESTER NETWORK ', 'PCS', 1),
-('B013.0033', 4, 'HARDISK LAPTOP', 'HGST', 'HGST 500 GB', 'PCS', 1),
-('B013.0034', 4, 'RAM LAPTOP DDR3 4 GB', 'V-GEN', 'V-GEN DDR 3 4 GB', 'PCS', 1),
-('B013.0035', 10, 'REFILL EPSON LXXX', 'EPSON ', 'EPSON BK T6641, C T6642, M T6643, Y T6644', 'ROLL', 1),
-('B013.0036', 10, 'REFILL TINTA T6641 BK', 'EPSON', 'EPSON T6641 BLACK', 'PCS', 1),
-('B013.0038', 2, 'LAPTOP ASUS', 'ASUS X450 CC', 'CORE i3 , HDD 500 GB, RAM 2 GB, 14\"', 'UNIT', 1),
-('B013.0039', 4, 'CHARGER LAPTOP', 'ACER 4732Z', 'ACER 4732Z MODEL PA-1650-02 19V OUTPUT', 'UNIT', 1),
-('B013.0040', 8, 'DOTMATRIX', 'EPSON ', 'EPSON LX-310', 'UNIT', 1),
-('B013.0041', 7, 'LED LG 16EN33', 'LG ', 'LG FLATRON 16EN33 15.6\"', 'UNIT', 1),
-('B013.0042', 5, 'LAN CARD GIGABIT', 'D-LINK', 'DGE-528T GIGABIT', 'UNIT', 1),
-('B013.0044', 5, 'WIFI CISCO', 'CISCO LINKSYS EA4500 ', 'LINKSYS EA4500 GIGABIT DUAL-BAND N900', 'UNIT', 1),
-('B013.0046', 4, 'FAN COOLER SCORPION', 'SCORPION KING', 'SCORPION KING FAN COOLER HF-560', 'UNIT', 1),
-('B013.0047', 4, 'KABEL VGA 1.5M', 'DIGILINK', 'DIGILINK VGA CABLE 1.5M', 'PCS', 1),
-('B013.0048', 7, 'LED LG 19EN33', 'LG', 'LG FLATRON 16EN33 19.6\"', 'UNIT', 1),
-('B013.0050', 2, 'LAPTOP SONY VAIO', 'SONY VAIO SVT11215SG', 'Intel Core i5 4210Y 1.5GHz, RAM DDR3 4GB, HDD SSD 128 GB', 'UNIT', 1),
-('B013.0051', 3, 'UPS 1200VA', 'ICA', 'ICA CE 1200VA', 'UNIT', 1),
-('B013.0052', 8, 'PRINTER L800', 'EPSON', 'EPSON L800', 'UNIT', 1),
-('B013.0053', 8, 'PRINTER L210', 'EPSON', 'EPSON L210 ALL IN PRINTER', 'UNIT', 1),
-('B013.0054', 3, 'KEYBOARD , MOUSE WIFI', 'LOGITECH', 'LOGITECH WIRELESS COMBO MK220', 'UNIT', 1),
-('B013.0058', 3, 'MOUSE WIFI', 'LOGITECH', 'LOGITECH WIRELESS MOUSE M185', 'UNIT', 1),
-('B013.0059', 10, 'CATRIDGE TX110 B', 'EPSON', 'EPSON CATRIDGE TX110 BLACK', 'UNIT', 1),
-('B013.0060', 10, 'CATRIDGE TX110 M', 'EPSON', 'EPSON CATRIDGE TX1100 MAGENTA', 'UNIT', 1),
-('B013.0061', 10, 'CATRIDGE TX110 Y', 'EPSON', 'EPSON CATRIDGE TX1100 YELLOW', 'UNIT', 1),
-('B013.0062', 10, 'CATRIDGE TX110 C', 'EPSON', 'EPSON CATRIDGE TX1100 CYAN', 'UNIT', 1),
-('B013.0063', 5, 'SWITCH 16 PORT', 'D-LINK', 'D-LINK DGS 1015D 16 PORT', 'UNIT', 1),
-('B013.0064', 5, 'WIFI CARD TP-LINK', 'TP-LINK', '150Mbps Wifi PCI Card TL-WN781ND', 'UNIT', 1),
-('B013.0065', 3, 'FLASHDISK TOSHIBA ', 'TOSHIBA', 'TOSHIBA 4 GB', 'UNIT', 1),
-('B013.0066', 1, 'COMPUTER CORE 2 DUO', 'Gigabyte', 'INTEL CORE 2 DUO 3.00 GHz ; HDD 500 GB ; RAM 1 GB', 'UNIT', 1),
-('B013.0067', 8, 'PRINTER EPSON L550', 'EPSON', 'EPSON L550', 'UNIT', 1),
-('B013.0068', 2, 'LAPTOP ASUS', 'ASUS X451C', 'Intel Core i3-3217U CPU @1.80 GHz, RAM 2 GB, HDD 500 GB', 'UNIT', 1),
-('B013.0069', 4, 'HDD IBM 600GB', 'IBM ', 'IBM 600 GB 15 K SAS 3.5 Inch', 'UNIT', 1),
-('B013.0070', 4, 'RAM DDR3 4GB', 'V-GEN', 'DDR3 4GB', 'UNIT', 1),
-('B013.0071', 10, 'DVD BLANK', 'MAXELL', 'DVD-R 4.7GB', 'PCS', 1),
-('B013.0072', 5, 'LAN CARD PCI EXPRESS GIGABIT', 'TP-LINK', 'GIGABIT PCI EXPRESS TG-3468', 'PCS', 1),
-('B013.0073', 3, 'FLASHDISK 16GB', 'TRANSCEND', 'TRANSCEND 16 GB USB ', 'PCS', 1),
-('B013.0074', 3, 'SCANNER CANON 110', 'CANON', 'CANONSCAN LIDE 110', 'UNIT', 1),
-('B013.0075', 5, 'KABEL UTP CAT 6', 'AMP', 'UTP AMP CATEGORY 6', 'ROLL', 1),
-('B013.0076', 1, 'COMPUTER BUILTUP LENOVO', 'LENOVO', 'Lenovo E93-1A Desktop\r Core i3 4130 ( 3,46 Ghz , 3M cache )\r 4 GB DDR3 PC3 12800 of RAM\r 500 GB HDD SATA 7200 rpm, Memory Card Reader\r DVDRW Multiburner ', 'UNIT', 2),
-('B013.0077', 7, 'LED LENOVO', 'LENOVO', 'LED LENOVO 18.5\"', 'UNIT', 1),
-('B013.0078', 4, 'BATERAI BIOS', 'MAXELL', 'MAXELL MICRO LITHIUM CELL', 'UNIT', 1),
-('B013.0079', 8, 'PRINTER L120', 'EPSON', 'EPSON L120', 'UNIT', 1),
-('B013.0080', 3, 'PROJECTOR NEC', 'NEC', 'NEC VE281 HDMI', 'UNIT', 1),
-('B013.0081', 9, 'STORAGE SERVER', 'LENOVO EMC Storcenter ix2 (355', 'LENOVO EMC Storcenter ix2 (35552) 2 TB', 'UNIT', 1),
-('B013.0082', 3, 'MOUSE PEN WACOOM', 'WACOM ', 'WACOM INTUOS ', 'UNIT', 1),
-('B013.0083', 5, 'WIFI ROUTER TP-LINK TL-WA5110G', 'TP-LINK', '54 Mbps', 'PCS', 1),
-('B013.0084', 10, 'CD KOSONG', 'MEDIATECH', '700 MB', 'PCS', 1),
-('B013.0085', 4, 'Memory V-GEN SO-DIMM DDR3 4GB', 'V-GEN', '4GB PC12800', 'PCS', 1),
-('B013.0087', 5, 'MIKROTIK ROUTHERBOARD ', 'MIKROTIK', 'CRS 125-24G-1S-RM', 'UNIT', 1),
-('B013.0088', 5, 'Wallmountrack', 'Wallmountrack', 'Wallmountrack 19\" 8U-450mm', 'PCS', 1),
-('B013.0089', 3, 'MOUSE USB', 'LOGITECH', 'LOGITECH B100', 'PCS', 1),
-('B016.0001', 4, 'HARDDISK SATA 2TB SEAGATE', 'SEAGATE', '2TB', 'PCS', 1),
-('B016.0002', 4, 'MOTHERBOARD', 'GIGABYTE', 'LG-775', 'PCS', 1),
-('B016.0003', 9, 'CONVERTER USB TO IDE/SATA', 'CABLEMAX', 'USB 2.0 TO SATA IDE CABLE', 'PCS', 1),
-('B016.0004', 4, 'PROCESSOR', 'Intel', 'CORE 2 DUO', 'PCS', 1),
-('B016.0005', 10, 'TERMAL PASTA', 'HC131', 'Headsink Compounds HC131', 'PCS', 1),
-('B016.0006', 5, 'MIKROTIK 2S+RM', 'Mikrotik', 'MIKROTIKROUTHERBOARD CRS 226-24G-2S+RM', 'UNIT', 1),
-('B016.0007', 8, 'PRINTER IP2770', 'CANON', 'CANON PIXMA IP 2770', 'UNIT', 1),
-('B016.0009', 8, 'PRINTER', 'HP LASER JET PRO', 'HP LASER JET PRO P1102', 'UNIT', 1);
+('B018.0001', 1, 'LATITUDE 3330', 'DELL', 'CORE I3, RAM 4 GB', 'PCS', 1),
+('B018.0002', 1, 'LQ-2190', 'EPSON', 'PRINTER EPSON LQ-2190', 'PCS', 1);
 
 -- --------------------------------------------------------
 
@@ -278,14 +200,6 @@ CREATE TABLE `tb_internet` (
   `kode_internet` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tb_internet`
---
-
-INSERT INTO `tb_internet` (`id_internet`, `nama_provider`, `nama_cabang`, `nomor_pelanggan`, `tipe_koneksi`, `ip_public`, `spesifikasi`, `tanggal_kontrak`, `masa_kontrak`, `status`, `biaya`, `gid`, `kode_internet`) VALUES
-(4, 'HYPERNET', 'Bumi Serpong Damai', '121212', '', '111.111.111.111', 'ASASASA', '2018-01-23', '2018-02-15', 'AKTIF', '200000', '1', 'KIC-JAB-01.001'),
-(5, 'NUSANET', 'Holding', '12211', 'FIBER OPTIC', '111.111.111.111', '10 MBPS UPLOAD, 10 MBPS DOWNLOAD', '2018-02-02', '2018-03-31', 'AKTIF', '4000000', '1', 'KIC-JKT-02.001');
-
 -- --------------------------------------------------------
 
 --
@@ -309,14 +223,8 @@ CREATE TABLE `tb_inv_history` (
 --
 
 INSERT INTO `tb_inv_history` (`id_history`, `no_inventaris`, `tgl_update`, `status`, `admin`, `id_pengguna_awal`, `id_pengguna`, `lokasi`, `note`) VALUES
-(1, 'LAP-Jab-17001', '2017-12-26 07:59:24', 'Buat Baru', 'administrator', 'U017.0001', 'U017.0001', '', 'Inventory Baru'),
-(2, 'LAP-Jab-18001', '2018-01-05 05:19:40', 'Buat Baru', 'administrator', 'U017.0001', 'U017.0001', '', 'Inventory Baru'),
-(3, 'LAP-Jab-18002', '2018-01-05 06:46:31', 'Buat Baru', 'administrator', 'U017.0001', 'U017.0001', '', 'Inventory Baru'),
-(4, 'CPU-Jab-18001', '2018-01-13 15:37:15', 'Buat Baru', 'Ahmad Sopian', 'U017.0001', 'U017.0001', '', 'Inventory Baru'),
-(5, 'CPU-Jab-18001', '2018-01-15 05:25:48', 'Buat Baru', 'Ahmad Sopian', 'U017.0001', 'U017.0001', '', 'Inventory Baru'),
-(6, 'PRI-Jab-18001', '2018-01-15 06:00:12', 'Buat Baru', 'Ahmad Sopian', NULL, 'U017.0001', '', 'New Inventory'),
-(7, 'LAP-Jab-18001', '2018-01-15 07:57:54', 'Buat Baru', 'Ahmad Sopian', 'U018.0002', 'U018.0002', '', 'Inventory Baru'),
-(8, 'LAP-Jab-18001', '2018-01-15 08:03:38', 'Buat Baru', 'Ahmad Sopian', 'U018.0002', 'U018.0002', '', 'Inventory Baru');
+(1, 'LAP-JKT-18001', '2018-02-17 15:24:59', 'Buat Baru', 'Ahmad Sopian', 'U018.0001', 'U018.0001', '', 'Inventory Baru'),
+(2, 'LAP-JKT-18002', '2018-02-17 15:26:32', 'Buat Baru', 'Ahmad Sopian', 'U018.0001', 'U018.0001', '', 'Inventory Baru');
 
 -- --------------------------------------------------------
 
@@ -341,13 +249,6 @@ CREATE TABLE `tb_inv_komputer` (
   `note` varchar(30) DEFAULT NULL,
   `gid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_inv_komputer`
---
-
-INSERT INTO `tb_inv_komputer` (`id_komputer`, `kode_komputer`, `aset_hrd`, `id_pengguna`, `nama_komputer`, `spesifikasi`, `serial_number`, `id_lisence`, `network`, `tgl_inv`, `tgl_garansi`, `harga_beli`, `status`, `note`, `gid`) VALUES
-(1, 'CPU-Jab-18001', 'BITJ01/2/2/3/112/1', 'U017.0001', 'DELL', 'PC : DDR3\r\nRAM : 2GB', '17811', NULL, '111.111.111.111', '2018-01-15', '2018-01-15', '12000000', 'DIGUNAKAN', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -379,8 +280,8 @@ CREATE TABLE `tb_inv_laptop` (
 --
 
 INSERT INTO `tb_inv_laptop` (`id_laptop`, `kode_laptop`, `id_pengguna`, `nama_laptop`, `tipe_laptop`, `spesifikasi`, `serial_number`, `id_lisence`, `network`, `tgl_inv`, `tgl_garansi`, `harga_beli`, `status`, `note`, `gid`, `aset_hrd`) VALUES
-(1, 'LAP-Jab-17001', 'U017.0001', 'DELL', '', 'OKE BANGET', 'BCF123', NULL, '172.16.100.19', '2017-12-26', NULL, '12000000', 'DIGUNAKAN', 'BARANG BARU', 1, 'BITJ00-1-2-1-212-1'),
-(3, 'LAP-Jab-18001', 'U018.0002', 'DELL', '', 'SSSSSSSS', 'BH1234', NULL, '111.111.111.111', '2018-01-15', '2020-11-30', '120000', 'DIGUNAKAN', NULL, 1, 'bitj12/0/0/0/908/9');
+(1, 'LAP-JKT-18001', 'U018.0001', 'DELL', '', 'TEST', '6178200', NULL, '111.111.111.111', '2018-02-17', '2018-05-31', '12000000', 'DIGUNAKAN', NULL, 1, 'BITJ00/2/6/7/819/9'),
+(2, 'LAP-JKT-18002', 'U018.0001', 'DELL', '', 'TEST', 'BCF123', NULL, '111.111.111.111', '2018-02-17', '2018-06-03', '1200000', 'DIGUNAKAN', NULL, 1, 'BITJ10/1/7/7/255/5');
 
 -- --------------------------------------------------------
 
@@ -438,13 +339,6 @@ CREATE TABLE `tb_inv_printer` (
   `note` varchar(100) DEFAULT NULL,
   `gid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_inv_printer`
---
-
-INSERT INTO `tb_inv_printer` (`id_printer`, `kode_printer`, `aset_hrd`, `id_pengguna`, `jenis_printer`, `spesifikasi`, `tgl_inv`, `harga_beli`, `status`, `note`, `gid`) VALUES
-(1, 'PRI-Jab-18001', 'BITJ01/2/8/7/887/8', 'U017.0001', 'DESKJET', 'TEST', '2018-01-15', '5000000', 'DIGUNAKAN', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -522,16 +416,6 @@ CREATE TABLE `tb_maintenance` (
   `terbilang` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `tb_maintenance`
---
-
-INSERT INTO `tb_maintenance` (`no_permohonan`, `tgl_permohonan`, `tgl_selesai`, `jenis_permohonan`, `nama_kategori`, `no_inventaris`, `catatan_pemohon`, `nama_pemohon`, `catatan_perbaikan`, `nama_supplier`, `biaya`, `status`, `gid`, `terbilang`) VALUES
-('B1.0113.001', '2018-01-13 23:04:00', '2018-01-13 23:01:00', 'Hardware', 'Laptop', 'LAP-Jab-17001', 'TEST', 'Admin', 'INSTALL ULANG', 'PT. SEMESTA SINERGI', '200000', 'OPEN', 1, NULL),
-('B1.1226.001', '2017-12-26 13:59:00', '2017-12-30 13:12:00', 'Software', 'Laptop', 'LAP-Jab-17001', 'Install Ulang', 'Admin', 'Install Ulang Windows', '', '0', 'OPEN', 1, NULL),
-('B1.1226.002', '2017-12-26 09:56:57', '2017-12-31 15:57:00', 'Software', 'Laptop', 'LAP-Jab-17001', 'Test Tiket', 'AHMAD SOPIAN', 'Install Ulang', '', '0', 'PROCESS', 1, NULL),
-('B1.1226.003', '2017-12-26 11:02:45', '2017-12-30 00:00:00', 'Hardware & Software', 'Laptop', 'LAP-Jab-17001', 'TEST CLOSE TIKET', 'AHMAD SOPIAN', 'PENGGANTIAN BATERAI', 'PT. SEMESTA SINERGI', '2550900', 'CLOSED', 1, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -545,17 +429,6 @@ CREATE TABLE `tb_maintenance_detail` (
   `catatan` varchar(100) DEFAULT NULL,
   `user` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `tb_maintenance_detail`
---
-
-INSERT INTO `tb_maintenance_detail` (`id_detail`, `no_permohonan`, `tgl_proses`, `catatan`, `user`) VALUES
-(1, 'B1.1226.001', '2017-12-26 08:00:16', 'Install Ulang', 'User'),
-(2, 'B1.1226.002', '2017-12-26 09:56:57', 'Test Tiket', 'AHMAD SOPIAN'),
-(3, 'B1.1226.002', '2017-12-26 09:57:19', 'Masalahnya apa ?', 'Admin'),
-(4, 'B1.1226.003', '2017-12-26 11:02:45', 'test close tiket', 'AHMAD SOPIAN'),
-(5, 'B1.0113.001', '2018-01-13 17:05:24', 'TEST', 'User');
 
 -- --------------------------------------------------------
 
@@ -574,7 +447,6 @@ CREATE TABLE `tb_manufacture` (
 
 INSERT INTO `tb_manufacture` (`id_manufacture`, `nama_manufacture`) VALUES
 (1, 'DELL'),
-(2, 'EPSON'),
 (4, 'EPSON');
 
 -- --------------------------------------------------------
@@ -664,11 +536,10 @@ CREATE TABLE `tb_pengguna` (
 --
 
 INSERT INTO `tb_pengguna` (`id_pengguna`, `nik`, `nama_pengguna`, `id_dept`, `id_jabatan`, `ruang_kantor`, `id_cabang`) VALUES
-('U017.0001', '51919', 'Ahmad Sopian', 41, 6, 'R.Holding', '3'),
-('U018.0002', '5123', 'TEST KARYAWAN', 82, 6, '-', '11'),
-('U018.0003', '51919', 'TEST', 41, 6, '1', '1'),
-('U018.0004', '51919', 'TEST', 41, 6, '11', '1'),
-('U018.0005', '51232', 'TEST KARYAWAN', 82, 3, '-', '0');
+('U018.0001', '51919', 'AHMAD SOPIAN', 41, 6, 'HOLDING', '1'),
+('U018.0002', '51919', 'AHMAD SOPIANA', 41, 3, '-', '1'),
+('U018.0003', '51919', 'TEST KARYAWAN', 82, 4, '-', '0'),
+('U018.0004', '51917', 'TEST KARYAWAN', 11, 2, '-', '0');
 
 -- --------------------------------------------------------
 
@@ -684,15 +555,6 @@ CREATE TABLE `tb_provider` (
   `telpon_sales` varchar(45) NOT NULL,
   `email_provider` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_provider`
---
-
-INSERT INTO `tb_provider` (`id_provider`, `nama_provider`, `telpon_provider`, `nama_sales`, `telpon_sales`, `email_provider`) VALUES
-(3, 'NUSANET', '112233', 'AHMAD SOPIAN', '089999', ''),
-(4, 'HYPERNET', '021464646', 'ERWIN', '081219093977', ''),
-(5, 'REMALA', '02180008000', 'TRIANANDA', '0878', '');
 
 -- --------------------------------------------------------
 
@@ -742,15 +604,19 @@ CREATE TABLE `tb_supplier` (
   `nama_supplier` varchar(50) NOT NULL,
   `alamat_supplier` varchar(100) NOT NULL,
   `telepon` varchar(20) NOT NULL,
-  `nama_pic` varchar(45) NOT NULL
+  `nama_pic` varchar(45) NOT NULL,
+  `nomor_npwp` varchar(45) NOT NULL,
+  `nomor_ktp` varchar(45) NOT NULL,
+  `isactive` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_supplier`
 --
 
-INSERT INTO `tb_supplier` (`id_supplier`, `nama_supplier`, `alamat_supplier`, `telepon`, `nama_pic`) VALUES
-(15, 'PT. SEMESTA SINERGI', 'jalan raya pinangsia', '081219093977', 'SOPIAN');
+INSERT INTO `tb_supplier` (`id_supplier`, `nama_supplier`, `alamat_supplier`, `telepon`, `nama_pic`, `nomor_npwp`, `nomor_ktp`, `isactive`) VALUES
+(16, 'PT. SEMESTA SINERGI', 'TEST', '08128912121', 'OKE', '00.000.000.0-000.001', '1111111111111112', 'True'),
+(17, 'PT. HELIOS', 'TEST ALAMAT                                                                                    ', '088212', 'ANNISA', '00.000.000.0-000.002', '1111111111111113', 'True');
 
 -- --------------------------------------------------------
 
@@ -761,16 +627,17 @@ INSERT INTO `tb_supplier` (`id_supplier`, `nama_supplier`, `alamat_supplier`, `t
 CREATE TABLE `tb_tipe` (
   `id_tipe` int(11) NOT NULL,
   `id_manufacture` int(11) NOT NULL,
-  `tipe` varchar(60) NOT NULL
+  `tipe` varchar(60) NOT NULL,
+  `spesifikasi` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_tipe`
 --
 
-INSERT INTO `tb_tipe` (`id_tipe`, `id_manufacture`, `tipe`) VALUES
-(1, 1, 'OPTIPLEX 3310'),
-(2, 2, 'LQ-2190');
+INSERT INTO `tb_tipe` (`id_tipe`, `id_manufacture`, `tipe`, `spesifikasi`) VALUES
+(1, 1, 'OPTIPLEX 3310', ''),
+(2, 4, 'LQ-2190', '');
 
 -- --------------------------------------------------------
 
@@ -796,13 +663,7 @@ CREATE TABLE `tb_trans_detail` (
 --
 
 INSERT INTO `tb_trans_detail` (`id_trans_detail`, `kode_transaksi`, `tgl_transaksi`, `kode_barang`, `harga`, `qty_masuk`, `qty_keluar`, `catatan`, `status`, `gid`) VALUES
-(6, 'BM-Jab-12.005', '2017-12-29', 'B013.0010', '12000000', 10, NULL, 'OKE AJA', '1', 1),
-(7, 'BK-Jab-12.002', '2017-12-29', 'B013.0010', '12000000', NULL, 1, 'OKE', '1', 1),
-(8, 'BK-Jab-12.003', '2017-12-29', 'B013.0010', '12000000', NULL, 1, 'UNTUK SH', '1', 1),
-(9, 'BK-Jab-12.004', '2017-12-29', 'B013.0010', '12000000', NULL, 1, '1', '1', 1),
-(10, 'BK-Jab-12.005', '2017-12-29', 'B013.0010', '12000000', NULL, 1, 'OKE', '1', 1),
-(11, 'BK-Jab-12.006', '2017-12-29', 'B013.0010', '12000000', NULL, 1, 'OKE AJA', '1', 1),
-(12, 'BM-Jab-01.001', '2018-01-13', 'B013.0048', '900000', 2, NULL, 'PENGGANTI', '1', 1);
+(1, 'BM-JKT-02.001', '2018-02-20', 'B018.0001', '87000000', 2, NULL, 'UNTUK SH', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -824,8 +685,7 @@ CREATE TABLE `tb_trans_keluar` (
 --
 
 INSERT INTO `tb_trans_keluar` (`id_transaksi`, `kode_transaksi`, `tgl_transaksi`, `id_pengguna`, `gid`, `id_cabang`) VALUES
-(12, 'BK-Jab-12.005', '2017-12-29', 'U017.0001', 1, '1'),
-(13, 'BK-Jab-12.006', '2017-12-29', 'U017.0001', 1, '3');
+(1, 'BK-JKT-02.001', '2018-02-20', 'U018.0002', 1, '2');
 
 -- --------------------------------------------------------
 
@@ -849,12 +709,7 @@ CREATE TABLE `tb_trans_masuk` (
 --
 
 INSERT INTO `tb_trans_masuk` (`id_transaksi`, `kode_transaksi`, `no_po`, `tgl_transaksi`, `id_supplier`, `gid`, `createddate`, `createdby`) VALUES
-(1, 'BM-Jab-12.001', 'PO12/13/14', '2017-12-25', 14, 1, NULL, NULL),
-(2, 'BM-Jab-12.002', 'PO12/13/14', '2017-12-25', 14, 1, NULL, NULL),
-(3, 'BM-Jab-12.003', 'PO12/13/14', '2017-12-27', 15, 1, NULL, NULL),
-(4, 'BM-Jab-12.004', 'PO12/13/14', '2017-12-29', 15, 1, NULL, NULL),
-(5, 'BM-Jab-12.005', 'PO12/13/14', '2017-12-29', 15, 1, NULL, NULL),
-(6, 'BM-Jab-01.001', 'PO109/18/0001', '2018-01-13', 15, 1, NULL, NULL);
+(1, 'BM-JKT-02.001', 'PO109/18/0001', '2018-02-20', 17, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -877,9 +732,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama_user`, `username`, `password`, `role`, `last_login`, `gid`) VALUES
-(8, 'Ahmad Sopian', 'root', '59520785981ac5a0b12fc284f01c301e8c7708fb', 'Administrator', '2018-02-02 07:06:30', 1),
-(15, 'Cabang', 'cabang', '70f438448e2aecc6eedad36fb941c9446815bef0', 'Admin', '2017-12-29 16:17:47', 1),
-(16, 'Indra Kusuma', 'indra', '6b33f719bd720bf7927184b6626de6ffcfce9170', 'Admin', '2018-01-05 09:09:22', 1);
+(8, 'Ahmad Sopian', 'root', '59520785981ac5a0b12fc284f01c301e8c7708fb', 'Administrator', '2018-02-20 06:41:31', 1);
 
 -- --------------------------------------------------------
 
@@ -1110,25 +963,25 @@ ALTER TABLE `tb_group`
 -- AUTO_INCREMENT for table `tb_internet`
 --
 ALTER TABLE `tb_internet`
-  MODIFY `id_internet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_internet` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_inv_history`
 --
 ALTER TABLE `tb_inv_history`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_inv_komputer`
 --
 ALTER TABLE `tb_inv_komputer`
-  MODIFY `id_komputer` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_komputer` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_inv_laptop`
 --
 ALTER TABLE `tb_inv_laptop`
-  MODIFY `id_laptop` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_laptop` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_inv_monitor`
@@ -1146,7 +999,7 @@ ALTER TABLE `tb_inv_network`
 -- AUTO_INCREMENT for table `tb_inv_printer`
 --
 ALTER TABLE `tb_inv_printer`
-  MODIFY `id_printer` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_printer` int(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_jabatan`
@@ -1164,7 +1017,7 @@ ALTER TABLE `tb_kategori`
 -- AUTO_INCREMENT for table `tb_maintenance_detail`
 --
 ALTER TABLE `tb_maintenance_detail`
-  MODIFY `id_detail` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_detail` int(50) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_manufacture`
@@ -1188,7 +1041,7 @@ ALTER TABLE `tb_pelayanan`
 -- AUTO_INCREMENT for table `tb_provider`
 --
 ALTER TABLE `tb_provider`
-  MODIFY `id_provider` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_provider` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_remote`
@@ -1206,7 +1059,7 @@ ALTER TABLE `tb_status`
 -- AUTO_INCREMENT for table `tb_supplier`
 --
 ALTER TABLE `tb_supplier`
-  MODIFY `id_supplier` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_supplier` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_tipe`
@@ -1218,25 +1071,25 @@ ALTER TABLE `tb_tipe`
 -- AUTO_INCREMENT for table `tb_trans_detail`
 --
 ALTER TABLE `tb_trans_detail`
-  MODIFY `id_trans_detail` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_trans_detail` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_trans_keluar`
 --
 ALTER TABLE `tb_trans_keluar`
-  MODIFY `id_transaksi` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_transaksi` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_trans_masuk`
 --
 ALTER TABLE `tb_trans_masuk`
-  MODIFY `id_transaksi` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_transaksi` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

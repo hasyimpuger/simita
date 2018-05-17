@@ -61,7 +61,7 @@ function loadsubdept()
                         </div>
                         <div class="form-group">
                             <label for="example">NIK</label>
-                            <input type="tex" name="nik" class="form-control" required oninvalid="setCustomValidity('NIK Harus di Isi !')"
+                            <input type="text" name="nik" class="form-control" required oninvalid="setCustomValidity('NIK Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Nomor Induk Karyawan " >
                                    <?php echo form_error('nik', '<div class="text-red">', '</div>'); ?>
                         </div>                                            
