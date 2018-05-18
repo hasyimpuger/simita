@@ -99,7 +99,6 @@ class Komputer extends CI_Controller {
                 $data = array( 
                         'id_pengguna' => $this->input->post('pengguna'),
                         'nama_komputer' => $this->input->post('merek'),
-                        'aset_hrd' => $this->input->post('aset_hrd'),
                         'spesifikasi' => $this->input->post('spek'),
                         'serial_number' => $this->input->post('sn'),
                         'network' => $this->input->post('ip'),

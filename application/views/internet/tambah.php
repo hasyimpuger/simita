@@ -1,11 +1,19 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/maskedinput/jquery.maskedinput.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/plugins/ckeditor/ckeditor.js'); ?>"></script>
 <script>
         jQuery(function($){
             $("#asethrd").mask("aaaa99/9/9/9/999/9");
             $("#ip").mask("999.999.999.999");
         });
   </script>
+<script>
+var ckeditor = CKEDITOR.replace('spek',{
+	height:'600px'
+});
+CKEDITOR.disableAutoInline = true;
+CKEDITOR.inline('editable');
+</script>
 <script type="text/javascript">
 $(document).ready(function(){
   $("#kategori").change(function(){
@@ -96,7 +104,7 @@ $(document).ready(function(){
                         </div><!-- /.form group --> 
                         <div class="form-group">
                             <label for="">Spesifikasi & Informasi Lain</label>
-                            <textarea name="spesifikasi" onkeyup="this.value = this.value.toUpperCase()"  class="form-control" rows="3" required oninvalid="setCustomValidity('Spesifikasi Harus di Isi !')"
+                            <textarea name="spesifikasi" onkeyup="this.value = this.value.toUpperCase()"  class="ckeditor" rows="3" required oninvalid="setCustomValidity('Spesifikasi Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Masukan Kapasitas Bandwidth Download dan Upload serta keterangan lainnya"></textarea>
                             <?php echo form_error('spek', '<div class="text-red">', '</div>'); ?>
                         </div>

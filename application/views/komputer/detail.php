@@ -1,8 +1,16 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/plugins/ckeditor/ckeditor.js'); ?>"></script>
 <script type="text/javascript">
     $(document).ready(function(){
        $(".combobox").combobox();
     });
+</script>
+<script>
+var ckeditor = CKEDITOR.replace('spek',{
+	height:'600px'
+});
+CKEDITOR.disableAutoInline = true;
+CKEDITOR.inline('editable');
 </script>
 <section class="content-header">
     <h1>
@@ -103,7 +111,12 @@
                                     <label for="example">No. Inventaris</label>
                                     <input type="hidden"  name="kode" value="<?php echo $record['kode_komputer'] ?>" >
                                     <input type="text" name="no_inv" disabled class="form-control" id="inputError" value="<?php echo $record['kode_komputer']; ?>" >
-                                </div>                                           
+                                </div>   
+                                <div class="form-group">
+                                    <label for="example">No. Aset HRD</label>
+                                    <input type="hidden"  name="aset_hrd" value="<?php echo $record['aset_hrd'] ?>" >
+                                    <input type="text" name="aset_hrd" disabled class="form-control" id="inputError" value="<?php echo $record['aset_hrd']; ?>" >
+                                </div>                                        
                                 <div class="form-group">
                                         <label>Pengguna</label>
                                         <select name="pengguna" class="form-control">
@@ -127,7 +140,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Spesifikasi</label>
-                                    <textarea name="spek" class="form-control" rows="3"  required oninvalid="setCustomValidity('Spesifikasi komputer Harus di Isi !')"
+                                    <textarea name="spek" class="ckeditor" rows="3"  required oninvalid="setCustomValidity('Spesifikasi komputer Harus di Isi !')"
                                            oninput="setCustomValidity('')" placeholder="Spesifikasi"><?php echo $record['spesifikasi']; ?></textarea>
                                     <?php echo form_error('spek', '<div class="text-red">', '</div>'); ?>
                                 </div>

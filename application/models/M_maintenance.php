@@ -46,7 +46,7 @@ class M_maintenance extends CI_Model {
     }
 	
     function kdotomatis($id) {       
-        $jenis = "B".$id.".".date('md').".";
+        $jenis = "MTC".$id.".".date('md').".";
         $query = $this->db->query("SELECT max(no_permohonan) as maxID FROM tb_maintenance WHERE no_permohonan LIKE '$jenis%'");
         $data = $query->row_array();
         $idMax = $data['maxID'];

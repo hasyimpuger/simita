@@ -93,7 +93,7 @@ function load_inv(){
               </div>
               
               <div class="ticket_option">
-                <div class="form_ticket_subject"><span class="semi-bold">No. Inventory</span>
+                <div class="form_ticket_subject"><span class="semi-bold">No. Inventaris</span>
                     <div class="input-group">
                      <select name="inventaris" class="form-control" id="inventaris"> 
                         <option value="" selected="selected">- No. Inventaris-</option>

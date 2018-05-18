@@ -186,6 +186,7 @@ class Maintenance extends CI_Controller {
     function update() {  
         $data = array(                
                 'tgl_selesai' => $this->input->post('tgl_selesai'),
+                'tgl_estimasi'=>tgl_indo($r->tgl_estimasi),
                 'jenis_permohonan' => $this->input->post('type'), 
                 'catatan_pemohon' => $this->input->post('catatan'),
                 'catatan_perbaikan' => $this->input->post('catatan_perbaikan'),

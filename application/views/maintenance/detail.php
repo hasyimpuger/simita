@@ -60,7 +60,7 @@ function terbilang($x){
                               <td style="text-align:right">Tgl. Permohonan :</td>
                               <td><?php echo tgl_lengkap($recordall['tgl_permohonan'])?></td>                    
                             </tr>      
-                                   
+                       
                             <tr>
                               <td style="text-align:right">Maintenance Type :</td>
                               <td><?php echo $recordall['jenis_permohonan']?></td>                    
@@ -220,14 +220,14 @@ function terbilang($x){
                                       <select name="type" class="form-control " >                              
                                           <option value='<?php echo $recordall['jenis_permohonan']; ?>'><?php echo $recordall['jenis_permohonan'];'selected' ?></option>        
                                           <option value="Hardware">Hardware</option>                               
-                                	  <option value="Software">Software</option> 
-				  	  <option value="Hardware & Software">Hardware & Software</option> 
-					  <option value="Network">Network/ Jaringan</option> 
-                                
+                                	        <option value="Software">Software</option> 
+				  	                              <option value="Hardware & Software">Hardware & Software</option> 
+					                                <option value="Network">Network/ Jaringan</option> 
                                       </select>         
                                     </div>
                                   </td>
-                              <tr>   
+                              <tr> 
+                        
                               <tr>
                                   <td>Tgl. Permohonan</td>
                                   <td>
