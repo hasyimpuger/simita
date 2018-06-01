@@ -18,7 +18,7 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <li class="header bg-blue-active">MENU UTAMA</li>     
+            <li class="header bg-blue-active"><i class="fa fa-ellipsis-h"></i> MENU UTAMA</li>     
             <?php
             if ($this->session->userdata('role')=='Administrator'){
                 $main = $this->db->get_where('tb_menu', array('parent' => 0,'role'=>'Admin'));
@@ -61,7 +61,7 @@
                             </i>  <span class="treeview">' . strtoupper($m->nama_menu) . '</span>') . '</li>';
                     }                
                 }
-                echo '<li class="header bg-blue-active">ADMIN NAVIGATION</li> '; 
+                echo '<li class="header bg-blue-active"><i class="fa fa-user"></i> Menu IT</li> '; 
                     $admin = $this->db->get_where('tb_menu', array('parent' => 0,'role'=>'Administrator'));
                     foreach ($admin->result() as $m) {
                         // chek ada submenu atau tidak

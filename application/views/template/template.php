@@ -45,7 +45,7 @@
         </div><!-- /.content-wrapper -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>Version</b> 2.3 build 022018 | <a href="#" target="_blank"> Log Version</a>
+                <b>Version</b> 2.4 build 052018 | <a href="#" target="_blank"> Log Version</a>
             </div>
             <strong>Copyright &copy; 2017-2018 <a href="mailto:sopian.ahmad@suzuki-mobil.co.id">Ahmad Sopian -IT Asset Management</a> for PT.Sejahtera Buana Trada Group - </strong> All rights reserved
         </footer>

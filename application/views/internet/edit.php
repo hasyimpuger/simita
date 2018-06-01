@@ -17,21 +17,21 @@
                 <div class="box-header">
                 <div class="col-md-5">
                 <?php
-                    echo form_open('provider/edit');
+                    echo form_open('internet/edit');
                 ?>
                     
                     <div class="box-body">
                         <div class="form-group">
                             <label for="example">Nama Provider</label>
-                            <input type="hidden"  name="id" value="<?php echo $record['id_provider'] ?>" >
+                            <input type="hidden"  name="id" value="<?php echo $record['nama_provider'] ?>" >
                             <input type="text" name="nama_provider" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama Barang Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Masukan Nama Barang" value="<?php echo $record['nama_provider']; ?>" >
                         </div>                 
                         <div class="form-group">
-                            <label for="example">Email Provider</label>
-                            <input type="hidden"  name="id" value="<?php echo $record['email_provider'] ?>" >
-                            <input type="text" name="email_provider" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama PIC/Sales Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="Masukan Email Provider" value="<?php echo $record['email_provider']; ?>" >
+                            <label for="example">Cabang</label>
+                            <input type="hidden"  name="id" value="<?php echo $record['nama_cabang'] ?>" >
+                            <input type="text" name="nama_cabang" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama PIC/Sales Harus di Isi !')"
+                                   oninput="setCustomValidity('')" placeholder="Masukan Email Provider" value="<?php echo $record['nama_cabang']; ?>" >
                         </div>        
                         <div class="form-group">
                             <label for="">Telepon Provider</label>

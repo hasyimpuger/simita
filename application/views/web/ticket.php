@@ -9,6 +9,7 @@
 <link href="<?php echo base_url('assets/css/web/animate.css'); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('assets/css/web/admin.css'); ?>" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/plugins/ckeditor/ckeditor.js'); ?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   $("#kategori").change(function(){
@@ -31,6 +32,14 @@ function load_inv(){
         }
     });
 }
+</script>
+<script>
+var ckeditor = CKEDITOR.replace('form_ticket_question',{
+	height:'800px'
+  weigt : '800px'
+});
+CKEDITOR.disableAutoInline = true;
+CKEDITOR.inline('editable');
 </script>
 </head>
 <body class="light_theme  fixed_header left_nav_fixed">
@@ -60,7 +69,7 @@ function load_inv(){
               <br/>
               <br/>
               <h3><span class="semi-bold">Permohonan Perbaikan Aset IT</span></h3>
-              <h4><span class="semi-bold">SIMITA (SIstem Managemen IT Aset) v.2.3</span></h4>
+              <h4><span class="semi-bold">SIMITA (SIstem Managemen IT Aset) v.2.4</span></h4>
               <p>Buat Permohonan Perbaikan untuk Inventaris Anda, Masukan Nomor Inventaris dan berikan informasi keluhan anda</p>
               <div class="ticket_option">
                 <div class="form_ticket_subject"> <span class="semi-bold">Group Inventory</span>
@@ -110,13 +119,14 @@ function load_inv(){
                   <?php echo form_error('pemohon', '<div class="text-red">', '</div>'); ?>
                 </div>
               </div>		
-              <div class="ticket_option"><span class="semi-bold">Detail Permasalahan</span>
+              <div class="ticket_option_detail"><br><span class="semi-bold">Detail Permasalahan</span>
                 <div class="input-group">
-                 <textarea name="catatan" required oninvalid="setCustomValidity('Catatan Pemohon Harus di Isi !')"
-                  oninput="setCustomValidity('')" class="form_ticket_question"></textarea>
+                 <textarea name="catatan" placeholder="Isi detail permasalahan" required oninvalid="setCustomValidity('Catatan Pemohon Harus di Isi !')"
+                  oninput="setCustomValidity('')" class="ckeditor"></textarea>
                 </div>
                 <?php echo form_error('catatan', '<div class="text-red">', '</div>'); ?>
               </div>
+              <br>
               <div class="btn-group">
                 <button type="submit" name="submit" class="btn ticket_btn">Kirim</button> 
               </div><br><br>

@@ -19,7 +19,7 @@
     <body class="login-page">
         <div class="login-box">
             <div class="login-logo">
-                <a href="#" ><b class="primary-color">SIMITA v.2.3</b></a><br>
+                <a href="#" ><b class="primary-color">SIMITA v.2.4</b></a><br>
                 <p class="italic" style="font-size:20px">Sistem Management IT Asset</p>
             </div><!-- /.login-logo -->
             <div class="login-box-body">

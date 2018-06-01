@@ -75,7 +75,6 @@ class Internet extends CI_Controller {
             $this->_set_rules();
             if ($this->form_validation->run() == true) {
                 $data = array(                            
-                    'kode_internet' => $this->m_internet->kdotomatis(),
                     'nama_provider' => $this->input->post('nama_provider'),
                     'nama_cabang' => $this->input->post('nama_cabang'),
                     'tipe_koneksi' => $this->input->post('jenis'),
