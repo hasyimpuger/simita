@@ -12,10 +12,10 @@ class Dashboard extends CI_Controller {
         $data['title'] = "Home";
 		$gid=$this->session->userdata('gid');
         $data['group'] = $this->db->get_where('tb_group',array('gid'=>$gid))->row_array();
-        $data['tiket'] = $this->db->get_where('tb_maintenance',array('status'=>'OPEN'))->num_rows();
-        $data['tiket2'] = $this->db->get_where('tb_maintenance',array('status'=>'PROCESS'))->num_rows();
-        $data['tiket3'] = $this->db->get_where('tb_maintenance',array('status'=>'CLOSE'))->num_rows();
-        $data['supplier'] = $this->db->get('tb_supplier')->num_rows();
+        $data['tiket_open'] = $this->db->get_where('tb_maintenance',array('status'=>'OPEN'))->num_rows();
+        $data['tiket_process'] = $this->db->get_where('tb_maintenance',array('status'=>'PROCESS'))->num_rows();
+        $data['tiket_close'] = $this->db->get_where('tb_maintenance',array('status'=>'CLOSED'))->num_rows();
+        $data['tiket_pending'] = $this->db->get_where('tb_maintenance',array('status'=>'PENDING'))->num_rows();
         $this->template->display('dashboard/index', $data);
     }
 

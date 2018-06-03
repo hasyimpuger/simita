@@ -92,6 +92,8 @@ class Web extends CI_Controller {
                 'nama_pemohon' => $this->input->post('pemohon'),
                 'no_inventaris' => $this->input->post('inventaris'),
                 'catatan_pemohon' => $this->input->post('catatan'),
+                'biaya' =>('0'),
+                'createddate' =>date('Y-m-d H:i:s'),
                 'gid' => $this->input->post('group')
             );
             $detail=array(

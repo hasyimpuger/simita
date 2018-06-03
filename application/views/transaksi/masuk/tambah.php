@@ -1,5 +1,7 @@
 <body onload="load_data_temp()"></body>
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
 <script type="text/javascript">
 $(document).ready(function(){
   $("#kategori").change(function(){
@@ -214,7 +216,8 @@ function hapus(id){
                         <div class="col-sm-5">
                             <input type="text" class="form-control" name="catatan" id="catatan"  placeholder="Catatan/ Keterangan">
                            <?php echo form_error('keterangan', '<div class="text-red">', '</div>'); ?> 
-                        </div>                       
+                        </div>   
+                                        
                     </td>
                 </tr>                
             </table>

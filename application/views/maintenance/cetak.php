@@ -54,7 +54,7 @@
                 </tr>               
                 <tr>
                   <td >No Inventaris</td><td>: </td>                 
-                  <td><?php echo $recordall['no_inventaris'],'/ ',$recordall['nama_kategori']?></td> 
+                  <td><?php echo $recordall['no_inventaris'],'/ ',$recordall['nama_kategori'],' - ',$recordall['aset_hrd']?></td> 
                   <td></td>                   
                   
                 </tr>  

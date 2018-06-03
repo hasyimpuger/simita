@@ -64,7 +64,7 @@ CKEDITOR.inline('editable');
             ?>  
             <div class="ticket_form">
               <div class="btn-group"> <a href="javascript:void(0)" class="btn btn-sm ticket_btn">Perbaikan</a> </div>
-              <div class="btn-group"> <a href="<?php echo base_url('login');?>" class="btn btn-sm ticket_btn">Login</a> </div> 
+              <div class="btn-group"> <a href="<?php echo base_url('login');?>" class="btn btn-sm ticket_btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a> </div> 
               <div class="btn-group"> <a href="<?php echo base_url('web');?>" class="btn btn-sm ticket_btn">Home</a> </div> 
               <br/>
               <br/>
@@ -128,7 +128,7 @@ CKEDITOR.inline('editable');
               </div>
               <br>
               <div class="btn-group">
-                <button type="submit" name="submit" class="btn ticket_btn">Kirim</button> 
+                <button type="submit" name="submit" class="btn ticket_btn"><i class="fa fa-share-square" aria-hidden="true"></i> Kirim</button> 
               </div><br><br>
               <p><p><span style="color: #999999;"><em>CopyRight&nbsp;&copy; 2017-2018 - Divisi IT PT.Sejahtera Buana Trada</em></span></p></p>
             </div>

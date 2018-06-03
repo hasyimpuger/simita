@@ -7,7 +7,7 @@
     <!-- bootstrap 3.3.2 -->        
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" >
     <!-- font Awesome -->
-    <link href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <!-- Ionicons -->
     <link href="<?php echo base_url('assets/css/ionicons.min.css'); ?>" rel="stylesheet">
     <!-- DATA TABLES -->    
@@ -45,7 +45,7 @@
         </div><!-- /.content-wrapper -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>Version</b> 2.4 build 052018 | <a href="#" target="_blank"> Log Version</a>
+                <b>Version</b> 2.4 build 052018 | <a href="#" target="_blank"> Log Version | </a>
             </div>
             <strong>Copyright &copy; 2017-2018 <a href="mailto:sopian.ahmad@suzuki-mobil.co.id">Ahmad Sopian -IT Asset Management</a> for PT.Sejahtera Buana Trada Group - </strong> All rights reserved
         </footer>

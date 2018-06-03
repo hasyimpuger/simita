@@ -9,6 +9,7 @@
 <link href="<?php echo base_url('assets/css/web/animate.css'); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('assets/css/web/admin.css'); ?>" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/plugins/ckeditor/ckeditor.js'); ?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   $("#kategori").change(function(){
@@ -31,6 +32,14 @@ function load_inv(){
         }
     });
 }
+</script>
+<script>
+var ckeditor = CKEDITOR.replace('form_ticket_question',{
+	height:'800px'
+  weigt : '800px'
+});
+CKEDITOR.disableAutoInline = true;
+CKEDITOR.inline('editable');
 </script>
 </head>
 <body class="light_theme  fixed_header left_nav_fixed">
@@ -62,17 +71,13 @@ function load_inv(){
             ?>  
 			     <div class="ticket_open">
               <div class="ticket_open_heading">
-                <h3 class="pull-left"><span class="semi-bold">Ticket #<?php echo $this->uri->segment(3);?></span></h3>
+                <h3 class="pull-left"><span class="semi-bold">No.Bantuan #<?php echo $this->uri->segment(3);?></span></h3>
               </div>
               <div class="clearfix"></div>
               <div class="open_ticket">
-              	<div class="open_ticket_rating pull-left">Current Rating on this Ticket
+              	<div class="open_ticket_rating pull-left">
                 	<div class="rating">
-                    <i class="fa fa-heart"></i> 
-                    <i class="fa fa-heart"></i> 
-                    <i class="fa fa-heart"></i> 
-                    <i class="fa fa-heart ratingcolor"></i> 
-                    <i class="fa fa-heart ratingcolor"></i> <span>3(pretty good)</span>
+                    
                     </div>
                 </div>
                 
@@ -111,8 +116,8 @@ function load_inv(){
               <?php echo form_error('catatan', '<div class="text-red">', '</div>'); ?>
               <br>
               <div class="btn-group">
-                <button type="submit" name="submit" class="btn ticket_btn">Kirim</button> 
-                <a href="javascript:history.back()" class="btn ticket_btn">Kembali</a>
+                <button type="submit" name="submit" class="btn ticket_btn"><i class="fa fa-share-square" aria-hidden="true"></i> Kirim</button> 
+                <a href="javascript:history.back()" class="btn ticket_btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Kembali</a>
               </div>
             </div>
             </form>

@@ -1,8 +1,38 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/plugins/ckeditor/ckeditor.js'); ?>"></script>
+<!-- Notifikasi -->
+<script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
+<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div> 
+<script>   
+    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+</script>
+<style>
+#notifications {
+    cursor: pointer;
+    position: fixed;
+    right: 0px;
+    z-index: 9999;
+    bottom: 0px;
+    margin-bottom: 22px;
+    margin-right: 15px;
+    min-width: 300px; 
+    max-width: 800px;  
+}
+</style>
+-<!-- Akhir Notifikasi -->
 <script type="text/javascript">
     $(document).ready(function(){
        $(".combobox").combobox();
     });
+</script>
+<script>
+var ckeditor = CKEDITOR.replace('form_ticket_question',{
+	height:'800px'
+  weigt : '800px'
+});
+CKEDITOR.disableAutoInline = true;
+CKEDITOR.inline('editable');
 </script>
 <?php
 function terbilang($x){
@@ -240,7 +270,7 @@ function terbilang($x){
                                   <td>Catatan Pemohon</td>
                                   <td>
                                       <div class=" col-sm-4">                                                         
-                                          <textarea name="catatan" onkeyup="this.value = this.value.toUpperCase()" class="form-control" rows="3" required oninvalid="setCustomValidity('Catatan Pemohon Harus di Isi !')"
+                                          <textarea name="catatan" class="ckeditor" onkeyup="this.value = this.value.toUpperCase()" class="form-control" rows="3" required oninvalid="setCustomValidity('Catatan Pemohon Harus di Isi !')"
                                                  oninput="setCustomValidity('')" placeholder="catatan Permohonan"><?php echo $recordall['catatan_pemohon']?></textarea>
                                           <?php echo form_error('catatan', '<div class="text-red">', '</div>'); ?>
                                       </div>               

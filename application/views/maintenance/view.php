@@ -39,7 +39,8 @@
         "columns": [
                 { "mData": "no" },
                 { "width":"12%","mData": "no_permohonan" },
-                { "mData": "no_inventaris" },
+                { "mData": "no_inventaris"},
+                { "mData": "aset_hrd"},
                 { "mData": "nama_kategori" },
                 { "mData": "tgl_permohonan" },                           
                 { "mData": "jenis_permohonan" }, 
@@ -67,6 +68,7 @@
                                 <th>No.</th>
                                 <th>No Permohonan</th>
                                 <th>No. Inventaris</th>
+                                <th>Aset HRD</th>
                                 <th>Jenis Inventaris</th> 
                                 <th>Tgl. Permohonan</th>
                                 <th>Maintenance Type</th>                                   

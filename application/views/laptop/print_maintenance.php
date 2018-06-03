@@ -67,9 +67,9 @@ window.onfocus=function(){ window.close();}
         <td id="noBorder"><?php echo $recordall['spesifikasi']; ?></td>
       </tr>
       <tr>
-        <td id="noBorder">Pengguna/Ruang</td>
+        <td id="noBorder">Pengguna/Cabang</td>
         <td id="noBorder">:</td>
-        <td id="noBorder"><?php echo $recordall['nama_pengguna']; ?></td>
+        <td id="noBorder"><?php echo $recordall['nama_pengguna']," / ","<b>",$recordall['namacabang'],"</b>"; ?></td>
       </tr>
       <tr>
         <td id="noBorder">Tanggal Inventaris</td>

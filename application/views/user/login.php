@@ -20,7 +20,7 @@
         <div class="login-box">
             <div class="login-logo">
                 <a href="#" ><b class="primary-color">SIMITA v.2.4</b></a><br>
-                <p class="italic" style="font-size:20px">Sistem Management IT Asset</p>
+                <p class="italic" style="font-size:20px">SIstem Management IT Aset</p>
             </div><!-- /.login-logo -->
             <div class="login-box-body">
                 <p class="login-box-msg">Login Dengan User & Password </p>
@@ -53,11 +53,11 @@
                             </div>                        
                         </div><!-- /.col -->
                         <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Masuk</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat"><i class="fa fa-shield" aria-hidden="true"></i> Masuk</button>
                         </div><!-- /.col -->
                     </div>
                 </form>                
-                <a href="#">Lupa Password</a><br> 
+                <!-- <a href="#">Lupa Password</a><br> -->
 
             </div><!-- /.login-box-body -->
         </div><!-- /.login-box -->

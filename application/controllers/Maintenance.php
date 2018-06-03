@@ -31,6 +31,7 @@ class Maintenance extends CI_Controller {
                 'tgl_permohonan'=>tgl_lengkap($r->tgl_permohonan),                
                 'tgl_selesai'=>$r->tgl_selesai,  
                 'jenis_permohonan'=>$r->jenis_permohonan, 
+                'aset_hrd'=>$r->aset_hrd,
                 'nama_kategori'=>$r->nama_kategori, 
                 'no_inventaris'=>$r->no_inventaris,
                 'catatan_pemohon'=>$r->catatan_pemohon,
@@ -90,6 +91,7 @@ class Maintenance extends CI_Controller {
         $maintenance = $this->m_maintenance->getall($id)->row_array();
         if($maintenance['nama_kategori']=='Laptop'){
             $inv=$this->m_laptop->get_inv($maintenance['no_inventaris'])->row_array();
+            $inv=$this->m_laptop->get_inv($maintenance['aset_hrd'])->row_array();
         }elseif ($maintenance['nama_kategori']=='Komputer') {
             $inv=$this->m_komputer->get_inv($maintenance['no_inventaris'])->row_array();
         }elseif ($maintenance['nama_kategori']=='Monitor') {
@@ -117,6 +119,7 @@ class Maintenance extends CI_Controller {
                 'jenis_permohonan' => $this->input->post('type'),                
                 'nama_kategori' => $this->input->post('kategori'),
                 'no_inventaris' => $this->input->post('inventaris'),
+                'aset_hrd' => $this->input->post('aset_hrd'),
                 'catatan_pemohon' => $this->input->post('catatan'),
                 'catatan_perbaikan' => $this->input->post('catatan_perbaikan'),
                 'nama_supplier' => $supplier,
@@ -202,6 +205,13 @@ class Maintenance extends CI_Controller {
         if($status=='CLOSED'){
             $this->m_maintenance->update_status($kategori,$no_inv);
         }
+        // Tambahan untuk memunculkan notifikasi
+        $this->session->set_flashdata('msg', 
+                '<div class="alert alert-success">
+                    <h4>Sukses </h4>
+                    <p>Data Maintenance Berhasil disimpan</p>
+                </div>');
+        // Akhir Notifikasi
         redirect('maintenance/detail/'.$kode);   
     }
     

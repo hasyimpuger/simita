@@ -18,6 +18,7 @@ CKEDITOR.inline('editable');
             $("#asethrd").mask("aaaa99/9/9/9/999/9");
             $("#ip").mask("999.999.999.999");
         });
+  
   </script>
 <section class="content-header">
     <h1>
@@ -64,7 +65,7 @@ CKEDITOR.inline('editable');
                         </div>                        
                         <div class="form-group">
                             <label for="example">Brand Laptop</label>
-                            <input type="text" onkeyup="this.value = this.value.toUpperCase()"  name="merek" class="form-control" required oninvalid="setCustomValidity('Merek/brand Harus di Isi !')"
+                            <input type="text" id="merek" onkeyup="this.value = this.value.toUpperCase()"  name="merek" class="form-control" required oninvalid="setCustomValidity('Merek/brand Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="ex : ASUS, LENOVO" >
                                    <?php echo form_error('merek', '<div class="text-red">', '</div>'); ?>
                         </div>

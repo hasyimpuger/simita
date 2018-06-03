@@ -42,7 +42,7 @@
                                 <a href="#" class="btn btn-default btn-flat">Profil</a>
                             </div>
                             <div class="pull-right">
-                                <a href="<?php echo site_url('login/logout'); ?>" class="btn btn-default btn-flat">Keluar</a>
+                                <a href="<?php echo site_url('login/logout'); ?>" class="btn btn-default btn-flat"><i class="fa fa-sign-out" aria-hidden="true"></i> Keluar</a>
                             </div>
                         </li>                        
                     </ul>

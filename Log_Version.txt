@@ -56,3 +56,9 @@ Version 2.3 Build 022018
 - Penambahan Detail Data Inventaris Internet
 - Penambahan Field Nomor NPWP dan KTP Supplier pada Master Data Supplier
 - Penambahan Fitur Export to Excel untuk data master supplier
+
+Versi 2.4 Build 052018
+----------------------
+- Penambahan Fitur Dashboard
+- Penambahan validasi nilai biaya saat user membuat tiket
+- Update FontAwesome from v4 to v5
