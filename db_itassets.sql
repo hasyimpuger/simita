@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2018 at 09:41 AM
+-- Generation Time: Jun 07, 2018 at 08:10 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -44,7 +44,8 @@ CREATE TABLE `tb_barang` (
 
 INSERT INTO `tb_barang` (`kode_barang`, `id_kategori`, `nama_barang`, `merek_barang`, `spesifikasi`, `satuan`, `gid`) VALUES
 ('B018.0001', 1, 'LATITUDE 3330', 'DELL', 'CORE I3, RAM 4 GB', 'PCS', 1),
-('B018.0002', 1, 'LQ-2190', 'EPSON', 'PRINTER EPSON LQ-2190', 'PCS', 1);
+('B018.0002', 1, 'LQ-2190', 'EPSON', 'PRINTER EPSON LQ-2190', 'PCS', 1),
+('B018.0003', 3, 'HDD EXTERNAL', 'TRANSCEND', 'HDD EXTERNAL 1 TB', 'PCS', 1);
 
 -- --------------------------------------------------------
 
@@ -197,8 +198,17 @@ CREATE TABLE `tb_internet` (
   `status` varchar(13) NOT NULL,
   `biaya` varchar(45) NOT NULL,
   `gid` varchar(45) DEFAULT NULL,
-  `kode_internet` varchar(45) NOT NULL
+  `kode_internet` varchar(45) NOT NULL,
+  `createddate` datetime NOT NULL,
+  `createby` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_internet`
+--
+
+INSERT INTO `tb_internet` (`id_internet`, `nama_provider`, `nama_cabang`, `nomor_pelanggan`, `tipe_koneksi`, `ip_public`, `spesifikasi`, `tanggal_kontrak`, `masa_kontrak`, `status`, `biaya`, `gid`, `kode_internet`, `createddate`, `createby`) VALUES
+(1, 'REMALA', 'Harapan Indah', 'YTH-1022', 'FIBER OPTIC', '111.111.111.111', 'BANDWIDTH : 20 MBPS', '2018-03-20', '2018-04-15', 'AKTIF', '3000000', '1', 'KIC-JKT-03.001', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -223,8 +233,12 @@ CREATE TABLE `tb_inv_history` (
 --
 
 INSERT INTO `tb_inv_history` (`id_history`, `no_inventaris`, `tgl_update`, `status`, `admin`, `id_pengguna_awal`, `id_pengguna`, `lokasi`, `note`) VALUES
-(1, 'LAP-JKT-18001', '2018-02-17 15:24:59', 'Buat Baru', 'Ahmad Sopian', 'U018.0001', 'U018.0001', '', 'Inventory Baru'),
-(2, 'LAP-JKT-18002', '2018-02-17 15:26:32', 'Buat Baru', 'Ahmad Sopian', 'U018.0001', 'U018.0001', '', 'Inventory Baru');
+(1, 'LAP-JKT-18001', '2018-03-20 08:19:23', 'Buat Baru', 'Ahmad Sopian', 'U018.0003', 'U018.0003', '', 'Inventory Baru'),
+(2, 'LAP-JKT-18001', '2018-03-20 09:15:02', 'Buat Baru', 'Ahmad Sopian', 'U018.0003', 'U018.0003', '', 'Inventory Baru'),
+(3, 'LAP-JKT-18001', '2018-03-20 11:30:57', 'Buat Baru', 'Ahmad Sopian', 'U018.0003', 'U018.0003', '', 'Inventory Baru'),
+(4, 'CPU-JKT-18001', '2018-03-20 11:32:20', 'Buat Baru', 'Ahmad Sopian', 'U018.0003', 'U018.0003', '', 'Inventory Baru'),
+(5, 'CPU-JKT-18002', '2018-03-21 04:45:15', 'Buat Baru', 'Ahmad Sopian', 'U018.0003', 'U018.0003', '', 'Inventory Baru'),
+(6, 'LAP-JKT-18002', '2018-05-16 10:24:34', 'Buat Baru', 'Ahmad Sopian', 'U018.0003', 'U018.0003', '', 'Inventory Baru');
 
 -- --------------------------------------------------------
 
@@ -250,6 +264,14 @@ CREATE TABLE `tb_inv_komputer` (
   `gid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tb_inv_komputer`
+--
+
+INSERT INTO `tb_inv_komputer` (`id_komputer`, `kode_komputer`, `aset_hrd`, `id_pengguna`, `nama_komputer`, `spesifikasi`, `serial_number`, `id_lisence`, `network`, `tgl_inv`, `tgl_garansi`, `harga_beli`, `status`, `note`, `gid`) VALUES
+(1, 'CPU-JKT-18001', 'BITJ01/7/6/2/763/7', 'U018.0003', 'DELL', 'ASASA', '122342CC', NULL, '111.111.111.111', '2018-03-20', '2018-03-31', '8500000', 'DIGUNAKAN', NULL, 1),
+(2, 'CPU-JKT-18002', 'bitj09/7/7/8/676/7', 'U018.0003', 'DELL', '<p><strong>HJHJHJHJ</strong></p>\r\n', '6756GHGHGH', NULL, '111.111.111.111', '2018-03-21', '2018-03-31', '8500000', 'DIGUNAKAN', 'TEST', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -262,7 +284,7 @@ CREATE TABLE `tb_inv_laptop` (
   `id_pengguna` varchar(30) DEFAULT NULL,
   `nama_laptop` varchar(50) DEFAULT NULL,
   `tipe_laptop` varchar(50) NOT NULL,
-  `spesifikasi` varchar(200) DEFAULT NULL,
+  `spesifikasi` varchar(300) DEFAULT NULL,
   `serial_number` varchar(20) DEFAULT NULL,
   `id_lisence` varchar(30) DEFAULT NULL,
   `network` varchar(30) DEFAULT NULL,
@@ -272,16 +294,20 @@ CREATE TABLE `tb_inv_laptop` (
   `status` enum('DIGUNAKAN','SIAP DIGUNAKAN','DIPERBAIKI','DIPINJAMKAN','ARSIP/DISIMPAN','RUSAK/NOT FIXABLE','HILANG/DICURI') DEFAULT 'DIGUNAKAN',
   `note` varchar(100) DEFAULT NULL,
   `gid` int(11) DEFAULT NULL,
-  `aset_hrd` varchar(50) NOT NULL
+  `aset_hrd` varchar(50) NOT NULL,
+  `createddate` datetime DEFAULT NULL,
+  `createby` varchar(45) DEFAULT NULL,
+  `lastupdate` datetime DEFAULT NULL,
+  `updateby` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_inv_laptop`
 --
 
-INSERT INTO `tb_inv_laptop` (`id_laptop`, `kode_laptop`, `id_pengguna`, `nama_laptop`, `tipe_laptop`, `spesifikasi`, `serial_number`, `id_lisence`, `network`, `tgl_inv`, `tgl_garansi`, `harga_beli`, `status`, `note`, `gid`, `aset_hrd`) VALUES
-(1, 'LAP-JKT-18001', 'U018.0001', 'DELL', '', 'TEST', '6178200', NULL, '111.111.111.111', '2018-02-17', '2018-05-31', '12000000', 'DIGUNAKAN', NULL, 1, 'BITJ00/2/6/7/819/9'),
-(2, 'LAP-JKT-18002', 'U018.0001', 'DELL', '', 'TEST', 'BCF123', NULL, '111.111.111.111', '2018-02-17', '2018-06-03', '1200000', 'DIGUNAKAN', NULL, 1, 'BITJ10/1/7/7/255/5');
+INSERT INTO `tb_inv_laptop` (`id_laptop`, `kode_laptop`, `id_pengguna`, `nama_laptop`, `tipe_laptop`, `spesifikasi`, `serial_number`, `id_lisence`, `network`, `tgl_inv`, `tgl_garansi`, `harga_beli`, `status`, `note`, `gid`, `aset_hrd`, `createddate`, `createby`, `lastupdate`, `updateby`) VALUES
+(3, 'LAP-JKT-18001', 'U018.0003', 'DELL', '', '<h2><strong><span xss=removed>ASASAS</span></strong></h2>\r\n', 'ASDSVFCV', NULL, '111.111.111.111', '2018-03-20', '2018-03-31', '8500000', 'DIGUNAKAN', 'TEST', 1, 'BITJ01/7/6/7/263/7', '2018-03-20 11:30:57', 'Ahmad Sopian', NULL, NULL),
+(4, 'LAP-JKT-18002', 'U018.0003', 'DELL', '', '<p><strong>TEST CKEDITOR zzz</strong></p><ol><li><strong>Test Okezz</strong></li></ol>', '17811', NULL, '111.111.111.111', '2018-05-16', '2018-05-31', '12000000', 'DIGUNAKAN', 'ASA', 1, 'BITJ10/2/8/9/898/9', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -299,7 +325,9 @@ CREATE TABLE `tb_inv_monitor` (
   `harga_beli` decimal(20,0) NOT NULL,
   `status` enum('DIGUNAKAN','SIAP DIGUNAKAN','DIPERBAIKI','DIPINJAMKAN','ARSIP/DISIMPAN','RUSAK/NOT FIXABLE','DIJUAL/HILANG') DEFAULT 'DIGUNAKAN',
   `note` varchar(100) DEFAULT NULL,
-  `gid` int(11) DEFAULT NULL
+  `gid` int(11) DEFAULT NULL,
+  `createddate` datetime NOT NULL,
+  `createby` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -396,16 +424,39 @@ INSERT INTO `tb_kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_lisensi`
+--
+
+CREATE TABLE `tb_lisensi` (
+  `id_lisensi` int(11) NOT NULL,
+  `kode_lisensi` varchar(45) DEFAULT NULL,
+  `jenis_lisensi` varchar(45) NOT NULL,
+  `supplier` varchar(100) NOT NULL,
+  `key_lisensi` varchar(100) NOT NULL,
+  `tgl_pembelian` date NOT NULL,
+  `tgl_habis` date NOT NULL,
+  `jumlah_lisensi` varchar(45) NOT NULL,
+  `keterangan` varchar(200) NOT NULL,
+  `createby` varchar(45) DEFAULT NULL,
+  `createdate` date DEFAULT NULL,
+  `gid` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_maintenance`
 --
 
 CREATE TABLE `tb_maintenance` (
   `no_permohonan` varchar(15) NOT NULL DEFAULT '',
   `tgl_permohonan` datetime DEFAULT NULL,
+  `tgl_estimasi` date DEFAULT NULL,
   `tgl_selesai` datetime DEFAULT NULL,
   `jenis_permohonan` varchar(50) DEFAULT NULL,
   `nama_kategori` varchar(20) DEFAULT NULL,
   `no_inventaris` varchar(20) DEFAULT NULL,
+  `aset_hrd` varchar(50) DEFAULT NULL,
   `catatan_pemohon` varchar(100) DEFAULT NULL,
   `nama_pemohon` varchar(50) DEFAULT 'Admin',
   `catatan_perbaikan` varchar(100) DEFAULT NULL,
@@ -413,8 +464,17 @@ CREATE TABLE `tb_maintenance` (
   `biaya` decimal(10,0) DEFAULT NULL,
   `status` enum('OPEN','PROCESS','PENDING','CLOSED') DEFAULT 'OPEN',
   `gid` int(11) DEFAULT NULL,
-  `terbilang` varchar(100) DEFAULT NULL
+  `terbilang` varchar(100) DEFAULT NULL,
+  `createddate` datetime NOT NULL,
+  `createby` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tb_maintenance`
+--
+
+INSERT INTO `tb_maintenance` (`no_permohonan`, `tgl_permohonan`, `tgl_estimasi`, `tgl_selesai`, `jenis_permohonan`, `nama_kategori`, `no_inventaris`, `aset_hrd`, `catatan_pemohon`, `nama_pemohon`, `catatan_perbaikan`, `nama_supplier`, `biaya`, `status`, `gid`, `terbilang`, `createddate`, `createby`) VALUES
+('MTC1.0603.001', '2018-06-03 09:06:39', '0000-00-00', '0000-00-00 00:00:00', 'Hardware', 'Laptop', 'LAP-JKT-18001', NULL, '<p>asaasfsd</p>', 'AHMAD SOPIAN', 'OKEZZ', '', '0', 'OPEN', 1, NULL, '2018-06-03 09:06:39', '');
 
 -- --------------------------------------------------------
 
@@ -429,6 +489,13 @@ CREATE TABLE `tb_maintenance_detail` (
   `catatan` varchar(100) DEFAULT NULL,
   `user` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tb_maintenance_detail`
+--
+
+INSERT INTO `tb_maintenance_detail` (`id_detail`, `no_permohonan`, `tgl_proses`, `catatan`, `user`) VALUES
+(9, 'MTC1.0603.001', '2018-06-03 09:06:39', '<p>asaasfsd</p>', 'AHMAD SOPIAN');
 
 -- --------------------------------------------------------
 
@@ -447,7 +514,8 @@ CREATE TABLE `tb_manufacture` (
 
 INSERT INTO `tb_manufacture` (`id_manufacture`, `nama_manufacture`) VALUES
 (1, 'DELL'),
-(4, 'EPSON');
+(4, 'EPSON'),
+(5, 'TRANSCEND');
 
 -- --------------------------------------------------------
 
@@ -470,12 +538,12 @@ CREATE TABLE `tb_menu` (
 --
 
 INSERT INTO `tb_menu` (`id_menu`, `nama_menu`, `icon`, `link`, `parent`, `role`, `aktif`) VALUES
-(1, 'Dashboard', 'fa fa-dashboard', 'dashboard', 0, 'Admin', 'Y'),
-(2, 'Master', 'fa fa-suitcase', '#', 0, 'Admin', 'Y'),
-(3, 'Barang', 'fa fa-plus-square text-aqua', 'barang', 2, 'Admin', 'Y'),
-(4, 'Supplier', 'fa fa-truck text-aqua', 'supplier', 2, 'Admin', 'Y'),
-(5, 'Pengguna', 'fa fa-user text-aqua', 'pengguna', 2, 'Admin', 'Y'),
-(6, 'Inventory', 'fa fa-archive', '#', 0, 'Admin', 'Y'),
+(1, 'Dashboard', 'fa fa-home', 'dashboard', 0, 'Admin', 'Y'),
+(2, 'Master', 'fa fa-suitcase', '#', 0, 'Administrator', 'Y'),
+(3, 'Barang', 'fa fa-plus-square text-aqua', 'barang', 2, 'Administrator', 'Y'),
+(4, 'Supplier', 'fa fa-truck text-aqua', 'supplier', 2, 'Administrator', 'Y'),
+(5, 'Pengguna', 'fa fa-user text-aqua', 'pengguna', 2, 'Administrator', 'Y'),
+(6, 'Inventory', 'fa fa-university', '#', 0, 'Admin', 'Y'),
 (7, 'Laptop', 'fa fa-laptop text-aqua', 'laptop', 6, 'Admin', 'Y'),
 (8, 'PC/ Komputer', 'fa fa-desktop text-aqua', 'komputer', 6, 'Admin', 'Y'),
 (9, 'Monitor', 'fa fa-barcode text-aqua', 'monitor', 6, 'Admin', 'Y'),
@@ -485,22 +553,26 @@ INSERT INTO `tb_menu` (`id_menu`, `nama_menu`, `icon`, `link`, `parent`, `role`,
 (13, 'Barang Masuk', 'fa fa-shopping-cart text-aqua', 'masuk', 12, 'Admin', 'Y'),
 (14, 'Barang Keluar', 'fa fa-minus-square text-aqua', 'keluar', 12, 'Admin', 'Y'),
 (16, 'Stok Barang', 'fa fa-th-large text-aqua', 'stok', 12, 'Admin', 'Y'),
-(17, 'Maintenance', 'fa fa-wrench', '#', 0, 'Admin', 'Y'),
-(19, 'Dedpartemen', 'fa fa-align-center text-aqua', 'departemen', 2, 'Admin', 'Y'),
-(20, 'Inventory', 'fa fa-hdd-o text-aqua', 'maintenance', 17, 'Admin', 'Y'),
-(22, 'Seting', 'fa fa-gears', '#', 0, 'Administrator', 'Y'),
+(17, 'Maintenance', 'fa fa-wrench', '#', 0, 'Administrator', 'Y'),
+(19, 'Dedpartemen', 'fa fa-align-center text-aqua', 'departemen', 2, 'Administrator', 'Y'),
+(20, 'Inventory', 'fa fa-list-alt text-aqua', 'maintenance', 17, 'Administrator', 'Y'),
+(22, 'Seting', 'fa fa-cogs', '#', 0, 'Administrator', 'Y'),
 (23, 'Menu seting', 'fa  fa-bars text-aqua', 'menu', 22, 'Administrator', 'Y'),
-(24, 'User Seting', 'fa fa-users text-aqua', 'user', 22, 'Administrator', 'Y'),
+(24, 'User Seting', 'fa fa-user-circle text-aqua', 'user', 22, 'Administrator', 'Y'),
 (25, 'Archived', 'fa fa-save text-aqua', 'archived', 6, 'Admin', 'Y'),
-(26, 'Group Seting', 'fa fa-gear text-aqua', 'group', 22, 'Admin', 'Y'),
-(27, 'Master Cabang', 'fa fa-building-o text-aqua', 'cabang', 2, 'Admin', 'Y'),
-(29, 'Provider Internet', 'fa fa-signal text-aqua', 'provider', 2, 'Admin', 'Y'),
+(26, 'Group Seting', 'fa fa-users text-aqua', 'group', 22, 'Admin', 'Y'),
+(27, 'Master Cabang', 'fa fa-building text-aqua', 'cabang', 2, 'Administrator', 'Y'),
+(29, 'Provider Internet', 'fa fa-signal text-aqua', 'provider', 2, 'Administrator', 'Y'),
 (30, 'Koneksi Internet', 'fa fa-globe text-aqua', 'internet', 6, 'Admin', 'Y'),
-(31, 'Manufacture (Merk)', 'fa fa-bullseye text-aqua', 'manufacture', 2, 'Admin', 'Y'),
+(31, 'Manufacture (Merk)', 'fa fa-bullseye text-aqua', 'manufacture', 2, 'Administrator', 'Y'),
 (32, 'Laporan', 'fa fa-print', '#', 0, 'Admin', 'Y'),
-(33, 'Inventory Laptop', 'fa fa-floppy-o text-aqua', 'laptop/export_excel', 32, 'Admin', 'Y'),
+(33, 'Inventory Laptop', 'fa fa-file-excel-o text-aqua', 'laptop/export_excel', 32, 'Admin', 'Y'),
 (34, 'Laporan Register', 'fa fa-book text-aqua', '#', 32, 'Admin', 'Y'),
-(35, 'Tipe (Model)', 'fa fa-qrcode text-aqua', 'model', 2, 'Admin', 'Y');
+(35, 'Tipe (Model)', 'fa fa-qrcode text-aqua', 'model', 2, 'Administrator', 'Y'),
+(36, 'Lisensi & Password', 'fa fa-key', '#', 0, 'Administrator', 'Y'),
+(37, 'AntiVirus & Software', 'fa fa-syringe', 'lisensi', 36, 'Admin', 'Y'),
+(38, 'Mikrotik & Lainnya', 'fa fa-unlock-alt', '#', 36, 'Admin', 'Y'),
+(39, 'Permintaan Barang', 'fas fa-box-open text-aqua', 'permintaan', 12, 'Admin', 'Y');
 
 -- --------------------------------------------------------
 
@@ -536,10 +608,44 @@ CREATE TABLE `tb_pengguna` (
 --
 
 INSERT INTO `tb_pengguna` (`id_pengguna`, `nik`, `nama_pengguna`, `id_dept`, `id_jabatan`, `ruang_kantor`, `id_cabang`) VALUES
-('U018.0001', '51919', 'AHMAD SOPIAN', 41, 6, 'HOLDING', '1'),
-('U018.0002', '51919', 'AHMAD SOPIANA', 41, 3, '-', '1'),
-('U018.0003', '51919', 'TEST KARYAWAN', 82, 4, '-', '0'),
-('U018.0004', '51917', 'TEST KARYAWAN', 11, 2, '-', '0');
+('U018.0003', '51919', 'TEST KARYAWAN', 82, 4, '-', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_permintaandtl`
+--
+
+CREATE TABLE `tb_permintaandtl` (
+  `id_trans_detail` int(30) NOT NULL DEFAULT '0',
+  `kode_permintaan` varchar(30) DEFAULT NULL,
+  `tgl_permintaan` date NOT NULL,
+  `kode_barang` varchar(30) DEFAULT NULL,
+  `qty_permintaan` int(10) DEFAULT NULL,
+  `catatan` varchar(100) DEFAULT NULL,
+  `status` enum('0','1') NOT NULL DEFAULT '0',
+  `gid` varchar(45) NOT NULL,
+  `createddate` date DEFAULT NULL,
+  `createby` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_permintaanhdr`
+--
+
+CREATE TABLE `tb_permintaanhdr` (
+  `id_permintaan` int(30) NOT NULL DEFAULT '0',
+  `kode_permintaan` varchar(30) DEFAULT NULL,
+  `tgl_permintaan` date DEFAULT NULL,
+  `id_supplier` int(20) DEFAULT NULL,
+  `scan_formulir` varchar(45) DEFAULT NULL,
+  `gid` int(10) DEFAULT NULL,
+  `createddate` varchar(45) DEFAULT NULL,
+  `createdby` varchar(45) DEFAULT NULL,
+  `status_permintaan` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -555,6 +661,13 @@ CREATE TABLE `tb_provider` (
   `telpon_sales` varchar(45) NOT NULL,
   `email_provider` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_provider`
+--
+
+INSERT INTO `tb_provider` (`id_provider`, `nama_provider`, `telpon_provider`, `nama_sales`, `telpon_sales`, `email_provider`) VALUES
+(1, 'REMALA', '09981828172', 'SOPIAN', '01201892188', 'cs.test@test.com');
 
 -- --------------------------------------------------------
 
@@ -616,7 +729,7 @@ CREATE TABLE `tb_supplier` (
 
 INSERT INTO `tb_supplier` (`id_supplier`, `nama_supplier`, `alamat_supplier`, `telepon`, `nama_pic`, `nomor_npwp`, `nomor_ktp`, `isactive`) VALUES
 (16, 'PT. SEMESTA SINERGI', 'TEST', '08128912121', 'OKE', '00.000.000.0-000.001', '1111111111111112', 'True'),
-(17, 'PT. HELIOS', 'TEST ALAMAT                                                                                    ', '088212', 'ANNISA', '00.000.000.0-000.002', '1111111111111113', 'True');
+(17, 'PT. HELIOS', 'TEST ALAMAT', '088212', 'ANNISA', '00.000.000.0-000.002', '1111111111111113', 'True');
 
 -- --------------------------------------------------------
 
@@ -655,15 +768,20 @@ CREATE TABLE `tb_trans_detail` (
   `qty_keluar` int(10) DEFAULT NULL,
   `catatan` varchar(100) DEFAULT NULL,
   `status` enum('0','1') NOT NULL DEFAULT '0',
-  `gid` int(30) NOT NULL
+  `gid` varchar(45) NOT NULL,
+  `createddate` date DEFAULT NULL,
+  `createby` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_trans_detail`
 --
 
-INSERT INTO `tb_trans_detail` (`id_trans_detail`, `kode_transaksi`, `tgl_transaksi`, `kode_barang`, `harga`, `qty_masuk`, `qty_keluar`, `catatan`, `status`, `gid`) VALUES
-(1, 'BM-JKT-02.001', '2018-02-20', 'B018.0001', '87000000', 2, NULL, 'UNTUK SH', '1', 1);
+INSERT INTO `tb_trans_detail` (`id_trans_detail`, `kode_transaksi`, `tgl_transaksi`, `kode_barang`, `harga`, `qty_masuk`, `qty_keluar`, `catatan`, `status`, `gid`, `createddate`, `createby`) VALUES
+(11, 'BM-JKT-06.001', '2018-06-04', 'B018.0001', '21000', 1, NULL, 'asa', '1', '1', NULL, NULL),
+(12, 'BM-JKT-06.002', '2018-06-04', 'B018.0001', '21000', 1, NULL, 'OKE AJA', '1', '1', NULL, NULL),
+(13, 'BM-JKT-06.002', '2018-06-04', 'B018.0001', '21000', 1, NULL, 'OKE', '1', '1', NULL, NULL),
+(14, 'BM-JKT-06.003', '2018-06-04', 'B018.0001', '21000', 1, NULL, 'OKE', '1', '1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -677,15 +795,17 @@ CREATE TABLE `tb_trans_keluar` (
   `tgl_transaksi` date DEFAULT NULL,
   `id_pengguna` varchar(30) DEFAULT NULL,
   `gid` int(10) DEFAULT NULL,
-  `id_cabang` varchar(45) DEFAULT NULL
+  `id_cabang` varchar(45) DEFAULT NULL,
+  `createddate` datetime NOT NULL,
+  `createby` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_trans_keluar`
 --
 
-INSERT INTO `tb_trans_keluar` (`id_transaksi`, `kode_transaksi`, `tgl_transaksi`, `id_pengguna`, `gid`, `id_cabang`) VALUES
-(1, 'BK-JKT-02.001', '2018-02-20', 'U018.0002', 1, '2');
+INSERT INTO `tb_trans_keluar` (`id_transaksi`, `kode_transaksi`, `tgl_transaksi`, `id_pengguna`, `gid`, `id_cabang`, `createddate`, `createby`) VALUES
+(3, 'BK-JKT-03.001', '2018-03-22', 'U018.0003', 1, '2', '2018-03-22 15:37:36', 'Ahmad Sopian');
 
 -- --------------------------------------------------------
 
@@ -699,6 +819,9 @@ CREATE TABLE `tb_trans_masuk` (
   `no_po` varchar(30) DEFAULT NULL,
   `tgl_transaksi` date DEFAULT NULL,
   `id_supplier` int(20) DEFAULT NULL,
+  `po` varchar(45) DEFAULT NULL,
+  `afa` varchar(45) DEFAULT NULL,
+  `penawaran` varchar(45) DEFAULT NULL,
   `gid` int(10) DEFAULT NULL,
   `createddate` varchar(45) DEFAULT NULL,
   `createdby` varchar(45) DEFAULT NULL
@@ -708,8 +831,11 @@ CREATE TABLE `tb_trans_masuk` (
 -- Dumping data for table `tb_trans_masuk`
 --
 
-INSERT INTO `tb_trans_masuk` (`id_transaksi`, `kode_transaksi`, `no_po`, `tgl_transaksi`, `id_supplier`, `gid`, `createddate`, `createdby`) VALUES
-(1, 'BM-JKT-02.001', 'PO109/18/0001', '2018-02-20', 17, 1, NULL, NULL);
+INSERT INTO `tb_trans_masuk` (`id_transaksi`, `kode_transaksi`, `no_po`, `tgl_transaksi`, `id_supplier`, `po`, `afa`, `penawaran`, `gid`, `createddate`, `createdby`) VALUES
+(12, 'BM-JKT-06.001', 'PO12/13/14', '2018-06-04', 17, '1280px-Logo_IM3_Ooredoo.svg.png', NULL, NULL, 1, NULL, NULL),
+(13, 'BM-JKT-06.002', 'PO109/18/0001', '2018-06-04', 17, '256-256-12918a9f351955eb3242ce0e52198993.png', NULL, NULL, 1, NULL, NULL),
+(14, 'BM-JKT-06.003', 'PO109/18/0001', '2018-06-04', 17, '256-256-12918a9f351955eb3242ce0e52198993.png', NULL, NULL, 1, NULL, NULL),
+(15, 'BM-JKT-06.004', 'PO102/1877/1', '2018-06-04', 17, 'WhatsApp Image 2018-03-14 at 19.04.43.jpeg', NULL, NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -732,7 +858,8 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama_user`, `username`, `password`, `role`, `last_login`, `gid`) VALUES
-(8, 'Ahmad Sopian', 'root', '59520785981ac5a0b12fc284f01c301e8c7708fb', 'Administrator', '2018-02-20 06:41:31', 1);
+(8, 'Ahmad Sopian', 'root', '59520785981ac5a0b12fc284f01c301e8c7708fb', 'Administrator', '2018-06-07 05:12:56', 1),
+(9, 'Cabang1', 'cabang1', 'db90c32f65f86203f9d3686efc1fa86e6d6c8284', 'Administrator', '2018-03-26 05:06:17', 1);
 
 -- --------------------------------------------------------
 
@@ -840,6 +967,12 @@ ALTER TABLE `tb_jabatan`
 ALTER TABLE `tb_kategori`
   ADD PRIMARY KEY (`id_kategori`),
   ADD UNIQUE KEY `nama_kategori` (`nama_kategori`);
+
+--
+-- Indexes for table `tb_lisensi`
+--
+ALTER TABLE `tb_lisensi`
+  ADD PRIMARY KEY (`id_lisensi`);
 
 --
 -- Indexes for table `tb_maintenance`
@@ -963,25 +1096,25 @@ ALTER TABLE `tb_group`
 -- AUTO_INCREMENT for table `tb_internet`
 --
 ALTER TABLE `tb_internet`
-  MODIFY `id_internet` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_internet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_inv_history`
 --
 ALTER TABLE `tb_inv_history`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_inv_komputer`
 --
 ALTER TABLE `tb_inv_komputer`
-  MODIFY `id_komputer` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_komputer` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_inv_laptop`
 --
 ALTER TABLE `tb_inv_laptop`
-  MODIFY `id_laptop` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_laptop` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_inv_monitor`
@@ -1014,22 +1147,28 @@ ALTER TABLE `tb_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT for table `tb_lisensi`
+--
+ALTER TABLE `tb_lisensi`
+  MODIFY `id_lisensi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tb_maintenance_detail`
 --
 ALTER TABLE `tb_maintenance_detail`
-  MODIFY `id_detail` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_manufacture`
 --
 ALTER TABLE `tb_manufacture`
-  MODIFY `id_manufacture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_manufacture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_menu`
 --
 ALTER TABLE `tb_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `tb_pelayanan`
@@ -1041,7 +1180,7 @@ ALTER TABLE `tb_pelayanan`
 -- AUTO_INCREMENT for table `tb_provider`
 --
 ALTER TABLE `tb_provider`
-  MODIFY `id_provider` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_provider` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_remote`
@@ -1071,25 +1210,25 @@ ALTER TABLE `tb_tipe`
 -- AUTO_INCREMENT for table `tb_trans_detail`
 --
 ALTER TABLE `tb_trans_detail`
-  MODIFY `id_trans_detail` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_trans_detail` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_trans_keluar`
 --
 ALTER TABLE `tb_trans_keluar`
-  MODIFY `id_transaksi` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_transaksi` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_trans_masuk`
 --
 ALTER TABLE `tb_trans_masuk`
-  MODIFY `id_transaksi` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_transaksi` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
