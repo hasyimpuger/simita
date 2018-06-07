@@ -2,7 +2,7 @@ SIMITA (SIstem Managemen IT Aset)
 =================================
 Created Date 	 : 04 April 2017
 Programer 	 : Ahmad Sopian (sopian.ahmad@suzuki-mobil.co.id)
-Update Date	 : 12 Februari 2018
+Update Date	 : 07 Juni 2018
 Apps Base    	 : PHP with CodeIgniter & MySQL Database
 
 
@@ -69,3 +69,9 @@ Version 2.3 Build 052018
 - Penambahan Fitur Lisensi
 - Penambahan Fitur Password Mikrotik
 - Penambahan fitur ckEditor untuk spesifikasi (Laptop & PC)
+
+Versi 2.4 Build 052018
+----------------------
+- Penambahan Fitur Dashboard
+- Penambahan validasi nilai biaya saat user membuat tiket
+- Update FontAwesome from v4 to v5
