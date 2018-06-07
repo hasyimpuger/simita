@@ -12,6 +12,8 @@ Kebutuhan System :
 
 
 
+
+
 	|=============|
 	| LOG VERSION | 
 	|=============|
@@ -54,3 +56,24 @@ Version 2.3 Build 022018
 - Perbaikan Tabel Manufacture
 - Penambahan Field Tipe Koneksi Internet
 - Penambahan Detail Data Inventaris Internet
+- Penambahan Field Nomor NPWP dan KTP Supplier pada Master Data Supplier
+- Penambahan Fitur Export to Excel untuk data master supplier
+- Penambahan Validasi NIK Tambah Data Karyawan Baru
+
+Version 2.3 Build 032018
+------------------------
+- Penambahan Validasi Pengguna agar tidak double NIK
+- Penambahan CreatedDate dan CreateBy pada setiap transaksi di database
+- Perbaikan Bug pada Inventory Laptop
+
+Version 2.3 Build 052018
+------------------------
+- Penambahan Fitur Lisensi
+- Penambahan Fitur Password Mikrotik
+- Penambahan fitur ckEditor untuk spesifikasi (Laptop & PC)
+
+Versi 2.4 Build 052018
+----------------------
+- Penambahan Fitur Dashboard
+- Penambahan validasi nilai biaya saat user membuat tiket
+- Update FontAwesome from v4 to v5
