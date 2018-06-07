@@ -101,6 +101,11 @@ class Keluar extends CI_Controller {
         $barang=  $this->db->get_where('tb_barang',array('kode_barang'=>$id))->row_array();        
         echo $barang['spesifikasi'];
     } 
+    function tampilqty(){        
+        $id=$_GET['namabarang'];
+        $barang=  $this->db->get_where('tb_transdetail',array('kode_barang'=>$id))->row_array();        
+        echo $barang['qtymasuk'];
+    }
 
     function add() {  
         $this->form_validation->set_rules('penerima', 'Penerima', 'required');            

@@ -42,6 +42,10 @@
                               <input type="hidden"  name="pengguna_awal" value="<?php echo $recordall['id_pengguna'] ?>" >
                             </tr>
                             <tr>
+                              <td style="text-align:right">Cabang Asal :</td>
+                              <td><b><?php echo $recordall['namacabang']?></b></td>                    
+                            </tr>
+                            <tr>
                               <td style="text-align:right">Pengguna Lama :</td>
                               <td><?php echo $recordall['nama_pengguna']?></td>                    
                             </tr>

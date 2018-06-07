@@ -1,16 +1,18 @@
 <body onload="load_data_temp()"></body>
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
 <script type="text/javascript">
 $(document).ready(function(){
   $("#kategori").change(function(){
+      loadbrand();
+        });
+  $("#merek_barang").change(function(){
       loadbarang();
         });
   $("#namabarang").change(function(){
       loadspek();
         });
-    });
-    $(document).ready(function(){
-       $(".combobox").combobox();
     });
 </script>
 
@@ -19,7 +21,7 @@ $(document).ready(function(){
 function loadbarang(){
     var kategori=$("#kategori").val();
     $.ajax({
-        url:"<?php echo base_url('keluar/tampilbarang');?>",
+        url:"<?php echo base_url('permintaan/tampilbarang');?>",
         data:"kategori=" + kategori ,
         success: function(html) { 
            $("#namabarang").html(html);       
@@ -27,44 +29,46 @@ function loadbarang(){
     });
 }
 
+function loadbrand(){
+    var kategori=$("#kategori").val();
+    $.ajax({
+        url:"<?php echo base_url('permintaan/tampilbrand');?>",
+        data:"kategori=" + kategori ,
+        success: function(html) { 
+           $("#merek_barang").html(html);       
+        }
+    });
+}
+
 function loadspek() {
     var namabarang=$("#namabarang").val();
     $.ajax({
-        url:"<?php echo base_url('keluar/tampilspek');?>",
+        url:"<?php echo base_url('permintaan/tampilspek');?>",
         data:"namabarang=" + namabarang ,
         success: function(html) { 
            $("#spek").html(html);       
         }
     });
 }
-function loadqtytersedia(){
-    var kodebarang=$("#kodebarang").val();
-    $.ajax({
-        url:"<?php echo base_url('keluar/tampilqty');?>",
-        data:"koderbarang=" + kodebarang ,
-        success: function(html) { 
-           $("#qtyonhand").html(html);       
-        }
-    });
-}
 
 function add_barang(){
     var barang=$("#namabarang").val();
-    var qty=$("#qty").val();    
+    var qty=$("#qty").val();
+    var harga=$("#harga").val();
     var catatan=$("#catatan").val();
     if (barang==''){
         alert('Pilih Nama Barang');
         die;
     }else if(qty==''){
-        alert('keluaran QTY Barang');
+        alert('Masukan QTY Permintaan');
         die;
     }else if(catatan==''){
-        alert('Input Catatan Barang');
+        alert('Input Catatan Permintaan');
         die;
     }else{
          $.ajax({
             type:"GET",
-            url:"<?php echo base_url('keluar/keluar_ajax');?>",
+            url:"<?php echo base_url('permintaan/masuk_ajax');?>",
             data:"barang="+barang+"&qty="+qty+"&catatan="+catatan,
             success:function(html){
                 load_data_temp();
@@ -76,7 +80,7 @@ function add_barang(){
 function load_data_temp(){
 $.ajax({
     type:"GET",
-    url:"<?php echo base_url('keluar/load_temp');?>",
+    url:"<?php echo base_url('permintaan/load_temp');?>",
     data:"",
     success:function(html){
         $("#view").html(html);
@@ -87,7 +91,7 @@ $.ajax({
 function hapus(id){
     $.ajax({
        type:"GET",
-       url:"<?php echo base_url('keluar/hapus_temp');?>",
+       url:"<?php echo base_url('permintaan/hapus_temp');?>",
        data:"id="+id,
        success:function(html){
            $("#dataku"+id).hide(1000);
@@ -99,11 +103,11 @@ function hapus(id){
 <section class="content-header">
     <h1>
         Tambah
-        <small>Barang keluar</small>
+        <small>Permintaan</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-suitcase"></i>Transkasi</a></li>
-        <li class="active">Barang keluar</li>
+        <li class="active">Formulir Permintaan</li>
     </ol>
 </section>
 
@@ -116,49 +120,40 @@ function hapus(id){
             <div class="box-header">  
                 <h3 class="box-title"><?php echo tanggal_new() ;?></h3>              
                 <div class="box-tools">                
-                 No. Transaksi : <label><?php echo $kode ?></label> 
+                 No. Permintaan : <label><?php echo $kode ?></label> 
               </div>
             </div>
             <?php
-                echo form_open('keluar/add');
-            ?>            
+                echo form_open('permintaan/add');
+            ?>
             <table class="table">
                 <tr>
-                    <td style="width:15%">Cabang</td>
+                    <td>Nama Cabang</td>
                     <td>
                         <div class="col-sm-4">
-                            <select name="cabang" class="combobox form-control" id="cabang"> 
-                                <option value="">- Select -</option>                               
-                                    <?php
-                                    if (!empty($cabang)) {
-                                        foreach ($cabang as $row) {
-                                            echo "<option value=".$row->id_cabang.">".strtoupper($row->namacabang)."</option>";                                        
-                                        }
+                            <select name="supplier" class="form-control" id="supplier"> 
+                            <option value="">- Select -</option>                               
+                                <?php
+                                if (!empty($supplier)) {
+                                foreach ($supplier as $row) {
+                                    echo "<option value=".$row->id_supplier.">".strtoupper($row->nama_supplier)."</option>";                                        
                                     }
+                                }
                                 ?>
-                            </select>  
-                            <?php echo form_error('cabang', '<div class="text-red">', '</div>'); ?>
+                            </select> 
                         </div>                                          
-                    </td>                
-                </tr>
+                    </td>
                 <tr>
-                    <td style="width:15%">Nama Penerima</td>
+                <tr>
+                    <td>Nomor PO</td>
                     <td>
                         <div class="col-sm-4">
-                            <select name="penerima" class="combobox form-control" id="penerima"> 
-                                <option value="">- Select -</option>                               
-                                    <?php
-                                    if (!empty($pengguna)) {
-                                        foreach ($pengguna as $row) {
-                                            echo "<option value=".$row->id_pengguna.">".strtoupper($row->nama_pengguna)."</option>";                                        
-                                        }
-                                    }
-                                ?>
-                            </select>  
-                            <?php echo form_error('penerima', '<div class="text-red">', '</div>'); ?>
-                        </div>                                          
-                    </td>                
-                </tr>
+                            <input type="text" class="form-control" name="no_po" required oninvalid="setCustomValidity('Nomor PO Harus di isi !')"
+                                   oninput="setCustomValidity('')" placeholder="No. PO dari pembelian">
+                        </div>
+                    </td>
+                    
+                <tr>
                 <tr>
                     <td>BARANG</td>
                     <td>
@@ -178,22 +173,29 @@ function hapus(id){
                     </td>
                 <tr>
                 <tr>
-                    <td>                        
+                    <td></td>
+                    <td>
+                        <div class="col-sm-4">
+                            <select name="merek_barang" class="form-control" id="merek_barang">                                    
+                                <option value="">- Select Brand -</option>
+                            </select>  
+                            <?php echo form_error('merek_barang', '<div class="text-red">', '</div>'); ?>
+                        </div>
+                       
                     </td>
+                </tr>
+                <tr>
+                    <td></td>
                     <td>
                         <div class="col-sm-4">
                             <select name="namabarang" class="form-control" id="namabarang">                                    
-                                    <option value="">- Select Barang -</option>
-                                </select>  
-                            <?php echo form_error('namabarang', '<div class="text-red">', '</div>'); ?> 
+                                <option value="">- Select Barang -</option>
+                            </select>  
+                            <?php echo form_error('namabarang', '<div class="text-red">', '</div>'); ?>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-5">
                             <textarea name="spek" class="form-control" id="spek" rows="3" placeholder="Spesifikasi Barang"></textarea>
                             <?php echo form_error('spek', '<div class="text-red">', '</div>'); ?>
-                        </div>
-                        <div class="col-sm-4">
-                            <textarea name="qtyonhand" class="form-control" id="qtyonhand" rows="3" placeholder="Spesifikasi Barang"></textarea>
-                            <?php echo form_error('qtyonhand', '<div class="text-red">', '</div>'); ?>
                         </div>
                     </td>
                 </tr>
@@ -204,24 +206,30 @@ function hapus(id){
                             <input type="number" class="form-control" name="qty" id="qty" placeholder="QTY">
                            <?php echo form_error('qty', '<div class="text-red">', '</div>'); ?>
 
-                        </div>                                                    
-                        <div class="col-sm-6">
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control" name="harga" id="harga" placeholder="Harga">
+                            <?php echo form_error('harga', '<div class="text-red">', '</div>'); ?>
+                        </div>   
+                        <div class="col-sm-5">
                             <input type="text" class="form-control" name="catatan" id="catatan"  placeholder="Catatan/ Keterangan">
                            <?php echo form_error('keterangan', '<div class="text-red">', '</div>'); ?> 
-                        </div>                       
+                        </div>   
+                                        
                     </td>
-                </tr>        
-            </table>     
+                </tr>                
+            </table>
             <div class="box-footer">
-                <button type="button" onclick="add_barang()" class="btn btn-primary" name="add"><i class="fas fa-cart-arrow-down"></i> Add Barang</button>
-                <button type="submit" name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button> 
-                <a href="<?php echo site_url('keluar'); ?>" class="btn btn-primary"><i class="fas fa-arrow-circle-left"></i> Kembali</a>
-            </div>
+                <button type="button" onclick="add_barang()" class="btn btn-primary" name="add"><i class="glyphicon glyphicon-save"></i> Add Barang</button>
+                <button type="submit" name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>  
+                <a href="<?php echo site_url('masuk'); ?>" class="btn btn-primary">Kembali</a>
+            </div>  
             </form>       
             <div class="box-body table-responsive">
                 <div id="view">
                 </div>
-            </div>  
+            </div>    
+         </div>
         </div>
     </div>
 </div>

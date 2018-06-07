@@ -9,7 +9,7 @@
 </script>
 <style>
 #notifications {
-    cursor: pointer;
+  
     position: fixed;
     right: 0px;
     z-index: 9999;

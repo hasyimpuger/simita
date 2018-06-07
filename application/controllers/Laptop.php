@@ -73,6 +73,8 @@ class Laptop extends CI_Controller {
                 'tgl_inv' =>$this->input->post('tgl_inv'),
                 'tgl_garansi' =>$this->input->post('tgl_garansi'),
                 'harga_beli' =>$this->input->post('harga'),
+                'createddate'=>date('Y-m-d H:i:s'),
+                'createby'=>$this->session->userdata('nama'),
                 'gid' => $gid
             );
             $data2=array(
@@ -104,6 +106,8 @@ class Laptop extends CI_Controller {
                 'admin' => $this->session->userdata('nama'),
 				'id_pengguna_awal' => $this->input->post('pengguna_awal'),
                 'id_pengguna' => $this->input->post('pengguna'),
+                'lastupdate'=>date('Y-m-d H:i:s'),
+                'updateby'=>$this->session->userdata('nama'),
                 'note' => $this->input->post('catatan')                
             );  
 			if ($this->input->post('status')== "Dipinjamkan"){

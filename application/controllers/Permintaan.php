@@ -1,20 +1,20 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Masuk extends CI_Controller {
+class Permintaan extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model(array('m_masuk'));
+        $this->load->model(array('m_permintaan'));
         chek_session();
     }
 	
     function index() {        
-        $this->template->display('transaksi/masuk/view');       
+        $this->template->display('transaksi/permintaan/view');       
     }		
    
-    function view_data_masuk(){        
+    function view_data_permintaan(){        
         //$criteria = $this->db->query("SELECT * FROM tb_kecamatan ORDER BY kota_id ASC");
-        $ambildata=$this->m_masuk->list_masukgid()->result();          
+        $ambildata=$this->m_permintaan->list_permintaangid()->result();          
         $no=1;
         foreach($ambildata as $r) { 
             $query[] = array(
@@ -55,7 +55,7 @@ class Masuk extends CI_Controller {
     }
 
     function masuk_ajax(){
-        $this->m_masuk->simpan_masuk_temp();
+        $this->m_permintaan->simpan_masuk_temp();
     }
 
     function load_temp(){
@@ -68,7 +68,7 @@ class Masuk extends CI_Controller {
             <th>Catatan</th>
             <th>Delete</th>
         </tr>";
-        $data=  $this->m_masuk->tampil_temp()->result();
+        $data=  $this->m_permintaan->tampil_temp()->result();
         foreach ($data as $d){
             $harga=rupiah($d->harga);
             echo "<tr id='dataku$d->id_trans_detail'>
@@ -85,7 +85,7 @@ class Masuk extends CI_Controller {
 
     function hapus_temp() {
         $id=$_GET['id'];
-        $this->m_masuk->hapus_temp($id);
+        $this->m_permintaan->hapus_temp($id);
     }
 
     function tampilspek(){        
@@ -95,27 +95,26 @@ class Masuk extends CI_Controller {
     } 
     
     function add() {  
-        $this->form_validation->set_rules('supplier', 'Supplier', 'required');            
+        $this->form_validation->set_rules('cabang', 'Cabang', 'required');            
         if ($this->form_validation->run() == true) {
             $gid=$this->session->userdata('gid');           
-            $kode =$this->m_masuk->kdotomatis();
+            $kode =$this->m_permintaan->kdotomatis();
             $data = array(
-                    'kode_transaksi'=>$kode,
-                    'no_po'=>$this->input->post('no_po'),                        
-                    'tgl_transaksi'=>  tanggal(),
-                    'id_supplier'=>$this->input->post('supplier'),
+                    'kode_permintaan'=>$kode,                     
+                    'tgl_permintaan'=>  tanggal(),
+                    'nama_cabang'=>$this->input->post('namacabang'),
                     'gid'=>$gid
                 );
-            $this->m_masuk->simpan($data);
-            $this->m_masuk->update_status($kode);
-            redirect('masuk');
+            $this->m_permintaan->simpan($data);
+            $this->m_permintaan->update_status($kode);
+            redirect('permintaan');
         } else {
-            $data['kode']=$this->m_masuk->kdotomatis();
-            $data['kategori'] = $this->m_masuk->getkategori()->result(); 
-            $data['brand'] = $this->m_masuk->getbrand()->result();  
-            $data['barang'] = $this->m_masuk->getbarang()->result();  
-            $data['supplier'] = $this->m_masuk->getsupplier()->result();          
-            $this->template->display('transaksi/masuk/tambah',$data);
+            $data['kode']=$this->m_permintaan->kdotomatis();
+            $data['kategori'] = $this->m_permintaan->getkategori()->result(); 
+            $data['brand'] = $this->m_permintaan->getbrand()->result();  
+            $data['barang'] = $this->m_permintaan->getbarang()->result();  
+            $data['cabang'] = $this->m_permintaan->getcabang()->result();          
+            $this->template->display('transaksi/permintaan/tambah',$data);
         }
     }	
     
@@ -130,23 +129,23 @@ class Masuk extends CI_Controller {
                         'tgl_inv' =>$this->input->post('tgl_inv')
                     );
                 $kode=$this->input->post('kode');
-                $this->m_masuk->edit($kode,$data);
+                $this->m_permintaan->edit($kode,$data);
                 redirect('transaksi');                
             }else {
                 $id = $this->input->post('kode');
-                //$data['pengguna'] = $this->m_masuk->getpengguna()->result();                            
-                $data['record'] = $this->m_masuk->getkode($id)->row_array();
+                //$data['pengguna'] = $this->m_permintaan->getpengguna()->result();                            
+                $data['record'] = $this->m_permintaan->getkode($id)->row_array();
                 $this->template->display('transaksi/edit', $data);
             } 
            }else{ 
                 $id = $this->uri->segment(3);               
-                //$data['pengguna'] = $this->m_masuk->getpengguna()->result();                            
-                $data['record'] = $this->m_masuk->getkode($id)->row_array();
+                //$data['pengguna'] = $this->m_permintaan->getpengguna()->result();                            
+                $data['record'] = $this->m_permintaan->getkode($id)->row_array();
                 $this->template->display('transaksi/edit', $data);
             }
     }
     function delete($kode) {
-        $this->m_masuk->hapus($kode);
+        $this->m_permintaan->hapus($kode);
 		redirect('transaksi');
     }
 

@@ -155,6 +155,7 @@ function hapus(id){
                                    oninput="setCustomValidity('')" placeholder="No. PO dari pembelian">
                         </div>
                     </td>
+                    
                 <tr>
                 <tr>
                     <td>BARANG</td>
