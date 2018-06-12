@@ -14,19 +14,6 @@ var ckeditor = CKEDITOR.replace('spek',{
 CKEDITOR.disableAutoInline = true;
 CKEDITOR.inline('editable');
 </script>
-<script type="text/javascript">
-$(document).ready(function(){
-  $("#kategori").change(function(){
-      loadbarang();
-        });
-  $("#namabarang").change(function(){
-      loadspek();
-        });
-    });
-    $(document).ready(function(){
-       $(".combobox").combobox();
-    });
-</script>
 <section class="content-header">
     <h1>
         Tambah
@@ -147,7 +134,7 @@ $(document).ready(function(){
                             </select>
                         </div>                                  
                         <tr>      
-                </tr>                    
+                    </tr>                    
                     </div><!-- /.box-body -->
                     <div class="box-footer">
                         <button type="submit" name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>                        

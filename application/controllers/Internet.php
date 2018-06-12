@@ -88,18 +88,18 @@ class Internet extends CI_Controller {
                     //'gid' => $gid
                         );
                 $kode=$this->input->post('id');
-                $this->m_provider->edit($kode,$data);
-                redirect('provider');                
+                $this->m_internet->edit($kode,$data);
+                redirect('internet');                
             }else {
                 $id = $this->input->post('id');      
                 $data['provider'] = $this->m_internet->getprovider()->result();                                
-                $data['record'] = $this->m_provider->getkode($id)->row_array();
-                $this->template->display('provider/edit', $data); 
+                $data['record'] = $this->m_internet->getkode($id)->row_array();
+                $this->template->display('internet/edit', $data); 
             } 
            }else{ 
                 $id = $this->uri->segment(3);
-                $data['record'] = $this->m_provider->getkode($id)->row_array();
-                $this->template->display('provider/edit', $data);
+                $data['record'] = $this->m_internet->getkode($id)->row_array();
+                $this->template->display('internet/edit', $data);
             }
     }
     function delete($id) {
