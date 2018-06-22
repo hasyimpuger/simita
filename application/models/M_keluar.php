@@ -131,4 +131,22 @@ class M_keluar extends CI_Model {
         $this->db->where('kode_barang', $kode);
         $this->db->delete('tb_barang');
     }
+    // Fungsi untuk melakukan proses upload file
+    function upload(){
+    $config['upload_path'] = './assets/upload/permintaan/';
+    $config['allowed_types'] = 'jpg|png|jpeg|pdf';
+    $config['max_size']  = '2048';
+    $config['remove_space'] = TRUE;
+  
+    $this->load->library('upload', $config); // Load konfigurasi uploadnya
+    if($this->upload->do_upload('input_gambar')){ // Lakukan upload dan Cek jika proses upload berhasil
+      // Jika berhasil :
+      $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+      return $return;
+    }else{
+      // Jika gagal :
+      $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+      return $return;
+    }
+  }
 }

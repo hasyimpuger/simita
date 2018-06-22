@@ -280,11 +280,10 @@ class Laptop extends CI_Controller {
             $this->m_laptop->hapus($kode); 
             redirect('laptop'); 
         }else{
-            $this->session->set_flashdata('result_hapus', '<br><p class="text-red">Maaf Anda tidak di ijinkan menghapus data ini !</p>');
+            $this->session->set_flashdata('result_hapus', '<br><p class="text-red">Anda tidak memiliki akses untuk menghapus data !</p>');
             redirect('laptop');
         }       
     }
-
     function _set_rules() {
         $this->form_validation->set_rules('pengguna', 'Nama Pengguna', 'required');
         $this->form_validation->set_rules('merek', 'Merek/Brand', 'required');

@@ -117,10 +117,13 @@ class Keluar extends CI_Controller {
                     'tgl_transaksi'=>  tanggal(),
                     'id_pengguna'=>$this->input->post('penerima'),
                     'id_cabang'=>$this->input->post('cabang'),
+                    'createddate'=>tgl_lengkap,
+                    'form_permintaan' => $upload['file']['file_name'],
                     'gid'=>$gid
                 );
             $this->m_keluar->simpan($data);
             $this->m_keluar->update_status($kode);
+            $this->m_keluar->upload();
             redirect('keluar');
         } else {
             $data['kode']=$this->m_keluar->kdotomatis();

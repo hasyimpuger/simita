@@ -43,7 +43,6 @@
                 </tr>
               </table>             
             </div>
-            
             <div class="col-xs-12">
             <br>
               <table class="table table-bordered">
@@ -69,7 +68,7 @@
                     ?>
                   </tr>                             
               </table>              
-                <small class="pull-right">Printed: <?php echo tanggal_indo();?></small>         
+                <small class="pull-right">Printed: <?php echo tanggal_indo();?> | by : SIstem Managemen Aset IT</small>         
             </div> 
 
           </div>        

@@ -176,6 +176,10 @@ function hapus(id){
                             <?php echo form_error('kategori', '<div class="text-red">', '</div>'); ?>
                         </div>                        
                     </td>
+                    <tr>
+                    <td>Gambar</td>
+                    <td><input type="file" name="input_gambar"></td>
+                    </tr>
                 <tr>
                 <tr>
                     <td>                        

@@ -12,8 +12,12 @@ class Maintenance extends CI_Controller {
         $this->template->display('maintenance/view');     
     }		
    
-    public function view_data() {       
-        $ambildata=$this->m_maintenance->listid()->result();              
+    public function view_data() {  
+        if ($this->session->userdata('role')=='Administrator'){     
+        $ambildata=$this->m_maintenance->listid()->result();    
+        }else{      
+            redirect('dashboard');
+        }     
         $no=1;
         foreach($ambildata as $r) { 
             if ($r->status =="OPEN"){

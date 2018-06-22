@@ -103,10 +103,15 @@ class Internet extends CI_Controller {
             }
     }
     function delete($id) {
-        $this->m_internet->hapus($id);
-		redirect('internet');
+        if ($this->session->userdata('role')=='Administrator'){
+            $this->m_internet->hapus($id); 
+            redirect('internet'); 
+        }else{
+            $this->session->set_flashdata('result_hapus', '<br><p class="text-red">Anda tidak memiliki akses untuk menghapus data !</p>');
+            redirect('internet');
+        }       
     }
-
+        
     function _set_rules() {
         $this->form_validation->set_rules('nama_provider', 'Nama Provider', 'required');
         $this->form_validation->set_rules('nama_cabang', 'Nama Cabang', 'required');
