@@ -8,9 +8,8 @@ class M_pengguna extends CI_Model {
     function semua() {
         $gid=$this->session->userdata('gid');
         $query = $this->db->query("SELECT tb_pengguna.id_pengguna,tb_pengguna.nik,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
-            tb_departemen.gid,tb_departemen.nama,tb_departemen.parent,tb_pengguna.id_jabatan,tb_pengguna.id_cabang,tb_pengguna.ruang_kantor,tb_jabatan.nama_jabatan,tb_jabatan.jobdes,tb_cabang.namacabang
+            tb_departemen.gid,tb_departemen.nama,tb_departemen.parent,tb_pengguna.id_jabatan,tb_pengguna.namacabang,tb_pengguna.ruang_kantor,tb_jabatan.nama_jabatan,tb_jabatan.jobdes
             FROM tb_pengguna INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept
-            INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_pengguna.id_cabang
             INNER JOIN tb_jabatan ON tb_jabatan.id_jabatan = tb_pengguna.id_jabatan ORDER BY tb_pengguna.id_pengguna DESC");
         return $query;
     }
@@ -18,9 +17,8 @@ class M_pengguna extends CI_Model {
     function semuagid() {
         $gid=$this->session->userdata('gid');
         $query = $this->db->query("SELECT tb_pengguna.id_pengguna,tb_pengguna.nik,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
-            tb_departemen.gid,tb_departemen.nama,tb_departemen.parent,tb_pengguna.id_jabatan,tb_pengguna.ruang_kantor,tb_jabatan.nama_jabatan,tb_jabatan.jobdes,tb_cabang.namacabang
+            tb_departemen.gid,tb_departemen.nama,tb_departemen.parent,tb_pengguna.id_jabatan,tb_pengguna.ruang_kantor,tb_jabatan.nama_jabatan,tb_jabatan.jobdes
             FROM tb_pengguna INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept
-            INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_pengguna.id_cabang 
             INNER JOIN tb_jabatan ON tb_jabatan.id_jabatan = tb_pengguna.id_jabatan WHERE tb_departemen.gid ='$gid' ORDER BY tb_pengguna.id_pengguna DESC");
         return $query;
     }
@@ -67,7 +65,7 @@ class M_pengguna extends CI_Model {
 
     function getpengguna($id) {       
         $query = $this->db->query("SELECT tb_pengguna.id_pengguna,tb_pengguna.nik,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
-            tb_departemen.gid,tb_departemen.nama,tb_departemen.parent,tb_pengguna.id_jabatan,tb_pengguna.id_cabang,tb_pengguna.ruang_kantor
+            tb_departemen.gid,tb_departemen.nama,tb_departemen.parent,tb_pengguna.id_jabatan,tb_pengguna.namacabang,tb_pengguna.ruang_kantor
             FROM tb_pengguna INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept
             WHERE tb_pengguna.id_pengguna ='$id'");
         return $query;

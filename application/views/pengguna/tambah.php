@@ -45,6 +45,23 @@ function loadsubdept()
                   
                     <div class="box-body">
                         <div class="form-group">
+                            <label for="example">NIK</label>
+                            <div class="input-group">
+                            <input type="text" name="nik" class="form-control" required oninvalid="setCustomValidity('NIK Harus di Isi !')"
+                                   oninput="setCustomValidity('')" placeholder="Nomor Induk Karyawan " >
+                                   <?php echo form_error('nik', '<div class="text-red">', '</div>'); ?>
+                                   <div class="input-group-btn">
+                                   <button type="button" class="btn btn-default" id="btn-search"><i class="fas fa-search"></i> Cari</button> <span id="loading">LOADING...</span></td>
+                                   </div>
+                            </div>
+                        </div>                                            
+                        <div class="form-group">
+                            <label for="">Nama Pengguna</label>
+                            <input type="text" onkeyup="this.value = this.value.toUpperCase()"  class="form-control" name="pengguna" required oninvalid="setCustomValidity('Nama Harus di Isi !')"
+                                   oninput="setCustomValidity('')" placeholder="Masukan Nama Pengguna">
+                            <?php echo form_error('nama', '<div class="text-red">', '</div>'); ?>
+                        </div>
+                        <div class="form-group">
                             <label>Cabang</label>
                             
                                 <select name="cabang" class="form-control" id="inputError">
@@ -52,24 +69,12 @@ function loadsubdept()
                                     <?php
                                     if (!empty($cabang)) {
                                         foreach ($cabang as $row) {
-                                            echo "<option value=".$row->id_cabang.">".$row->namacabang."</option>";                                        
+                                            echo "<option value='".$row->namacabang."'>".$row->namacabang."</option>";                                        
                                         }
                                     }
                                     ?>
                                 </select>
                                    
-                        </div>
-                        <div class="form-group">
-                            <label for="example">NIK</label>
-                            <input type="text" name="nik" class="form-control" required oninvalid="setCustomValidity('NIK Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="Nomor Induk Karyawan " >
-                                   <?php echo form_error('nik', '<div class="text-red">', '</div>'); ?>
-                        </div>                                            
-                        <div class="form-group">
-                            <label for="">Nama Pengguna</label>
-                            <input type="text" onkeyup="this.value = this.value.toUpperCase()"  class="form-control" name="pengguna" required oninvalid="setCustomValidity('Nama Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="Masukan Nama Pengguna">
-                            <?php echo form_error('nama', '<div class="text-red">', '</div>'); ?>
                         </div>
                         <div class="form-group">
                             <label>Jabatan</label>
@@ -79,7 +84,7 @@ function loadsubdept()
                                     <?php
                                     if (!empty($jabatan)) {
                                         foreach ($jabatan as $row) {
-                                            echo "<option value=".$row->id_jabatan.">".$row->nama_jabatan."</option>";                                        
+                                            echo "<option value='".$row->nama_jabatan."'>".$row->nama_jabatan."</option>";                                        
                                         }
                                     }
                                     ?>
@@ -99,7 +104,7 @@ function loadsubdept()
                                 <?php
                                 if (!empty($departemen)) {
                                     foreach ($departemen as $row) {
-                                        echo "<option value=".$row->id_dept.">".strtoupper($row->nama)."</option>";                                        
+                                        echo "<option value='".$row->nama."'>".strtoupper($row->nama)."</option>";                                        
                                     }
                                 }
                                 ?>
@@ -124,8 +129,8 @@ function loadsubdept()
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button type="submit" name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>                        
-                        <a href="<?php echo site_url('pengguna'); ?>" class="btn btn-primary">Kembali</a>
+                        <button type="submit" name="submit" class="btn btn-primary"><i class="far fa-save"></i> Simpan</button>                        
+                        <a href="<?php echo site_url('pengguna'); ?>" class="btn btn-primary"><i class="fas fa-chevron-circle-left"></i> Kembali</a>
                     </div>
                 </form>
                 </div>

@@ -20,7 +20,7 @@
     <!--datepicker -->
     <link href="<?php echo base_url('assets/js/plugins/datepicker/bootstrap-datetimepicker.min.css'); ?>" rel="stylesheet" type="text/css">
     <!-- iCheck -->
-    <link href="<?php echo base_url('assets/js/plugins/iCheck/flat/blue.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/js/plugins/iCheck/flat/green.css'); ?>" rel="stylesheet" type="text/css">
     <!-- Morris chart -->
     <link href="<?php echo base_url('assets/js/plugins/morris/morris.css'); ?>" rel="stylesheet" type="text/css" >
     <!-- jvectormap -->

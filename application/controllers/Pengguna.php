@@ -63,7 +63,7 @@ class Pengguna extends CI_Controller {
                 'nik' => $this->input->post('nik'),
                 'nama_pengguna' => $this->input->post('pengguna'),
                 'id_jabatan' => $this->input->post('jabatan'),
-                'id_cabang' => $this->input->post('cabang'),
+                'namacabang' => $this->input->post('cabang'),
                 'id_dept' => $this->input->post('subdept'),
                 'ruang_kantor' => $this->input->post('kantor')                
             );

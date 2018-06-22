@@ -1,10 +1,11 @@
 <section class="content-header">
     <h1>
         Data Pengguna 
-        <small>Master Pengguna</small>
+        <small>Edit Pengguna</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-suitcase"></i>Master</a></li>
+        <li><a href="#">Edit Data</a></li>
         <li class="active">Pengguna</li>
     </ol>
 </section>
@@ -44,20 +45,7 @@ function loadsubdept()
                 <?php
                     echo form_open('pengguna/edit');
                 ?>
-                    
                     <div class="box-body">
-                        <div class="form-group">
-                                <label>Cabang</label>
-                                <select name="cabang" class="form-control">
-                                    <?php
-                                    foreach ($cabang as $j) {
-                                        echo "<option value='$j->id_cabang'";
-                                        echo $record['id_cabang'] == $j->id_cabang ? 'selected' : '';
-                                        echo">$j->namacabang</option>";
-                                    }
-                                    ?>
-                                </select>
-                        </div>
                         <div class="form-group">
                             <label for="example">Kode Pengguna</label>
                             <input type="hidden"  name="kode" value="<?php echo $record['id_pengguna'] ?>" >
@@ -73,6 +61,19 @@ function loadsubdept()
                             <input type="tex" onkeyup="this.value = this.value.toUpperCase()"  name="pengguna" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Masukan Nama Karyawan" value="<?php echo $record['nama_pengguna']; ?>" >
                         </div> 
+
+                        <div class="form-group">
+                                <label>Cabang</label>
+                                <select name="cabang" class="form-control">
+                                    <?php
+                                    foreach ($cabang as $j) {
+                                        echo "<option value='$j->namacabang'";
+                                        echo $record['namacabang'] == $j->namacabang ? 'selected' : '';
+                                        echo">$j->namacabang</option>";
+                                    }
+                                    ?>
+                                </select>
+                        </div>
                         <div class="form-group">
                                 <label>Jabatan</label>
                                 <select name="jabatan" class="form-control">
