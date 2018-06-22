@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SIMITA - SIstem Management IT Aset</title>
     <link href='<?php echo base_url("assets/img/favicon.png"); ?>' rel='shortcut icon' type='image/x-icon'/>
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
     <!-- Google fonts - Montserrat for headings, Cardo for copy-->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/google-fonts.css'); ?>">

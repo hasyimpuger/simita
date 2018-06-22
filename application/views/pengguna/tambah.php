@@ -46,14 +46,9 @@ function loadsubdept()
                     <div class="box-body">
                         <div class="form-group">
                             <label for="example">NIK</label>
-                            <div class="input-group">
                             <input type="text" name="nik" class="form-control" required oninvalid="setCustomValidity('NIK Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Nomor Induk Karyawan " >
                                    <?php echo form_error('nik', '<div class="text-red">', '</div>'); ?>
-                                   <div class="input-group-btn">
-                                   <button type="button" class="btn btn-default" id="btn-search"><i class="fas fa-search"></i> Cari</button> <span id="loading">LOADING...</span></td>
-                                   </div>
-                            </div>
                         </div>                                            
                         <div class="form-group">
                             <label for="">Nama Pengguna</label>
@@ -69,7 +64,7 @@ function loadsubdept()
                                     <?php
                                     if (!empty($cabang)) {
                                         foreach ($cabang as $row) {
-                                            echo "<option value='".$row->namacabang."'>".$row->namacabang."</option>";                                        
+                                            echo "<option value=".$row->id_cabang.">".$row->namacabang."</option>";                                        
                                         }
                                     }
                                     ?>
@@ -104,7 +99,7 @@ function loadsubdept()
                                 <?php
                                 if (!empty($departemen)) {
                                     foreach ($departemen as $row) {
-                                        echo "<option value='".$row->nama."'>".strtoupper($row->nama)."</option>";                                        
+                                        echo "<option value='".$row->id_dept."'>".strtoupper($row->nama)."</option>";                                        
                                     }
                                 }
                                 ?>

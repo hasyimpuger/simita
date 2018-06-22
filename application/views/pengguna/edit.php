@@ -68,7 +68,7 @@ function loadsubdept()
                                     <?php
                                     foreach ($cabang as $j) {
                                         echo "<option value='$j->namacabang'";
-                                        echo $record['namacabang'] == $j->namacabang ? 'selected' : '';
+                                        echo $record['id_cabang'] == $j->namacabang ? 'selected' : '';
                                         echo">$j->namacabang</option>";
                                     }
                                     ?>

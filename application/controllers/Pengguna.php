@@ -55,15 +55,17 @@ class Pengguna extends CI_Controller {
     }
    
 
-    function add() {              
-        $this->_set_rules();
+    function add() {         
+        $this->form_validation->set_message('is_unique', '<b>%s Sudah Terdaftar dalam database</b>');
+        $this->form_validation->set_rules('nik', 'NIK Karyawan', 'trim|required|is_unique[tb_pengguna.nik]');     
+        //$this->_set_rules();
         if ($this->form_validation->run() == true) {
             $data = array(
                 'id_pengguna' => $this->m_pengguna->kdotomatis(),
                 'nik' => $this->input->post('nik'),
                 'nama_pengguna' => $this->input->post('pengguna'),
                 'id_jabatan' => $this->input->post('jabatan'),
-                'namacabang' => $this->input->post('cabang'),
+                'id_cabang' => $this->input->post('cabang'),
                 'id_dept' => $this->input->post('subdept'),
                 'ruang_kantor' => $this->input->post('kantor')                
             );
