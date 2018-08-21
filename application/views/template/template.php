@@ -253,6 +253,7 @@
     <script src="<?php echo base_url('assets/js/datatables/buttons.print.min.js'); ?>"></script>
 
 </body>
+
 <script>
     $(function () {
         $('#tb-datatables').dataTable({"aoColumnDefs": [{"bSortable": false, "aTargets": [0]}]});

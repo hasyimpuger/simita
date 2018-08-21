@@ -280,7 +280,7 @@ class Laptop extends CI_Controller {
             $this->m_laptop->hapus($kode); 
             redirect('laptop'); 
         }else{
-            $this->session->set_flashdata('result_hapus', '<br><p class="text-red">Anda tidak memiliki akses untuk menghapus data !</p>');
+            $this->session->set_flashdata('result_hapus', '<br><div class="alert alert-danger">Anda tidak memiliki akses untuk menghapus data !</div>');
             redirect('laptop');
         }       
     }

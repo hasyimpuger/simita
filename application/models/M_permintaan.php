@@ -82,8 +82,8 @@ class M_permintaan extends CI_Model {
     function kdotomatis() {
         $group=$this->db->get_where('tb_group',array('gid'=>$this->session->userdata('gid')))->row_array();
         $kode=$group['nama_alias'];
-        $jenis = "REQ-".$kode."-".date('m').".";
-        $query = $this->db->query("SELECT max(kode_transaksi) as maxID FROM tb_trans_masuk WHERE kode_transaksi LIKE '$jenis%'");
+        $jenis = "REQ/IT-".$kode."-".date('m','y').".";
+        $query = $this->db->query("SELECT max(kode_transaksi) as maxID FROM tb_permintaanhdr WHERE kode_permintaan LIKE '$jenis%'");
         $data = $query->row_array();
         $idMax = $data['maxID'];
         $noUrut = (int) substr($idMax, 10, 3);

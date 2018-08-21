@@ -56,7 +56,7 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class='box-header with-border'>
-                    <h3 class='box-title'><a href="<?php echo base_url('masuk/add'); ?>" class="btn btn-primary btn-small">
+                    <h3 class='box-title'><a href="<?php echo base_url('permintaan/add'); ?>" class="btn btn-primary btn-small">
                             <i class="glyphicon glyphicon-plus"></i> Tambah Data</a></h3>
                             <label calss='control-label' > <?php echo $this->session->flashdata('result_hapus'); ?></label>
                 </div>

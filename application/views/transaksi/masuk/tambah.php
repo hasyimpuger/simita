@@ -155,7 +155,15 @@ function hapus(id){
                                    oninput="setCustomValidity('')" placeholder="No. PO dari pembelian">
                         </div>
                     </td>
-                    
+                <tr>
+                    <td>Tanggal PO</td>
+                    <td>
+                        <div class="col-sm-4">
+                            <input type="text" name="tgl_po" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
+                                   oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
+                        </div>
+                    </td> 
+                </tr>
                 <tr>
                 <tr>
                     <td>BARANG</td>

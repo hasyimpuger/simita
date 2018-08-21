@@ -57,7 +57,7 @@
                               <td style="text-align:right">Status :</td>
                               <td><?php echo $recordall['status']?></td>                    
                             </tr>
-							<tr>
+							              <tr>
                               <td style="text-align:right">Note/ Catatan :</td>
                               <td><?php echo $recordall['note']?></td>                    
                             </tr>
@@ -172,6 +172,7 @@
                               <td><label>Maintenance Type</label></td>
                               <td><label>Catatan Permohonan</label></td>                              
                               <td><label>Tgl. Selesai</label></td>
+                              <td><label>Lama Garansi</label></td>
                               <td style="text-align:right"><label>Biaya/ Cost</label></td>
                               <td style="text-align:center"><label>Aksi</label></td>
                             </tr>                            
@@ -184,6 +185,7 @@
                                       <td>".$s->jenis_permohonan."</td>
                                       <td>".$s->catatan_pemohon."</td>                                      
                                       <td>".tgl_lengkap($s->tgl_selesai)."</td>
+                                      <td>".$s->lama_garansi."</td>
                                       <td style='text-align:right'>".rupiah($s->biaya)."</td>
                                       <td style='text-align:center'>".anchor('maintenance/detail/' . $s->no_permohonan, '<i class="btn btn-sm glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit"></i>') ."</td>
                                     </tr> ";

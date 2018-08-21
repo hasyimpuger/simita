@@ -101,7 +101,8 @@ class Masuk extends CI_Controller {
             $kode =$this->m_masuk->kdotomatis();
             $data = array(
                     'kode_transaksi'=>$kode,
-                    'no_po'=>$this->input->post('no_po'),                        
+                    'no_po'=>$this->input->post('no_po'), 
+                    'tgl_po'=>$this->input->post('tgl_po'),                      
                     'tgl_transaksi'=>  tanggal(),
                     'id_supplier'=>$this->input->post('supplier'),
                     'gid'=>$gid

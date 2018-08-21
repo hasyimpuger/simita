@@ -19,7 +19,14 @@ $(document).ready(function(){
 $(document).ready(function(){
     $(".combobox").combobox();
 });
-
+<style>
+            .login-box{
+                width: 300px;
+                margin: auto;
+                margin-top: 100px;
+            }
+        </style>
+<?php echo $script_captcha; // javascript recaptcha ?>
 function load_inv(){ 
     var group = $('#group').val();  
     var kategori=$("#kategori").val();
@@ -126,6 +133,7 @@ CKEDITOR.inline('editable');
                 </div>
                 <?php echo form_error('catatan', '<div class="text-red">', '</div>'); ?>
               </div>
+             
               <br>
               <div class="btn-group">
                 <button type="submit" name="submit" class="btn ticket_btn"><i class="fa fa-share-square" aria-hidden="true"></i> Kirim</button> 

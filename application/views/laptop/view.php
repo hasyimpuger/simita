@@ -9,7 +9,25 @@
     </ol>
 </section>
 <script src="<?php echo base_url('assets/js/plugins/datatables/jquery-1.11.3.min.js'); ?>"></script>
-    <script>
+<link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" >
+<script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+<script>   
+    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+</script>
+<style>
+#notifications {
+    cursor: pointer;
+    position: fixed;
+    right: 0px;
+    z-index: 9999;
+    bottom: 0px;
+    margin-bottom: 22px;
+    margin-right: 15px;
+    min-width: 300px; 
+    max-width: 800px;  
+    }
+</style>
+<script>
     $(document).ready(function(){     
 		$.fn.dataTable.ext.errMode = 'throw'; 	
         $('#tb-laptop').dataTable( {
@@ -52,6 +70,7 @@
             } );
     });
 </script>
+<div id="notifications"><?php echo $this->session->flashdata('result_hapus'); ?></div> 
 <section class="content">   
     <div class="row">
         <div class="col-md-12">
@@ -61,7 +80,7 @@
                             <i class="glyphicon glyphicon-plus"></i> Tambah Data</a></h3>
                             <a href="<?php echo base_url('laptop/export_excel'); ?>" class="btn btn-primary btn-small">
                             <i class="glyphicon glyphicon-save-file"></i> Export to Excel</a></h3>
-                            <label calss='control-label' ><?php echo $this->session->flashdata('result_hapus'); ?></label>
+                            <!--<label calss='control-label' ><?php echo $this->session->flashdata('result_hapus'); ?></label> -->
                 </div>
                 <div class="box-body table-responsive">
                     <table id="tb-laptop" class="table table-bordered table-striped" cellspacing="0" width="100%">

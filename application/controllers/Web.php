@@ -5,6 +5,7 @@ class Web extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model(array('m_web','m_maintenance'));
+        $this->load->library(array('form_validation', 'Recaptcha'));
     }
 
     function index(){
@@ -44,7 +45,6 @@ class Web extends CI_Controller {
             //buat pagination
             $data['paging'] = $this->pagination->create_links();
             $page= ($this->uri->segment(4))? $this->uri->segment(4):0;
-
             $data['group'] =$this->db->get_where('tb_group',array('gid'=>$id))->result();
             $data['type'] =$this->db->get('tb_kategori')->result(); 
             $data['inventory'] =$this->db->get('tb_inv_komputer')->result();
@@ -94,6 +94,8 @@ class Web extends CI_Controller {
                 'catatan_pemohon' => $this->input->post('catatan'),
                 'biaya' =>('0'),
                 'createddate' =>date('Y-m-d H:i:s'),
+                'captcha' => $this->recaptcha->getWidget(), // menampilkan recaptcha
+                'script_captcha' => $this->recaptcha->getScriptTag(), // javascript recaptcha ditaruh di head
                 'gid' => $this->input->post('group')
             );
             $detail=array(
@@ -102,6 +104,8 @@ class Web extends CI_Controller {
                 'catatan' => $this->input->post('catatan'),
                 'user' => $this->input->post('pemohon'),
              );            
+            $recaptcha = $this->input->post('g-recaptcha-response');
+            $response = $this->recaptcha->verifyResponse($recaptcha);
             $this->m_web->simpan($data);
             $this->m_web->simpan_detail($detail);
             redirect('web/ticket/'.$id);

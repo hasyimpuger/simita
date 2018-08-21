@@ -201,6 +201,7 @@ class Printer extends CI_Controller {
                 'catatan_perbaikan' => $this->input->post('catatan_perbaikan'),
                 'nama_supplier' => $supplier,
                 'biaya' => $this->input->post('biaya'),
+                'lama_garansi' => $this->input->post('lama_garansi'),
                 'gid' => $this->session->userdata('gid')
             );
             $detail=array(

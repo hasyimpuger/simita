@@ -87,8 +87,8 @@ function load_inv(){
                                 <option value="" selected="selected">- Select Maintenance Type-</option> 
                                 <option value="Hardware">Hardware</option>                               
                                 <option value="Software">Software</option> 
-				<option value="Hardware & Software">Hardware & Software</option> 
-				<option value="Network">Network/ Jaringan</option> 
+				                <option value="Hardware & Software">Hardware & Software</option> 
+				                <option value="Network">Network/ Jaringan</option> 
                             </select>  
                             <?php echo form_error('type', '<div class="text-red">', '</div>'); ?>
                         </div>               
@@ -131,7 +131,19 @@ function load_inv(){
                         </div><!-- /.input group -->                  
                     </td>
                 <tr>     
-                
+                <td><label>Lama Garansi</label></td>
+                    <td>
+                        <div class=" col-sm-4">                                                         
+                            <select name="lama_garansi" class="form-control" id=""> 
+                                <option value="" selected="selected">- Pilih Lama Garansi-</option> 
+                                <option value="1 Bulan">1 Bulan</option>                               
+                                <option value="2 Bulan">2 Bulan</option> 
+				                <option value="3 Bulan">3 Bulan</option> 
+				                <option value="1 Tahun">1 Tahun</option> 
+                            </select>  
+                            <?php echo form_error('type', '<div class="text-red">', '</div>'); ?>
+                        </div>               
+                    </td>
                 
                 <tr>
                     <td><label>Catatan Perbaikan</label></td>
