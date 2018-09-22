@@ -82,3 +82,4 @@ Versi 2.4 Build 092018
 ----------------------
 - Penambahan Fitur Inventory Lisensi
 - Perbaikan beberapa Bug
+- Penambahan code autocomplete="off" untuk menghapus Auto Complete pada field yang bertipe text
