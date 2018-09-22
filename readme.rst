@@ -77,3 +77,8 @@ Versi 2.4 Build 052018
 - Penambahan Fitur Dashboard
 - Penambahan validasi nilai biaya saat user membuat tiket
 - Update FontAwesome from v4 to v5
+
+Versi 2.4 Build 092018
+----------------------
+- Penambahan Fitur Inventory Lisensi
+- Perbaikan beberapa Bug
