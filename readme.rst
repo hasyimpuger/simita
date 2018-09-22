@@ -1,4 +1,6 @@
-# Update Terbaru ada Pada Branch simit_22018 (https://github.com/asratech/simita/tree/simit_22018)
+###################
+Update Terbaru ada Pada Branch simit_22018 (https://github.com/asratech/simita/tree/simit_22018)
+###################
 
 ###################
 Apa itu SIMITA ?
