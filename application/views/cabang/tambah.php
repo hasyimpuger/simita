@@ -23,13 +23,13 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="example">Nama Cabang</label>
-                            <input type="tex" name="namacabang" class="form-control" required oninvalid="setCustomValidity('Nama Cabang Harus di Isi !')"
+                            <input type="tex" autocomplete="off" name="namacabang" class="form-control" required oninvalid="setCustomValidity('Nama Cabang Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Masukan Nama Cabang" >
                                    <?php echo form_error('namacabang', '<div class="text-red">', '</div>'); ?>
                         </div>
                         <div class="form-group">
                             <label for="example">Wilayah</label>
-                            <input type="tex" name="wilayah" class="form-control" required oninvalid="setCustomValidity('Wilayah Harus di Isi !')"
+                            <input type="tex" autocomplete="off" name="wilayah" class="form-control" required oninvalid="setCustomValidity('Wilayah Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Masukan Wilayah Cabang" ></textarea>
                                    <?php echo form_error('wilayah', '<div class="text-red">', '</div>'); ?>
                         </div>               

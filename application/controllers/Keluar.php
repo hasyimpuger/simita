@@ -31,7 +31,7 @@ class Keluar extends CI_Controller {
                 'catatan'=>$r->catatan, 
                 'nama_pengguna'=>$r->nama_pengguna,
                 'nama'=>$r->nama,   
-                'cabang'=>$r->namacabang,            
+                'cabang'=>$r->id_cabang,            
                 'cetak'=>'<a href="'.base_url('keluar/cetak/'.$r->kode_transaksi).'" target="_blank" ><i class="btn btn-info btn-sm fa fa-print" data-toggle="tooltip" title="Print"></i>',
             );
         }        
@@ -64,6 +64,7 @@ class Keluar extends CI_Controller {
     function load_temp(){
         echo "<table class='table table-bordered table-striped'>
         <tr>
+            <th>Cabang</th>
             <th>Kode Barang</th>
             <th>Nama Barang</th>
             <th>Spesifikasi</th>
@@ -74,6 +75,7 @@ class Keluar extends CI_Controller {
         $data=  $this->m_keluar->tampil_temp()->result();
         foreach ($data as $d){
             echo "<tr id='dataku$d->id_trans_detail'>
+                <td>$d->id_cabang</td>
                 <td>$d->kode_barang</td>
                 <td>$d->nama_barang</td>   
                 <td>$d->spesifikasi</td>               

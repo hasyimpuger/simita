@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                   <td style="width:25%">Untuk Cabang</td>                  
-                  <td>: <?php echo $keluar['namacabang']?></td>                    
+                  <td>: <?php echo $keluar['id_cabang']?></td>                    
                 </tr>
               </table>             
             </div>

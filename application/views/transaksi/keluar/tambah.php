@@ -132,7 +132,7 @@ function hapus(id){
                                     <?php
                                     if (!empty($cabang)) {
                                         foreach ($cabang as $row) {
-                                            echo "<option value=".$row->id_cabang.">".strtoupper($row->namacabang)."</option>";                                        
+                                            echo "<option value='".$row->namacabang."'>".strtoupper($row->namacabang)."</option>";                                       
                                         }
                                     }
                                 ?>

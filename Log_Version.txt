@@ -1,7 +1,7 @@
 SIMITA (SIstem Managemen IT Aset)
 =================================
 Created Date 	 : 04 April 2017
-Programer 	 : Ahmad Sopian (sopian.ahmad@suzuki-mobil.co.id)
+Programer 	 : Ahmad Sopian (shopyan.design@gmail.com)
 Update Date	 : 07 Juni 2018
 Apps Base    	 : PHP with CodeIgniter & MySQL Database
 

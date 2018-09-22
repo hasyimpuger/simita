@@ -16,3 +16,11 @@ class M_stok extends CI_Model {
 
     }
 }
+
+//    function detail($id) {
+//        $query = $this->db->query("SELECT tb_trans_detail.tgl_transaksi,tb_cabang.namacabang,tb_trans_detail.kode_transaksi,tb_trans_detail.catatan,
+//        tb_trans_detail.qty_masuk,tb_trans_detail.qty_keluar FROM tb_trans_detail 
+//        INNER JOIN tb_trans_detail.id_cabang ON tb_cabang.id_cabang
+//        WHERE tb_trans_detail.kode_barang='$id' ");
+//        return $query;
+//    }

@@ -43,6 +43,7 @@
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
+                <th>Cabang</th>
                 <th>Tgl. Transaksi</th>
                 <th>No. Transaksi</th>
                 <th>Keterangan</th>
@@ -57,6 +58,7 @@
                   foreach ($detail as $r ) {                    
                     echo'
                       <tr>
+                      <td>'.$r->id_cabang.'</td>
                       <td>'.tgl_indo($r->tgl_transaksi).'</td>
                       <td>'.$r->kode_transaksi.'</td>
                       <td>'.$r->catatan.'</td>                            

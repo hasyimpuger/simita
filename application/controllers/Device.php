@@ -55,6 +55,7 @@ class Device extends CI_Controller {
             $data = array(
                 'kode_network' => $this->input->post('kode'),
                 'lokasi' => $this->input->post('lokasi'),
+                'namacabang' => $this->input->post('namacabang'),
                 'jenis_network' => $this->input->post('jenis'),
                 'spesifikasi' => $this->input->post('spek'),               
                 'tgl_inv' =>$this->input->post('tgl_inv'),

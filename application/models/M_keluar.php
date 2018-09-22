@@ -5,34 +5,31 @@ class M_keluar extends CI_Model {
     function list_keluar() {
         $gid=$this->session->userdata('gid');
         $query = $this->db->query("SELECT tb_trans_keluar.id_transaksi,tb_trans_keluar.kode_transaksi,tb_trans_keluar.tgl_transaksi,tb_trans_keluar.id_pengguna,tb_trans_detail.kode_barang,tb_trans_detail.harga,
-            tb_trans_detail.qty_keluar,tb_trans_detail.catatan,tb_trans_detail.status,tb_barang.nama_barang,tb_barang.merek_barang,tb_barang.spesifikasi,tb_trans_detail.gid,tb_pengguna.nama_pengguna,tb_departemen.nama,tb_trans_keluar.id_cabang,tb_cabang.namacabang
+            tb_trans_detail.qty_keluar,tb_trans_detail.catatan,tb_trans_detail.status,tb_barang.nama_barang,tb_barang.merek_barang,tb_barang.spesifikasi,tb_trans_detail.gid,tb_pengguna.nama_pengguna,tb_departemen.nama,tb_trans_keluar.id_cabang
             FROM tb_trans_detail INNER JOIN tb_barang ON tb_barang.kode_barang = tb_trans_detail.kode_barang INNER JOIN tb_trans_keluar ON tb_trans_detail.kode_transaksi = tb_trans_keluar.kode_transaksi INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_trans_keluar.id_pengguna 
-                INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_trans_keluar.id_cabang
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept ORDER BY tb_trans_detail.id_trans_detail DESC");
         return $query;
     }
 
     function list_keluargid() {
         $gid=$this->session->userdata('gid');
-        $query = $this->db->query("SELECT tb_trans_keluar.id_transaksi,tb_trans_keluar.kode_transaksi,tb_trans_keluar.tgl_transaksi,tb_trans_keluar.id_pengguna,tb_trans_detail.kode_barang,tb_trans_detail.harga,
-            tb_trans_detail.qty_keluar,tb_trans_detail.catatan,tb_trans_detail.status,tb_barang.nama_barang,tb_barang.merek_barang,tb_barang.spesifikasi,tb_trans_detail.gid,tb_pengguna.nama_pengguna,tb_departemen.nama,tb_trans_keluar.id_cabang,tb_cabang.namacabang  
+        $query = $this->db->query("SELECT tb_trans_detail.id_cabang,tb_trans_keluar.id_transaksi,tb_trans_keluar.kode_transaksi,tb_trans_keluar.tgl_transaksi,tb_trans_keluar.id_pengguna,tb_trans_detail.kode_barang,tb_trans_detail.harga,
+            tb_trans_detail.qty_keluar,tb_trans_detail.catatan,tb_trans_detail.status,tb_barang.nama_barang,tb_barang.merek_barang,tb_barang.spesifikasi,tb_trans_detail.gid,tb_pengguna.nama_pengguna,tb_departemen.nama,tb_trans_keluar.id_cabang 
             FROM tb_trans_detail INNER JOIN tb_barang ON tb_barang.kode_barang = tb_trans_detail.kode_barang INNER JOIN tb_trans_keluar ON tb_trans_detail.kode_transaksi = tb_trans_keluar.kode_transaksi INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_trans_keluar.id_pengguna 
-            INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_trans_keluar.id_cabang
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_trans_keluar.gid ='$gid' ORDER BY tb_trans_detail.id_trans_detail DESC ");
         return $query;
     }
 
     function cetak($id) {        
-        $query = $this->db->query("SELECT tb_trans_detail.kode_transaksi,tb_trans_detail.tgl_transaksi,tb_trans_detail.kode_barang,tb_trans_detail.harga,tb_trans_detail.qty_keluar,
+        $query = $this->db->query("SELECT tb_trans_detail.id_cabang,tb_trans_detail.kode_transaksi,tb_trans_detail.tgl_transaksi,tb_trans_detail.kode_barang,tb_trans_detail.harga,tb_trans_detail.qty_keluar,
             tb_trans_detail.catatan,tb_barang.nama_barang,tb_barang.merek_barang,tb_barang.spesifikasi,tb_trans_detail.gid
             FROM tb_trans_detail INNER JOIN tb_barang ON tb_barang.kode_barang = tb_trans_detail.kode_barang WHERE tb_trans_detail.kode_transaksi = '$id'");
         return $query;
     }
 
     function get_transaksi($id){
-        $query = $this->db->query("SELECT tb_trans_keluar.kode_transaksi,tb_trans_keluar.tgl_transaksi,tb_trans_keluar.id_pengguna,tb_pengguna.nama_pengguna,tb_pengguna.id_dept,
-            tb_departemen.nama,tb_trans_keluar.id_cabang,tb_cabang.namacabang FROM tb_trans_keluar INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_trans_keluar.id_pengguna 
-            INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_trans_keluar.id_cabang
+        $query = $this->db->query("SELECT tb_trans_keluar.id_cabang,tb_trans_keluar.kode_transaksi,tb_trans_keluar.tgl_transaksi,tb_trans_keluar.id_pengguna,tb_pengguna.nama_pengguna,tb_pengguna.id_dept,
+            tb_departemen.nama,tb_trans_keluar.id_cabang FROM tb_trans_keluar INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_trans_keluar.id_pengguna 
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_trans_keluar.kode_transaksi = '$id'");
         return $query;
     }
@@ -76,6 +73,7 @@ class M_keluar extends CI_Model {
         $barang =   $_GET['barang'];
         $qty    =   $_GET['qty'];
         $catatan =  $_GET['catatan'];
+        $cabang = $_GET['cabang'];
         $this->db->order_by('id_trans_detail','DESC');
         $this->db->limit(1);
         $harga=  $this->db->get_where('tb_trans_detail',array('kode_barang'=>$barang,'gid'=>$gid))->row_array();
@@ -87,6 +85,7 @@ class M_keluar extends CI_Model {
                     'harga'=>$harga['harga'],
                     'qty_keluar'=>$qty,                    
                     'catatan'=>$catatan,
+                    'id_cabang'=>$cabang,
                     'gid'=>$gid);
         // status 1 sudah diproses, 2 belum diproses
         $this->db->insert('tb_trans_detail',$data);
@@ -94,7 +93,7 @@ class M_keluar extends CI_Model {
 
     function tampil_temp(){
         $gid=$this->session->userdata('gid');
-        $query=$this->db->query("SELECT tb_trans_detail.id_trans_detail,tb_trans_detail.kode_transaksi,tb_trans_detail.kode_barang,tb_barang.nama_barang,tb_barang.spesifikasi,tb_trans_detail.harga,tb_trans_detail.qty_keluar,
+        $query=$this->db->query("SELECT tb_trans_detail.id_cabang,tb_trans_detail.id_cabang,tb_trans_detail.id_trans_detail,tb_trans_detail.kode_transaksi,tb_trans_detail.kode_barang,tb_barang.nama_barang,tb_barang.spesifikasi,tb_trans_detail.harga,tb_trans_detail.qty_keluar,
             tb_trans_detail.catatan,tb_trans_detail.status,tb_trans_detail.gid FROM tb_trans_detail INNER JOIN tb_barang ON tb_barang.kode_barang = tb_trans_detail.kode_barang 
             WHERE tb_trans_detail.status= '0' AND tb_trans_detail.gid = '$gid'");
         return $query;
