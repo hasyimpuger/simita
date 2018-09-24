@@ -39,6 +39,7 @@
         "columns": [
                 { "mData": "no" },
                 { "width":"12%","mData": "kode_printer" },
+                { "width":"20%","mData": "namacabang" },
                 { "width":"12%","mData": "aset_hrd" },
                 { "mData": "nama_pengguna" },
                 { "mData": "dept" },  
@@ -67,6 +68,7 @@
                             <tr>
                                 <th>No.</th>
                                 <th>No Inventaris</th>
+                                <th>Cabang</th>
                                 <th>No. Aset HRD</th>
                                 <th>Nama Pengguna</th>
                                 <th>Departemen</th>

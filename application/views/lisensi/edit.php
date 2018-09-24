@@ -38,28 +38,28 @@ CKEDITOR.inline('editable');
                     
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="example">Nama Provider</label>
+                            <label for="example">Supplier/Vendor</label>
                             <input type="hidden"  name="id" value="<?php echo $record['nama_provider'] ?>" >
-                            <input type="text" name="nama_provider" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama Barang Harus di Isi !')"
-                                   oninput="setCustomValidity('')" disabled class="form-control" placeholder="Masukan Nama Barang" value="<?php echo $record['nama_provider']; ?>" >
+                            <input type="text" name="nama_supplier" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama Barang Harus di Isi !')"
+                                   oninput="setCustomValidity('')" disabled class="form-control" placeholder="Masukan Nama Barang" value="<?php echo $record['nama_supplier']; ?>" >
                         </div>                 
                         <div class="form-group">
+                            <label>Jenis Lisensi</label>
+                            <select name="jenis_lisensi" class="form-control " >
+                                <option value='<?php echo $record['jenis_lisensi']; ?>'><?php echo $record['jenis_lisensi'];'selected' ?></option>
+                                <option value='AntiVirus'>AntiVirus</option>
+                                <option value='OS'>OS</option>
+                                <option value='Office'>Office</option>
+                                <option value='Lain-Lain'>Lain-Lain</option>                                                               
+                            </select>
+                            <?php echo form_error('jenis_lisensi', '<div class="text-red">', '</div>'); ?>
+                        </div>  
+                        <div class="form-group">
                             <label for="example">Cabang</label>
-                            <input type="hidden"  name="id" value="<?php echo $record['nama_cabang'] ?>" >
+                            <input type="hidden"  name="id" value="<?php echo $record['id_cabang'] ?>" >
                             <input type="text" name="nama_cabang" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama PIC/Sales Harus di Isi !')"
                                    oninput="setCustomValidity('')" disabled class="form-control" placeholder="Masukan Email Provider" value="<?php echo $record['nama_cabang']; ?>" >
-                        </div>        
-                        <div class="form-group">
-                            <label>Jenis Koneksi</label>
-                            <select name="jenis" class="form-control " >
-                                <option value='<?php echo $record['tipe_koneksi']; ?>'><?php echo $record['tipe_koneksi'];'selected' ?></option>
-                                <option value='WIRELESS'>WIRELESS BROADBAND</option>
-                                <option value='FIBER OPTIC'>FIBER OPTIC</option>
-                                <option value='TV CABLE'>TV CABLE</option>
-                                <option value='MODEM'>MODEM</option>                                                               
-                            </select>
-                            <?php echo form_error('jenis', '<div class="text-red">', '</div>'); ?>
-                        </div>     
+                        </div>           
                         <div class="form-group">
                             <label for="example">Nomor Pelanggan</label>
                             <input type="hidden"  name="id" value="<?php echo $record['nomor_pelanggan'] ?>" >

@@ -26,7 +26,6 @@ $(document).ready(function(){
                 margin-top: 100px;
             }
         </style>
-<?php echo $script_captcha; // javascript recaptcha ?>
 function load_inv(){ 
     var group = $('#group').val();  
     var kategori=$("#kategori").val();

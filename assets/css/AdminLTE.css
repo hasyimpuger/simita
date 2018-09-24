@@ -267,7 +267,7 @@ a:focus {
 .main-header .sidebar-toggle:active {
   background: transparent;
 }
-.main-header .sidebar-toggle .icon-bar {
+.main-header .sidebar-toggle .icon-bars {
   display: none;
 }
 .main-header .navbar .nav > li.user > a > .fa,

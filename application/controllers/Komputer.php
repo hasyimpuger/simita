@@ -4,6 +4,8 @@ class Komputer extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+         // load helper Date
+         $this->load->helper('date');
         $this->load->model(array('m_komputer','m_laptop','m_masuk','m_maintenance'));
         chek_session();
     }
@@ -74,6 +76,8 @@ class Komputer extends CI_Controller {
                 'harga_beli' => $this->input->post('harga'),
                 'tgl_inv' =>$this->input->post('tgl_inv'),
                 'tgl_garansi' =>$this->input->post('tgl_garansi'),
+                'createby'=>$this->session->userdata('username'),
+                'createdate' =>mdate('%Y-%m-%d %H:%i:%s', now()),
                 'gid' => $gid
             );
             $data2=array(
@@ -106,6 +110,8 @@ class Komputer extends CI_Controller {
                         'tgl_garansi' =>$this->input->post('tgl_garansi'),
                         'harga_beli' => $this->input->post('harga'),
                         'status' => $this->input->post('status'),
+                        'updatedate' =>mdate('%Y-%m-%d %H:%i:%s', now()),
+                        'updateby'=>$this->session->userdata('username'),
 						'note' => $this->input->post('note')
                     );
                 $kode=$this->input->post('kode');

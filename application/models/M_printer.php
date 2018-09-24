@@ -4,18 +4,20 @@ class M_printer extends CI_Model {
 
     function semua() {
         $gid=$this->session->userdata('gid');
-        $query = $this->db->query("SELECT tb_inv_printer.id_printer,tb_inv_printer.kode_printer,tb_pengguna.nama_pengguna,tb_inv_printer.jenis_printer,
+        $query = $this->db->query("SELECT tb_cabang.namacabang,tb_inv_printer.id_printer,tb_inv_printer.kode_printer,tb_pengguna.nama_pengguna,tb_inv_printer.jenis_printer,
             tb_inv_printer.spesifikasi,tb_inv_printer.tgl_inv,tb_inv_printer.status,tb_inv_printer.note,tb_inv_printer.gid,tb_departemen.nama,tb_departemen.parent,tb_pengguna.id_dept,tb_inv_printer.aset_hrd
-            FROM tb_inv_printer INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_printer.id_pengguna 
+            FROM tb_inv_printer INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_printer.id_pengguna
+            INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_pengguna.id_cabang
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_inv_printer.status='DIGUNAKAN' OR tb_inv_printer.status ='SIAP DIGUNAKAN' OR tb_inv_printer.status='DIPERBAIKI' ORDER BY tb_inv_printer.id_printer DESC");
         return $query;
     }
 
     function semuagid() {
         $gid=$this->session->userdata('gid');
-        $query = $this->db->query("SELECT tb_inv_printer.id_printer,tb_inv_printer.kode_printer,tb_pengguna.nama_pengguna,tb_inv_printer.jenis_printer,
+        $query = $this->db->query("SELECT tb_cabang.namacabang,tb_inv_printer.id_printer,tb_inv_printer.kode_printer,tb_pengguna.nama_pengguna,tb_inv_printer.jenis_printer,
             tb_inv_printer.spesifikasi,tb_inv_printer.tgl_inv,tb_inv_printer.status,tb_inv_printer.note,tb_inv_printer.gid,tb_departemen.nama,tb_departemen.parent,tb_pengguna.id_dept,tb_inv_printer.aset_hrd
             FROM tb_inv_printer INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_printer.id_pengguna 
+            INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_pengguna.id_cabang
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_departemen.gid ='$gid' AND tb_inv_printer.status='DIGUNAKAN' OR tb_departemen.gid ='$gid' AND tb_inv_printer.status ='SIAP DIGUNAKAN' OR tb_departemen.gid ='$gid' AND tb_inv_printer.status='DIPERBAIKI' OR tb_departemen.gid ='$gid' AND tb_inv_printer.status='DIPINJAMKAN' ORDER BY tb_inv_printer.id_printer DESC");
         return $query;
     }
@@ -39,9 +41,10 @@ class M_printer extends CI_Model {
     }
 
     function get_inv($id) {
-        $query = $this->db->query("SELECT tb_inv_printer.id_printer,tb_inv_printer.kode_printer,tb_inv_printer.id_pengguna,tb_inv_printer.harga_beli,tb_pengguna.nama_pengguna,tb_inv_printer.jenis_printer,
+        $query = $this->db->query("SELECT tb_cabang.namacabang,tb_inv_printer.aset_hrd, tb_inv_printer.id_printer,tb_inv_printer.kode_printer,tb_inv_printer.id_pengguna,tb_inv_printer.harga_beli,tb_pengguna.nama_pengguna,tb_inv_printer.jenis_printer,
             tb_inv_printer.spesifikasi,tb_inv_printer.tgl_inv,tb_inv_printer.status,tb_inv_printer.note,tb_inv_printer.gid,tb_departemen.nama,tb_departemen.parent,tb_pengguna.id_dept
             FROM tb_inv_printer INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_printer.id_pengguna 
+            INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_pengguna.id_cabang
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_inv_printer.kode_printer ='$id' ");
         return $query;
     }

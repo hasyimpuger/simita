@@ -38,6 +38,14 @@
                               <td style="width:70%"><?php echo $recordall['kode_printer'] ?></td>
                             </tr>
                             <tr>
+                              <td style="text-align:right ">Cabang :</td>
+                              <td style="width:70%"><?php echo $recordall['namacabang'] ?></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:right ">No.Aset HRD :</td>
+                              <td style="width:70%"><?php echo $recordall['aset_hrd'] ?></td>
+                            </tr>
+                            <tr>
                               <td style="text-align:right">Pengguna :</td>
                               <td><?php echo anchor('pengguna/edit/'.$recordall['id_pengguna'],$recordall['nama_pengguna']);?></td>                    
                             </tr>
@@ -120,7 +128,7 @@
                                           <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                           </div>                              
-                                             <input type="text" name="tgl_inv" value="<?php echo $record['tgl_inv']; ?>" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
+                                             <input type="text" autocomplete="off" name="tgl_inv" value="<?php echo $record['tgl_inv']; ?>" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
                                                oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >                            
                                         </div><!-- /.input group -->
                                     </div>
@@ -139,7 +147,7 @@
                                     </div>   
 									<div class="form-group">
 										<label for="example">Note/ Catatan</label>
-										<input type="text" name="note" class="form-control" value="<?php echo $record['note']; ?>" required oninvalid="setCustomValidity('Serial Number Harus di Isi !')"
+										<input type="text" autocomplete = "off" name="note" class="form-control" value="<?php echo $record['note']; ?>" required oninvalid="setCustomValidity('Serial Number Harus di Isi !')"
 											   oninput="setCustomValidity('')" placeholder="Note / Catatan Status Inventory" >
 											   <?php echo form_error('note', '<div class="text-red">', '</div>'); ?>
 									</div>

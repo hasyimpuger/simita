@@ -61,7 +61,7 @@
                             </i>  <span class="treeview">' . strtoupper($m->nama_menu) . '</span>') . '</li>';
                     }                
                 }
-                echo '<li class="header bg-blue-active"><i class="fa fa-user"></i> Menu IT</li> '; 
+                echo '<li class="header bg-blue-active"><i class="fa fa-user"></i>  Admin Menu</li> '; 
                     $admin = $this->db->get_where('tb_menu', array('parent' => 0,'role'=>'Administrator'));
                     foreach ($admin->result() as $m) {
                         // chek ada submenu atau tidak

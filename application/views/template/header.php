@@ -6,7 +6,9 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
+        
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <i class="fas fa-bars"></i>
             <span class="sr-only"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>

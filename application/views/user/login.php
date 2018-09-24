@@ -37,7 +37,7 @@
                         </div>    
                     <?php } ?>
                     <div class="form-group has-feedback">
-                        <input type="text" name="username" class="form-control" placeholder="User Name"/>
+                        <input type="text" autocomplete="off" name="username" class="form-control" placeholder="User Name"/>
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">

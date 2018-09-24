@@ -49,7 +49,7 @@
                         </div>  
                         <div class="form-group">
                             <label for="example">Nomor Aset HRD</label>
-                            <input type="text" id="asethrd" name="aset_hrd" class="form-control" required oninvalid="setCustomValidity('Nomor Aset Wajib Diisi !')"
+                            <input type="text" autocomplete="off" id="asethrd" name="aset_hrd" class="form-control" required oninvalid="setCustomValidity('Nomor Aset Wajib Diisi !')"
                                    oninput="setCustomValidity('')" placeholder="BITJ01/0/1/2/345/6" >
                                    <?php echo form_error('aset_hrd', '<div class="text-red">', '</div>'); ?>
                         </div>  
@@ -79,7 +79,7 @@
                                 <i class="fa fa-calendar"></i>
                               </div>
                               
-                                 <input type="text" name="tgl_inv" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
+                                 <input type="text" autocomplete="off" name="tgl_inv" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
                                    oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
                             
                             </div><!-- /.input group -->

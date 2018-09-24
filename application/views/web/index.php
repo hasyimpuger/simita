@@ -27,7 +27,7 @@
             <div class="container clearfix">
               <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12">
-                  <p class="italic">SIMITA - PT. Sejahtera Buana Trada</p>
+                  <p class="italic">SIMITA - Sistem Management IT Asset</p>
                   <h1>SIMITA</h1>
                   <p class="italic">Sistem Management IT Asset</p>
                   <p class="italic">Kini telah tersedia aplikasi pengaduan gangguan Komputer,Laptop, dan Printer </p>
@@ -125,16 +125,6 @@
         })
     });
    </script>
-   <!-- Start of LiveChat (www.livechatinc.com) code -->
-<script type="text/javascript">
-window.__lc = window.__lc || {};
-window.__lc.license = 9498765;
-(function() {
-  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-})();
-</script>
-<!-- End of LiveChat code -->
+
   </body>
 </html>

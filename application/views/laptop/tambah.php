@@ -59,13 +59,13 @@ CKEDITOR.inline('editable');
                     
                        <div class="form-group">
                             <label for="example">Nomor Aset HRD</label>
-                            <input type="text" id="asethrd" name="aset_hrd" class="form-control" required oninvalid="setCustomValidity('Nomor Aset Wajib Diisi !')"
+                            <input type="text" autocomplete="off" id="asethrd" name="aset_hrd" class="form-control" required oninvalid="setCustomValidity('Nomor Aset Wajib Diisi !')"
                                    oninput="setCustomValidity('')" placeholder="BITJ01/0/1/2/345/6" >
                                    <?php echo form_error('aset_hrd', '<div class="text-red">', '</div>'); ?>
                         </div>                        
                         <div class="form-group">
                             <label for="example">Brand Laptop</label>
-                            <input type="text" id="merek" onkeyup="this.value = this.value.toUpperCase()"  name="merek" class="form-control" required oninvalid="setCustomValidity('Merek/brand Harus di Isi !')"
+                            <input type="text" autocomplete="off" id="merek" onkeyup="this.value = this.value.toUpperCase()"  name="merek" class="form-control" required oninvalid="setCustomValidity('Merek/brand Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="ex : ASUS, LENOVO" >
                                    <?php echo form_error('merek', '<div class="text-red">', '</div>'); ?>
                         </div>
@@ -76,7 +76,7 @@ CKEDITOR.inline('editable');
                         </div>
                         <div class="form-group">
                             <label for="example">Service TAG / Serial Number</label>
-                            <input type="text" onkeyup="this.value = this.value.toUpperCase()"  name="sn" class="form-control" required oninvalid="setCustomValidity('Serial Number Harus di Isi !')"
+                            <input type="text" autocomplete="off" onkeyup="this.value = this.value.toUpperCase()"  name="sn" class="form-control" required oninvalid="setCustomValidity('Serial Number Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Serial Number Laptop" >
                                    <?php echo form_error('sn', '<div class="text-red">', '</div>'); ?>
                         </div>
@@ -87,7 +87,7 @@ CKEDITOR.inline('editable');
                                 <i class="fa fa-calendar"></i>
                               </div>
                               
-                                 <input type="text" name="tgl_inv" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
+                                 <input type="text" autocomplete="off" name="tgl_inv" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
                                    oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
                             
                             </div><!-- /.input group -->
@@ -99,7 +99,7 @@ CKEDITOR.inline('editable');
                                 <i class="fa fa-calendar"></i>
                               </div>
                               
-                                 <input type="text" name="tgl_garansi" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Masa Garansi Wajib Diisi !')"
+                                 <input type="text" autocomplete="off" name="tgl_garansi" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Masa Garansi Wajib Diisi !')"
                                    oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
                             
                             </div><!-- /.input group -->

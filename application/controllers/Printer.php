@@ -39,6 +39,7 @@ class Printer extends CI_Controller {
             $query[] = array(
                 'no'=>$no++,
                 'kode_printer'=>$r->kode_printer,
+                'namacabang'=>$r->namacabang,
                 'aset_hrd'=>$r->aset_hrd,
                 'nama_pengguna'=>$r->nama_pengguna, 
                 'dept'=>$deptnama, 
@@ -69,6 +70,8 @@ class Printer extends CI_Controller {
                 'spesifikasi' => $this->input->post('spek'),               
                 'tgl_inv' =>$this->input->post('tgl_inv'),
                 'harga_beli' =>$this->input->post('harga'),
+                'createdate' =>mdate('%Y-%m-%d %H:%i:%s', now()),
+                'createby' =>$this->session->userdata('username'),
                 'gid' => $gid
             );
             $data2=array(
@@ -106,6 +109,8 @@ class Printer extends CI_Controller {
                         'tgl_inv' =>$this->input->post('tgl_inv'),
                         'harga_beli' =>$this->input->post('harga'),
                         'status' =>$this->input->post('status'),
+                        'updatedate' =>mdate('%Y-%m-%d %H:%i:%s', now()),
+                        'updateby' =>$this->session->userdata('username'),
 						'note' =>$this->input->post('note')
                     );
                 $kode=$this->input->post('kode');
