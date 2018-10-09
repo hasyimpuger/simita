@@ -159,7 +159,7 @@ function hapus(id){
                     <td>Tanggal PO</td>
                     <td>
                         <div class="col-sm-4">
-                            <input type="text" name="tgl_po" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
+                            <input type="text" name="tgl_po" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. PO Harus Diisi')"
                                    oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
                         </div>
                     </td> 

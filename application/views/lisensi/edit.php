@@ -37,12 +37,18 @@ CKEDITOR.inline('editable');
                 ?>
                     
                     <div class="box-body">
-                        <div class="form-group">
-                            <label for="example">Supplier/Vendor</label>
-                            <input type="hidden"  name="id" value="<?php echo $record['nama_provider'] ?>" >
-                            <input type="text" name="nama_supplier" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama Barang Harus di Isi !')"
-                                   oninput="setCustomValidity('')" disabled class="form-control" placeholder="Masukan Nama Barang" value="<?php echo $record['nama_supplier']; ?>" >
-                        </div>                 
+                            <div class="form-group">
+                                <label>Supplier/Vendor</label>
+                                <select name="id_supplier" class="form-control">
+                                    <?php
+                                    foreach ($supplier->result() as $row) {
+                                        echo "<option value='.$row->id_supplier.'";
+                                        echo $record['id_supplier'] == $r->id_supplier? 'selected' :'' ;
+                                        echo">".strtoupper($row->nama_supplier)."</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>                 
                         <div class="form-group">
                             <label>Jenis Lisensi</label>
                             <select name="jenis_lisensi" class="form-control " >
@@ -53,73 +59,48 @@ CKEDITOR.inline('editable');
                                 <option value='Lain-Lain'>Lain-Lain</option>                                                               
                             </select>
                             <?php echo form_error('jenis_lisensi', '<div class="text-red">', '</div>'); ?>
-                        </div>  
+                        </div>         
                         <div class="form-group">
-                            <label for="example">Cabang</label>
-                            <input type="hidden"  name="id" value="<?php echo $record['id_cabang'] ?>" >
-                            <input type="text" name="nama_cabang" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama PIC/Sales Harus di Isi !')"
-                                   oninput="setCustomValidity('')" disabled class="form-control" placeholder="Masukan Email Provider" value="<?php echo $record['nama_cabang']; ?>" >
-                        </div>           
-                        <div class="form-group">
-                            <label for="example">Nomor Pelanggan</label>
-                            <input type="hidden"  name="id" value="<?php echo $record['nomor_pelanggan'] ?>" >
-                            <input type="text" name="nomor_pelanggan" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama Barang Harus di Isi !')"
-                                   oninput="setCustomValidity('')"  placeholder="Masukan Nama Barang" value="<?php echo $record['nomor_pelanggan']; ?>" >
+                            <label for="example">Key Lisensi</label>
+                            <input type="hidden"  name="key_lisensi" value="<?php echo $record['key_lisensi'] ?>" >
+                            <input type="text" name="key_lisensi" class="form-control" id="inputError" required oninvalid="setCustomValidity('Nama Barang Harus di Isi !')"
+                                   oninput="setCustomValidity('')"  placeholder="Masukan Nama Barang" value="<?php echo $record['key_lisensi']; ?>" >
                         </div>          
                         <div class="form-group">
-                            <label>IP Public</label>
-                            <div class="input-group">
-                              <div class="input-group-addon">
-                                <i class="fa fa-laptop"></i>
-                              </div>
-                              <input name="ip_public" type="text" class="form-control" id="ip" value="<?php echo $record['ip_public']; ?>" />
-                            </div><!-- /.input group -->
-                            <?php echo form_error('ip', '<div class="text-red">', '</div>'); ?>
-                        </div><!-- /.form group -->
-                        <div class="form-group">
-                            <label for="">Spesifikasi & Informasi Lain</label>
-                            <textarea name="spesifikasi" onkeyup="this.value = this.value.toUpperCase()"  class="ckeditor" rows="3" required oninvalid="setCustomValidity('Spesifikasi Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="Masukan Kapasitas Bandwidth Download dan Upload serta keterangan lainnya"><?php echo $record['spesifikasi']; ?></textarea>
-                            <?php echo form_error('spek', '<div class="text-red">', '</div>'); ?>
-                        </div>
-                        <div class="form-group">
-                            <label>Tanggal Kontrak</label>
+                            <label>Tanggal Pembelian</label>
                             <div class="input-group">
                               <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                               </div>
                               
-                                 <input type="text" name="tanggal_kontrak" value="<?php echo $record['tanggal_kontrak']; ?>"  class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tanggal Kontrak Wajib Diisi !')"
+                                 <input type="text" name="tgl_pembelian" value="<?php echo $record['tgl_pembelian']; ?>"  class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tanggal Kontrak Wajib Diisi !')"
                                    oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
                             
                             </div><!-- /.input group -->
                         </div>
                         <div class="form-group">
-                            <label>Tanggal Akhir Kontrak</label>
+                            <label>Tanggal Masa Berlaku</label>
                             <div class="input-group">
                               <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                               </div>
-                                 <input type="text" name="masa_kontrak" value="<?php echo $record['masa_kontrak']; ?>" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tanggal Akhir Kontrak Wajib Diisi !')"
+                                 <input type="text" name="tgl_habis" value="<?php echo $record['tgl_habis']; ?>" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tanggal Akhir Kontrak Wajib Diisi !')"
                                    oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
 
                             </div><!-- /.input group -->
                         </div>
                         <div class="form-group">
-                            <label for="example">Biaya Per-Bulan</label>
-                            <input type="number" name="biaya" value="<?php echo $record['biaya']; ?>" class="form-control" required oninvalid="setCustomValidity('Biaya Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="2000000" >
+                            <label for="example">Jumlah Lisensi</label>
+                            <input type="number" name="jumlah_lisensi" value="<?php echo $record['jumlah_lisensi']; ?>" class="form-control" required oninvalid="setCustomValidity('Biaya Harus di Isi !')"
+                                   oninput="setCustomValidity('')" placeholder="20" >
                                    <?php echo form_error('biaya', '<div class="text-red">', '</div>'); ?>
                         </div>
                         <div class="form-group">
-                            <label>Status</label>
-                            <select name="status" class="form-control " >
-                                <option value='<?php echo $record['tipe_koneksi']; ?>'><?php echo $record['status'];'selected' ?></option>
-                                <option value='AKTIF'>AKTIF</option>
-                                <option value='HABIS KONTRAK'>HABIS KONTRAK</option>
-                                <option value='DIPUTUS'>DIPUTUS</option>                                                          
-                            </select>
-                        </div>  
+                            <label for="">Keterangan</label>
+                            <textarea name="keterangan" onkeyup="this.value = this.value.toUpperCase()"  class="ckeditor" rows="3" required oninvalid="setCustomValidity('Spesifikasi Harus di Isi !')"
+                                   oninput="setCustomValidity('')" placeholder="Masukan Kapasitas Bandwidth Download dan Upload serta keterangan lainnya"><?php echo $record['keterangan']; ?></textarea>
+                            <?php echo form_error('keterangan', '<div class="text-red">', '</div>'); ?>
+                        </div>
 
                     <div class="box-footer">
                         <button type="submit" name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-hdd"></i> Simpan</button>
