@@ -164,6 +164,7 @@ function hapus(id){
                         </div>
                     </td> 
                 </tr>
+             
                 <tr>
                 <tr>
                     <td>BARANG</td>

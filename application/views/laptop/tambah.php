@@ -81,6 +81,20 @@ CKEDITOR.inline('editable');
                                    <?php echo form_error('sn', '<div class="text-red">', '</div>'); ?>
                         </div>
                         <div class="form-group">
+                            <label>Lisensi AntiVirus</label>
+                            <select name="kode_lisensi" class="combobox form-control" id="kode_lisensi">
+                            <option value='' selected="selected">- Pilih Lisensi AntiVirus -</option>
+                                <?php
+                                if (!empty($lisensi)) {
+                                    foreach ($lisensi as $row) {
+                                        echo "<option value=".$row->kode_lisensi.">".strtoupper($row->key_lisensi)."</option>";                                        
+                                    }
+                                }
+                                ?>
+                            </select> 
+                            <?php echo form_error('kode_lisensi', '<div class="text-red">', '</div>'); ?>                           
+                        </div> 
+                        <div class="form-group">
                             <label>Tgl. Inventaris</label>
                             <div class="input-group">
                               <div class="input-group-addon">

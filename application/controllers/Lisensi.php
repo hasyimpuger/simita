@@ -140,6 +140,12 @@ class Lisensi extends CI_Controller {
         $this->template->display('lisensi/detail', $data);            
     }
 
+    function view_inventaris() { 
+        $id = $this->uri->segment(3);                                           
+        $data['recordall'] = $this->m_lisensi->view_inventaris($id)->row_array();
+        $this->template->display('lisensi/view_inventaris', $data);            
+    }
+
     // Fungsi untuk export ke excel (23 Januari 2018)
     public function export_excel(){
     // Load plugin PHPExcel nya

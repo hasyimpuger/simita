@@ -21,6 +21,19 @@
                 ?> 
                   
                     <div class="box-body">
+                    <div class="form-group">
+                            <label>Tipe</label>
+                            <select name="tipe" class="combobox form-control" id="tipe"> 
+                                <option value="">- Pilih Tipe -</option>                               
+                                    <?php
+                                    if (!empty($tipe)) {
+                                        foreach ($tipe as $row) {
+                                            echo "<option value=".$row->nama_referensi.">".strtoupper($row->nama_referensi)."</option>";                                        
+                                        }
+                                    }
+                                    ?>
+                            </select>                          
+                        </div>
                         <div class="form-group">
                             <label for="example">Manufacture (Merk)</label>
                             <input type="tex" name="nama_manufacture" onkeyup="this.value = this.value.toUpperCase()" class="form-control" required oninvalid="setCustomValidity('Merk Wajib Diisi !')"

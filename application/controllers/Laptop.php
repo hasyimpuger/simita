@@ -5,6 +5,8 @@ class Laptop extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model(array('m_laptop','m_masuk','m_barang','m_maintenance'));
+        // load helper Date
+        $this->load->helper('date');
         chek_session();
     }
 	public function index() {
@@ -68,6 +70,7 @@ class Laptop extends CI_Controller {
                 'nama_laptop' => $this->input->post('merek'),
                 'spesifikasi' => $this->input->post('spek'),
                 'serial_number' => $this->input->post('sn'),
+                'kode_lisensi' => $this->input->post('kode_lisensi'),
                 'network' => $this->input->post('ip'),
                 'aset_hrd' => $this->input->post('aset_hrd'),
                 'tgl_inv' =>$this->input->post('tgl_inv'),
@@ -89,7 +92,8 @@ class Laptop extends CI_Controller {
             $this->m_laptop->simpan_history($data2);
             redirect('laptop');
         } else {              
-	        $data['pengguna'] = $this->m_laptop->getpenggunagid()->result();           
+            $data['pengguna'] = $this->m_laptop->getpenggunagid()->result();        
+            $data['lisensi'] = $this->m_laptop->getlisensi()->result();   
             $this->template->display('laptop/tambah',$data);
         }
     }	

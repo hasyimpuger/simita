@@ -95,7 +95,7 @@ class Masuk extends CI_Controller {
     } 
     
     function add() {  
-        $this->form_validation->set_rules('supplier', 'Supplier', 'required');            
+        $this->form_validation->set_rules('supplier', 'Supplier', 'required');      
         if ($this->form_validation->run() == true) {
             $gid=$this->session->userdata('gid');           
             $kode =$this->m_masuk->kdotomatis();
@@ -159,4 +159,18 @@ class Masuk extends CI_Controller {
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
         
     }
+    function do_upload(){
+        
+         
+        
+        if($this->upload->do_upload("file")){
+            $data = array('upload_data' => $this->upload->data());
+ 
+           
+             
+            $result= $this->m_masuk->simpan($judul,$image);
+            echo json_decode($result);
+        }
+ 
+     }
 }

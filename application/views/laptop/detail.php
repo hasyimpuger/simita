@@ -74,6 +74,14 @@ CKEDITOR.inline('editable');
                               <td><?php echo tgl_lengkap($recordall['tgl_inv'])?></td>                    
                             </tr>
                             <tr>
+                              <td style="text-align:right">Key Lisensi :</td>
+                              <td><?php echo anchor('lisensi/detail/'.$recordall['id_lisensi'],$recordall['key_lisensi']);?></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align:right">Tanggal Habis Lisensi :</td>
+                              <td><p><span style="color: #ff0000;"><?php echo tgl_lengkap ($recordall['tgl_habis'])?></strong></span></p></td>
+                            </tr>
+                            <tr>
                               <td style="text-align:right">Tgl. Akhir Garansi :</td>
                               <td><p><span style="color: #ff0000;"><strong><?php echo tgl_lengkap($recordall['tgl_garansi'])?></strong></span></p></td>                    
                             </tr>

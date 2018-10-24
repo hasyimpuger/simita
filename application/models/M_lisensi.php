@@ -69,5 +69,13 @@ class M_lisensi extends CI_Model {
         return $query;
     }
 
+    function view_inventaris($id) {        
+        $query = $this->db->query("SELECT tb_inv_laptop.kode_laptop,tb_inv_laptop.aset_hrd,tb_inv_laptop.kode_lisensi,
+            tb_lisensi.kode_lisensi,tb_lisensi.tgl_habis,tb_lisensi.id_lisensi
+            FROM tb_inv_laptop INNER JOIN tb_lisensi ON tb_inv_laptop.kode_lisensi = tb_lisensi.kode_lisensi
+            WHERE tb_lisensi.id_lisensi='$id'");
+        return $query;
+    }
+
 
 }

@@ -6,7 +6,7 @@ class M_laptop extends CI_Model {
         $gid=$this->session->userdata('gid');
         $query = $this->db->query("SELECT tb_inv_laptop.id_laptop,tb_inv_laptop.kode_laptop,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
             tb_departemen.nama,tb_departemen.parent,tb_inv_laptop.nama_laptop,tb_inv_laptop.spesifikasi,tb_inv_laptop.serial_number,
-            tb_inv_laptop.id_lisence,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid
+            tb_inv_laptop.kode_lisensi,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid
             FROM tb_inv_laptop INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_laptop.id_pengguna 
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_inv_laptop.status='DIGUNAKAN' OR tb_inv_laptop.status ='SIAP DIGUNAKAN' OR tb_inv_laptop.status='DIPERBAIKI' ORDER BY tb_inv_laptop.id_laptop DESC ");
         return $query;
@@ -16,7 +16,7 @@ class M_laptop extends CI_Model {
         $gid=$this->session->userdata('gid');
         $query = $this->db->query("SELECT tb_inv_laptop.id_laptop,tb_inv_laptop.kode_laptop,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
             tb_departemen.nama,tb_departemen.parent,tb_inv_laptop.nama_laptop,tb_inv_laptop.spesifikasi,tb_inv_laptop.serial_number,
-            tb_inv_laptop.id_lisence,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid
+            tb_inv_laptop.kode_lisensi,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid
             FROM tb_inv_laptop INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_laptop.id_pengguna 
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_inv_laptop.gid ='$gid' AND tb_inv_laptop.status='DIGUNAKAN' OR tb_inv_laptop.gid ='$gid' AND tb_inv_laptop.status ='SIAP DIGUNAKAN' OR tb_inv_laptop.gid ='$gid' AND tb_inv_laptop.status='DIPERBAIKI' OR tb_inv_laptop.gid ='$gid' AND tb_inv_laptop.status='DIPINJAMKAN' ORDER BY tb_inv_laptop.id_laptop DESC ");
         return $query;
@@ -26,7 +26,7 @@ class M_laptop extends CI_Model {
         $gid=$this->session->userdata('gid');
         $query = $this->db->query("SELECT tb_inv_laptop.id_laptop,tb_inv_laptop.kode_laptop,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
             tb_departemen.nama,tb_departemen.parent,tb_inv_laptop.nama_laptop,tb_inv_laptop.spesifikasi,tb_inv_laptop.serial_number,
-            tb_inv_laptop.id_lisence,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid
+            tb_inv_laptop.kode_lisensi,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid
             FROM tb_inv_laptop INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_laptop.id_pengguna 
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_inv_laptop.status='ARSIP/DISIMPAN' OR tb_inv_laptop.status ='RUSAK/NOT FIXABLE' OR tb_inv_laptop.status='HILANG/DICURI' ORDER BY tb_inv_laptop.id_laptop DESC ");
         return $query;
@@ -36,7 +36,7 @@ class M_laptop extends CI_Model {
         $gid=$this->session->userdata('gid');
         $query = $this->db->query("SELECT tb_inv_laptop.id_laptop,tb_inv_laptop.kode_laptop,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
             tb_departemen.nama,tb_departemen.parent,tb_inv_laptop.nama_laptop,tb_inv_laptop.spesifikasi,tb_inv_laptop.serial_number,
-            tb_inv_laptop.id_lisence,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid
+            tb_inv_laptop.kode_lisensi,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid
             FROM tb_inv_laptop INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_laptop.id_pengguna 
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_inv_laptop.gid ='$gid' AND tb_inv_laptop.status='ARSIP/DISIMPAN' OR tb_inv_laptop.gid ='$gid' AND tb_inv_laptop.status ='RUSAK/NOT FIXABLE' OR tb_inv_laptop.gid ='$gid' AND tb_inv_laptop.status='HILANG/DICURI' ORDER BY tb_inv_laptop.id_laptop DESC ");
         return $query;
@@ -45,9 +45,11 @@ class M_laptop extends CI_Model {
     function getall($id) {        
         $query = $this->db->query("SELECT tb_inv_laptop.id_laptop,tb_inv_laptop.kode_laptop,tb_pengguna.id_pengguna,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
             tb_departemen.nama,tb_departemen.parent,tb_inv_laptop.nama_laptop,tb_inv_laptop.spesifikasi,tb_inv_laptop.serial_number,
-            tb_inv_laptop.id_lisence,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_cabang.namacabang,tb_inv_laptop.harga_beli,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid,tb_cabang.namacabang
+            tb_inv_laptop.kode_lisensi,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_cabang.namacabang,tb_inv_laptop.harga_beli,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid,tb_cabang.namacabang,
+            tb_lisensi.key_lisensi,tb_lisensi.tgl_habis,tb_lisensi.id_lisensi
             FROM tb_inv_laptop INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_laptop.id_pengguna 
             INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_pengguna.id_cabang
+            INNER JOIN tb_lisensi ON tb_lisensi.kode_lisensi = tb_inv_laptop.kode_lisensi
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_inv_laptop.kode_laptop ='$id'");
         return $query;
     }
@@ -55,7 +57,7 @@ class M_laptop extends CI_Model {
     function semuadata() {        
         $query = $this->db->query("SELECT tb_inv_laptop.id_laptop,tb_inv_laptop.kode_laptop,tb_pengguna.id_pengguna,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
             tb_departemen.nama,tb_departemen.parent,tb_inv_laptop.nama_laptop,tb_inv_laptop.spesifikasi,tb_inv_laptop.serial_number,
-            tb_inv_laptop.id_lisence,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.harga_beli,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid,tb_cabang.namacabang
+            tb_inv_laptop.kode_lisensi,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.harga_beli,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid,tb_cabang.namacabang
             FROM tb_inv_laptop INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_laptop.id_pengguna 
             INNER JOIN tb_cabang ON tb_cabang.id_cabang = tb_pengguna.id_cabang
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept");
@@ -65,7 +67,7 @@ class M_laptop extends CI_Model {
     function get_inv($id) {        
         $query = $this->db->query("SELECT tb_inv_laptop.id_laptop,tb_inv_laptop.kode_laptop,tb_pengguna.nama_pengguna,tb_departemen.id_dept,
             tb_departemen.nama,tb_departemen.parent,tb_inv_laptop.nama_laptop,tb_inv_laptop.spesifikasi,tb_inv_laptop.serial_number,
-            tb_inv_laptop.id_lisence,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.harga_beli,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid
+            tb_inv_laptop.kode_lisensi,tb_inv_laptop.network,tb_inv_laptop.aset_hrd,tb_inv_laptop.tgl_inv,tb_inv_laptop.tgl_garansi,tb_inv_laptop.harga_beli,tb_inv_laptop.status,tb_inv_laptop.note,tb_inv_laptop.gid
             FROM tb_inv_laptop INNER JOIN tb_pengguna ON tb_pengguna.id_pengguna = tb_inv_laptop.id_pengguna 
             INNER JOIN tb_departemen ON tb_departemen.id_dept = tb_pengguna.id_dept WHERE tb_inv_laptop.kode_laptop ='$id'");
         return $query;
@@ -75,7 +77,12 @@ class M_laptop extends CI_Model {
         $kode = array('kode_laptop' => $id);
         return $this->db->get_where('tb_inv_laptop', $kode);
     }
-    
+
+    function getlisensi(){
+        $this->db->order_by('id_lisensi','ASC');
+        return $this->db->get('tb_lisensi');
+    }
+
     function get_service($id){
         $kode = array('no_inventaris' => $id);
         return $this->db->get_where('tb_maintenance', $kode);

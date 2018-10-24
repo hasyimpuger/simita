@@ -77,3 +77,5 @@ Versi 2.4 Build 052018
 - Update FontAwesome from v4 to v5
 - Perbaikan Validasi Pengguna agar tidak double NIK (Pada versi 2.3)
 - Penambahan fitur pembatasan hak akses user pada beberapa fitur
+- 'createby' => $this->session->userdata('username'),
+- 'createdate' =>mdate('%Y-%m-%d %H:%i:%s', now()),

@@ -34,11 +34,14 @@ class Manufacture extends CI_Controller {
         if ($this->form_validation->run() == true) {
             $data = array(
                 'nama_manufacture' => $this->input->post('nama_manufacture'),
+                'jenis' => $this->input->post('jenis'),
             );
             $this->m_manufacture->simpan($data);
             redirect('manufacture');
-        } else {            
+        } else {    
+            $data['tipe'] = $this->m_manufacture->gettipe()->result();         
             $this->template->display('manufacture/tambah');
+            
         }
     }
     
@@ -48,6 +51,7 @@ class Manufacture extends CI_Controller {
             if ($this->form_validation->run() == true) {
                 $data = array(                            
                     'nama_manufacture' => $this->input->post('nama_manufacture'),
+                    'jenis' => $this->input->post('jenis'),
                         );
                 $kode=$this->input->post('id');
                 $this->m_manufacture>edit($kode,$data);
