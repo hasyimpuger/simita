@@ -5,6 +5,8 @@ class Masuk extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model(array('m_masuk'));
+        // load helper Date
+        $this->load->helper('date');
         chek_session();
     }
 	
@@ -105,6 +107,8 @@ class Masuk extends CI_Controller {
                     'tgl_po'=>$this->input->post('tgl_po'),                      
                     'tgl_transaksi'=>  tanggal(),
                     'id_supplier'=>$this->input->post('supplier'),
+                    'createby' => $this->session->userdata('username'),
+                    'createdate' =>mdate('%Y-%m-%d %H:%i:%s', now()),
                     'gid'=>$gid
                 );
             $this->m_masuk->simpan($data);

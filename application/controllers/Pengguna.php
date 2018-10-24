@@ -5,6 +5,8 @@ class Pengguna extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model(array('m_pengguna','m_departemen'));
+        // load helper Date
+        $this->load->helper('date');
         chek_session();
     }
 	public function index() {       
@@ -67,6 +69,8 @@ class Pengguna extends CI_Controller {
                 'id_jabatan' => $this->input->post('jabatan'),
                 'id_cabang' => $this->input->post('cabang'),
                 'id_dept' => $this->input->post('subdept'),
+                'createby' => $this->session->userdata('username'),
+                'createdate' =>mdate('%Y-%m-%d %H:%i:%s', now()),
                 'ruang_kantor' => $this->input->post('kantor')                
             );
             $this->m_pengguna->simpan($data);
