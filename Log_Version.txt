@@ -2,9 +2,9 @@ SIMITA (SIstem Managemen IT Aset)
 =================================
 Created Date 	 : 04 April 2017
 Programer 	 : Ahmad Sopian (shopyan.design@gmail.com)
-Update Date	 : 07 Juni 2018
+Update Date	 : 26 Oktober 2018
 Apps Base    	 : PHP with CodeIgniter & MySQL Database
-
+Donasi		 : BCA 6630288884 a/n Ahmad Sopian
 
 Kebutuhan System :
 - PHP 5.4
@@ -70,7 +70,7 @@ Version 2.3 Build 052018
 - Penambahan Fitur Password Mikrotik
 - Penambahan fitur ckEditor untuk spesifikasi (Laptop & PC)
 
-Versi 2.4 Build 052018
+Versi 2.4 Build 102018
 ----------------------
 - Penambahan Fitur Dashboard
 - Penambahan validasi nilai biaya saat user membuat tiket
@@ -81,3 +81,8 @@ Versi 2.4 Build 052018
         $this->load->helper('date');
 - 'createby' => $this->session->userdata('username'),
 - 'createdate' =>mdate('%Y-%m-%d %H:%i:%s', now()),
+- Penambahan code ## autocomplete="off" ## untuk menghapus Auto Complete pada field yang bertipe text
+- Penambahan Helper Date
+- Penambahan Fitur Inventaris Lisensi
+- Penambahan filed Lisensi
+- Penambahan view detail data (PC/Notebook) Lisensi dan masa berlaku

@@ -123,9 +123,10 @@ function terbilang($x){
                               <td><span style="color: #0404B4;"><strong><?php echo 'Rp.'.rupiah($recordall['biaya'])?> (<i><?php echo "".terbilang($recordall['biaya'])?>Rupiah </i>)</strong></td>                    
                             </tr>
                           </table>
+                          <a href="<?php echo site_url('internet'); ?>" class="btn btn-danger"><i class="fas fa-caret-square-left"></i> Kembali</a>
                         </div>
                       </div><!-- /.tab-pane -->              
-
+                      
                 </div>
             </div>
         </div>

@@ -19,6 +19,7 @@ class Manufacture extends CI_Controller {
             $row[] = array(
                 'no' => $no++,
                 'id_manufacture' => $data['id_manufacture'],
+                'jenis' => $data['jenis'],
                 'nama_manufacture' =>$data['nama_manufacture'],
                 'edit' => '<center><a href="' . base_url() . 'manufacture/edit/' . $data['id_manufacture'] .'"><i class="glyphicon glyphicon-edit"></i></a></center>',
                 'delete' => '<center><a href="' . base_url() . 'manufacture/hapus/' . $data['id_manufacture'] .'" class="hapus" ><i class="glyphicon glyphicon-trash"></i></a></center>'
@@ -38,8 +39,7 @@ class Manufacture extends CI_Controller {
             );
             $this->m_manufacture->simpan($data);
             redirect('manufacture');
-        } else {    
-            $data['tipe'] = $this->m_manufacture->gettipe()->result();         
+        } else {         
             $this->template->display('manufacture/tambah');
             
         }

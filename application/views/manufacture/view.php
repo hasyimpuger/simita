@@ -1,11 +1,11 @@
 <section class="content-header">
     <h1>
-        Data Master Manufacture (Merk)
-        <small>Master Merk</small>
+        Data Master Referensi
+        <small>Master Referensi</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-suitcase"></i>Master</a></li>
-        <li class="active">Master Manufacture (Merk)</li>
+        <li class="active">Master Referensi</li>
     </ol>
 </section>
 <script src="<?php echo base_url('assets/js/plugins/datatables/jquery-1.11.3.min.js'); ?>"></script>
@@ -37,7 +37,8 @@
             ],
         "ajax": "<?php echo base_url('manufacture/view_data');?>",
         "columns": [
-                { "mData": "no" },                             
+                { "mData": "no" },    
+                { "mData": "jenis"},                         
                 { "mData": "nama_manufacture" },  
                 { "mData": "edit" },
                 { "mData": "delete" },
@@ -59,7 +60,8 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama Manufacture (Merk)</th>                             
+                                <th>Kode Referensi</th>
+                                <th>Nama Referensi</th>                             
                                 <th>Edit</th>   
                                 <th>Delete</th>                                 
                             </tr>

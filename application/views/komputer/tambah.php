@@ -59,16 +59,50 @@ CKEDITOR.inline('editable');
                         </div>    
                         <div class="form-group">
                             <label for="example">Nomor Aset HRD</label>
-                            <input type="text" id="asethrd" name="aset_hrd" class="form-control" required oninvalid="setCustomValidity('Nomor Aset HRD Wajib Diisi !')"
+                            <input type="text" autocomplete="off" id="asethrd" name="aset_hrd" class="form-control" required oninvalid="setCustomValidity('Nomor Aset HRD Wajib Diisi !')"
                                    oninput="setCustomValidity('')" placeholder="BITJ01/0/1/2/345/6" >
                                    <?php echo form_error('aset_hrd', '<div class="text-red">', '</div>'); ?>
                         </div>                
                         <div class="form-group">
-                            <label for="example">Brand/Mainboard PC</label>
-                            <input type="text" onkeyup="this.value = this.value.toUpperCase()" name="merek" class="form-control" required oninvalid="setCustomValidity('Merek/brand Harus di Isi !')"
-                                   oninput="setCustomValidity('')" placeholder="ex : GIGABITE, LENOVO" >
-                                   <?php echo form_error('merek', '<div class="text-red">', '</div>'); ?>
-                        </div>
+                            <label>Brand</label>
+                            <select name="merek" class="combobox form-control" id="merek"> 
+                                <option value="">- Pilih Brand Komputer -</option>                               
+                                    <?php
+                                    if (!empty($merek)) {
+                                        foreach ($merek as $row) {
+                                            echo "<option value='".$row->nama_manufacture."'>".strtoupper($row->nama_manufacture)."</option>";                                        
+                                        }
+                                    }
+                                ?>
+                            </select>                          
+                        </div> 
+                        <div class="form-group">
+                            <label>Tipe PC</label>
+                            <select name="tipe" class="combobox form-control" id="tipe"> 
+                                <option value="">- Pilih Tipe PC -</option>                               
+                                    <?php
+                                    if (!empty($tipe)) {
+                                        foreach ($tipe as $row) {
+                                            echo "<option value='".$row->nama_manufacture."'>".strtoupper($row->nama_manufacture)."</option>";                                        
+                                        }
+                                    }
+                                ?>
+                            </select>                          
+                        </div>   
+                        <div class="form-group">
+                            <label>Lisensi AntiVirus</label>
+                            <select name="kode_lisensi" class="combobox form-control" id="kode_lisensi">
+                            <option value='' selected="selected">- Pilih Lisensi AntiVirus -</option>
+                                <?php
+                                if (!empty($lisensi)) {
+                                    foreach ($lisensi as $row) {
+                                        echo "<option value=".$row->kode_lisensi.">".strtoupper($row->key_lisensi)."</option>";                                        
+                                    }
+                                }
+                                ?>
+                            </select> 
+                            <?php echo form_error('kode_lisensi', '<div class="text-red">', '</div>'); ?>                           
+                        </div> 
                         <div class="form-group">
                             <label for="">Spesifikasi</label>
                             <textarea name="spek" onkeyup="this.value = this.value.toUpperCase()" class="ckeditor" rows="3" required oninvalid="setCustomValidity('Spesifikasi Laptop Harus di Isi !')"
@@ -76,8 +110,8 @@ CKEDITOR.inline('editable');
                             <?php echo form_error('spek', '<div class="text-red">', '</div>'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="example">Serial Number</label>
-                            <input type="text" onkeyup="this.value = this.value.toUpperCase()" name="sn" class="form-control" required oninvalid="setCustomValidity('Serial Number Harus di Isi !')"
+                            <label for="example">Service TAG</label>
+                            <input type="text" autocomplete="off" onkeyup="this.value = this.value.toUpperCase()" name="sn" class="form-control" required oninvalid="setCustomValidity('Serial Number Harus di Isi !')"
                                    oninput="setCustomValidity('')" placeholder="Serial Number Laptop" >
                                    <?php echo form_error('sn', '<div class="text-red">', '</div>'); ?>
                         </div>
@@ -88,7 +122,7 @@ CKEDITOR.inline('editable');
                                 <i class="fa fa-calendar"></i>
                               </div>
                               
-                                 <input type="text" name="tgl_inv" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
+                                 <input type="text" autocomplete="off" name="tgl_inv" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Inventaris harus di isi')"
                                    oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
                             
                             </div><!-- /.input group -->
@@ -99,7 +133,7 @@ CKEDITOR.inline('editable');
                                 <i class="fa fa-calendar"></i>
                               </div>
                               
-                                 <input type="text" name="tgl_garansi" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Masa Garansi harus di isi')"
+                                 <input type="text" autocomplete="off" name="tgl_garansi" class="form-control datepicker" data-date-format="yyyy-mm-dd" required oninvalid="setCustomValidity('Tgl. Masa Garansi harus di isi')"
                                    oninput="setCustomValidity('')" placeholder="yyyy-mm-dd" >
                             
                             </div><!-- /.input group -->
@@ -116,7 +150,7 @@ CKEDITOR.inline('editable');
                               <div class="input-group-addon">
                                 <i class="fa fa-laptop"></i>
                               </div>
-                              <input name="ip" type="text" class="form-control" id="ip" required/>
+                              <input name="ip" autocomplete="off" type="text" class="form-control" id="ip" required/>
                             </div><!-- /.input group -->
                         </div><!-- /.form group -->  
                         <?php echo form_error('ip', '<div class="text-red">', '</div>'); ?> 

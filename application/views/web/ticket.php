@@ -9,7 +9,16 @@
 <link href="<?php echo base_url('assets/css/web/animate.css'); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('assets/css/web/admin.css'); ?>" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/plugins/jQuery/jQuery-2.1.3.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins/ckeditor/ckeditor.js'); ?>"></script>
+<script>
+var ckeditor = CKEDITOR.replace('form_ticket_question',{
+	height:'800px'
+  weigt : '800px'
+});
+CKEDITOR.disableAutoInline = true;
+CKEDITOR.inline('editable');
+</script>
 <script type="text/javascript">
 $(document).ready(function(){
   $("#kategori").change(function(){
@@ -19,13 +28,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $(".combobox").combobox();
 });
-<style>
-            .login-box{
-                width: 300px;
-                margin: auto;
-                margin-top: 100px;
-            }
-        </style>
+
 function load_inv(){ 
     var group = $('#group').val();  
     var kategori=$("#kategori").val();
@@ -38,14 +41,6 @@ function load_inv(){
         }
     });
 }
-</script>
-<script>
-var ckeditor = CKEDITOR.replace('form_ticket_question',{
-	height:'800px'
-  weigt : '800px'
-});
-CKEDITOR.disableAutoInline = true;
-CKEDITOR.inline('editable');
 </script>
 </head>
 <body class="light_theme  fixed_header left_nav_fixed">
@@ -70,12 +65,12 @@ CKEDITOR.inline('editable');
             ?>  
             <div class="ticket_form">
               <div class="btn-group"> <a href="javascript:void(0)" class="btn btn-sm ticket_btn">Perbaikan</a> </div>
-              <div class="btn-group"> <a href="<?php echo base_url('login');?>" class="btn btn-sm ticket_btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a> </div> 
+              <div class="btn-group"> <a href="<?php echo base_url('login');?>" class="btn btn-sm ticket_btn">Login</a> </div> 
               <div class="btn-group"> <a href="<?php echo base_url('web');?>" class="btn btn-sm ticket_btn">Home</a> </div> 
               <br/>
               <br/>
               <h3><span class="semi-bold">Permohonan Perbaikan Aset IT</span></h3>
-              <h4><span class="semi-bold">SIMITA (SIstem Managemen IT Aset) v.2.4</span></h4>
+              <h4><span class="semi-bold">SIMITA (SIstem Managemen IT Aset) v.2.3</span></h4>
               <p>Buat Permohonan Perbaikan untuk Inventaris Anda, Masukan Nomor Inventaris dan berikan informasi keluhan anda</p>
               <div class="ticket_option">
                 <div class="form_ticket_subject"> <span class="semi-bold">Group Inventory</span>
@@ -108,7 +103,7 @@ CKEDITOR.inline('editable');
               </div>
               
               <div class="ticket_option">
-                <div class="form_ticket_subject"><span class="semi-bold">No. Inventaris</span>
+                <div class="form_ticket_subject"><span class="semi-bold">No. Inventory</span>
                     <div class="input-group">
                      <select name="inventaris" class="form-control" id="inventaris"> 
                         <option value="" selected="selected">- No. Inventaris-</option>
@@ -131,12 +126,11 @@ CKEDITOR.inline('editable');
                   oninput="setCustomValidity('')" class="ckeditor"></textarea>
                 </div>
                 <?php echo form_error('catatan', '<div class="text-red">', '</div>'); ?>
-              </div>
-             
-              <br>
-              <div class="btn-group">
-                <button type="submit" name="submit" class="btn ticket_btn"><i class="fa fa-share-square" aria-hidden="true"></i> Kirim</button> 
+                <div class="btn-group">
+                <button type="submit" name="submit" class="btn ticket_btn">Kirim</button> 
               </div><br><br>
+              </div>
+              
               <p><p><span style="color: #999999;"><em>CopyRight&nbsp;&copy; 2017-2018 - Divisi IT PT.Sejahtera Buana Trada</em></span></p></p>
             </div>
 			     </form>

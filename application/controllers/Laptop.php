@@ -51,7 +51,7 @@ class Laptop extends CI_Controller {
                 'aset_hrd'=>$r->aset_hrd,
                 'status'=>$status, 
                 'view'=>anchor('laptop/detail/' . $r->kode_laptop, '<i class="btn btn-info btn-sm fa fa-eye" data-toggle="tooltip" title="View Detail"></i>'),
-                'delete'=>anchor('laptop/delete/' . $r->id_laptop, '<i class="btn-sm btn-info glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")),
+                'delete'=>anchor('laptop/delete/' . $r->id_laptop, '<i class="btn-sm btn-danger glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")),
             );
         }        
         $result=array('data'=>$query);

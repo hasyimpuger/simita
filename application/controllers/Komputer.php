@@ -52,7 +52,7 @@ class Komputer extends CI_Controller {
                 'ip'=>$r->network, 
                 'status'=>$status, 
                 'edit'=>anchor('komputer/detail/' . $r->kode_komputer, '<i class="btn btn-info btn-sm fa fa-eye" data-toggle="tooltip" title="View Detail"></i>'),
-                'delete'=>''.anchor('komputer/delete/' . $r->id_komputer, '<i class="btn-sm btn-info glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")).'',                
+                'delete'=>''.anchor('komputer/delete/' . $r->id_komputer, '<i class="btn-sm btn-danger glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")).'',                
             );
         }        
         $result=array('data'=>$query);
@@ -60,9 +60,7 @@ class Komputer extends CI_Controller {
     }   
 
     function add() {              
-        $this->_set_rules(); 
-       // $this->form_validation->set_message('is_unique', '%s Sudah Ada');
-        //$this->form_validation->set_rules('no_inv', 'No. Inventaris', 'trim|required|is_unique[tb_inv_komputer.kode_komputer]');       
+        $this->_set_rules();         
         if ($this->form_validation->run() == true) {
             $gid=$this->session->userdata('gid');           
             $data = array(
@@ -70,6 +68,8 @@ class Komputer extends CI_Controller {
                 'aset_hrd' => $this->input->post('aset_hrd'),
                 'id_pengguna' => $this->input->post('pengguna'),
                 'nama_komputer' => $this->input->post('merek'),
+                'tipe' => $this->input->post('tipe'),
+                'kode_lisensi' => $this->input->post('kode_lisensi'),
                 'spesifikasi' => $this->input->post('spek'),
                 'serial_number' => $this->input->post('sn'),
                 'network' => $this->input->post('ip'),
@@ -92,7 +92,10 @@ class Komputer extends CI_Controller {
             $this->m_komputer->simpan($data);
             redirect('komputer');
         } else {              
-            $data['pengguna'] = $this->m_komputer->getpenggunagid()->result();           
+            $data['pengguna'] = $this->m_komputer->getpenggunagid()->result();  
+            $data['lisensi'] = $this->m_komputer->getlisensi()->result();  
+            $data['merek'] = $this->m_komputer->getmerk()->result();   
+            $data['tipe'] = $this->m_komputer->gettipe()->result();         
             $this->template->display('komputer/tambah',$data);
         }
     }	

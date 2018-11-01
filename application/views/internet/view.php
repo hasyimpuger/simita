@@ -32,7 +32,8 @@
                                 <th>Provider </th>  
                                 <th>Nomor Pelanggan</th>
                                 <th>IP Public</th> 
-                                <th>Tanggal Kontrak</th>                                                          
+                                <th>Tanggal Kontrak</th> 
+                                <th>Status</th>                                                         
                                 <th>Tools</th>                                    
                             </tr>
                         </thead>
@@ -46,10 +47,11 @@
 							   <td>".$r->nama_provider."</td>	
                                <td>".$r->nomor_pelanggan."</td>	
                                <td>".$r->ip_public."</td>
-                               <td>".$r->tanggal_kontrak."</td>			   					   
+                               <td>".$r->tanggal_kontrak."</td>	
+                               <td>".$r->status."</td>		   					   
 							   <td>" . anchor('internet/detail/' . $r->id_internet, '<i class="btn btn-info btn-sm glyphicon glyphicon-list-alt" data-toggle="tooltip" title="Lihat Detail Data"></i>') . "
                                " . anchor('internet/edit/' . $r->id_internet, '<i class="btn btn-info btn-sm glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit Data"></i>') . "
-							   " . anchor('internet/delete/' . $r->id_internet, '<i class="btn-sm btn-info glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus Data"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")) . "</td>
+							   " . anchor('internet/delete/' . $r->id_internet, '<i class="btn-sm btn-danger glyphicon glyphicon-trash" data-toggle="tooltip" title="Hapus Data"></i>', array('onclick' => "return confirm('Data Akan di Hapus?')")) . "</td>
                                </tr>";
 						   $no++;
 					   }

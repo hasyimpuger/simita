@@ -62,11 +62,15 @@ CKEDITOR.inline('editable');
                               <td><?php echo $recordall['nama_komputer']?></td>                    
                             </tr>
                             <tr>
+                              <td style="text-align:right">Tipe Komputer :</td>
+                              <td><?php echo $recordall['tipe']?></td>
+                            </tr>
+                            <tr>
                               <td style="text-align:right">Spesifikasi :</td>
                               <td><?php echo $recordall['spesifikasi']?></td>                    
                             </tr>
                             <tr>
-                              <td style="text-align:right">Serial Number :</td>
+                              <td style="text-align:right">Service TAG :</td>
                               <td><?php echo $recordall['serial_number']?></td>                    
                             </tr>
                             <tr>
@@ -81,6 +85,25 @@ CKEDITOR.inline('editable');
                               <td style="text-align:right">IP Address :</td>
                               <td><?php echo $recordall['network']?></td>                    
                             </tr>
+                            <tr>
+                              <td style="text-align:right">Key Lisensi :</td>
+                              <td><?php echo anchor('lisensi/detail/'.$recordall['id_lisensi'],$recordall['key_lisensi']);?></td>
+                            </tr>
+                               <!-- Menghitung Jumlah Hari Berakhir Kontrak dari Tanggal Saat ini -->
+                               <tr>
+                              <td style="text-align:right">Masa Berlaku Lisensi :</td>
+                              <td>
+                                <span style="color: #ff0000;"><strong>
+                                  <?php 
+                                  $start_date = new DateTime("now");
+                                  $end_date = new DateTime($recordall['tgl_habis']);
+                                  $interval = $start_date->diff($end_date);
+                                  echo "$interval->days Hari Lagi "; 
+                                  ?>
+                                </strong></span>   
+                              </td>               
+                            </tr>
+                            <!-- Akhir -->
                             <tr>
                               <td style="text-align:right">Status :</td>
                               <td><?php echo $recordall['status']?></td>                    

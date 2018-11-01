@@ -27,12 +27,6 @@ class M_manufacture extends CI_Model {
         return $this->db->get_where('tb_manufacture', $kode);
     }
 
-    function gettipe() {
-        $query=$this->db->query("SELECT tb_referensi.code_referensi, tb_referensi.nama_referensi 
-            FROM tb_referensi WHERE code_referensi ='HARDWARE'");
-        return $query;
-    }
-
     function simpan($data) {
         $this->db->insert('tb_manufacture', $data);
         return $this->db->insert_id();
